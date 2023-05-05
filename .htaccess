@@ -1,0 +1,5 @@
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^inscripcions.hockeycostabrava.com$ [NC,OR]
+RewriteCond %{HTTP_HOST} ^www.inscripcions.hockeycostabrava.com$
+RewriteCond %{REQUEST_URI} !laravel/public/
+RewriteRule (.*) /laravel/public/$1 [L]
