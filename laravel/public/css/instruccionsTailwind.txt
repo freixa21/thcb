@@ -1,0 +1,7 @@
+Executar desde la carpeta /laravel
+
+Compilar CSS
+./tailwindcss -i public/css/input.css -o public/css/output.css --watch
+
+Minificar:
+./tailwindcss -i public/css/input.css -o public/css/output.css --minify
