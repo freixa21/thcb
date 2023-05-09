@@ -22,6 +22,12 @@
             </p>
         </div>
 
+        @if (session('registroCorrecto'))
+            <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+                <div class="px-4 py-6 bg-green-200 shadow sm:rounded-lg sm:px-5 text-green-900">{{ session('registroCorrecto') }}</div>
+            </div>
+        @endif
+
         <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
             <div class="px-4 py-8 bg-white shadow sm:rounded-lg sm:px-10">
                 <form>

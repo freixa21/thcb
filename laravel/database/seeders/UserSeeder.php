@@ -18,7 +18,8 @@ class UserSeeder extends Seeder
 
         $u->name = 'admin';
         $u->email = 'admin@hockeycostabrava.com';
-        $u->password = Hash::make('Almax1821.'); 
+        $u->password = Hash::make('Almax1821.');
+        $u->phone = '630206438'; 
         $u->save();
     }
 }
