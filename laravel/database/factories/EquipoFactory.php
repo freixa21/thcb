@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use App\Models\Equipo;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -13,6 +14,7 @@ class EquipoFactory extends Factory
     {
         return [
             'nombre' => $this->faker->unique()->word,
+            'usuario_id' => User::factory(),
         ];
     }
 }

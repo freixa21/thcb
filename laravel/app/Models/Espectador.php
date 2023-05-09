@@ -5,16 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Equipo extends Model {
+class Espectador extends Model {
     use HasFactory;
 
-    protected $fillable = ['nombre', 'usuari_id'];
+    protected $fillable = ['nombre'];
+    protected $table = 'espectador';
 
     public function user() {
         return $this->belongsTo(User::class, 'id_usuario');
-    }
-
-    public function jugadores() {
-        return $this->hasMany(Jugador::class);
     }
 }

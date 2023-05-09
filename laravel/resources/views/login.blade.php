@@ -14,14 +14,13 @@
                 Iniciar sessió
             </h2>
             <p class="mt-2 text-sm text-center text-gray-600 leading-5 max-w">
-                o
-                <a href="/registre-equip"
+                <a href="/registre-equips"
 class="font-medium text-blue-600 hover:text-blue-500 focus:outline-none focus:underline transition ease-in-out duration-150">
-                    registrar equip / 
-                </a>
-                <a href="/registre-espectador"
+                    <strong>registrar equip</strong>  
+                </a> o
+                <a href="/registre-espectadors"
 class="font-medium text-blue-600 hover:text-blue-500 focus:outline-none focus:underline transition ease-in-out duration-150">
-                    registrar espectador
+                    <strong>registrar espectador</strong>
                 </a>
             </p>
         </div>

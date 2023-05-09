@@ -10,6 +10,7 @@ class CreateEquiposTable extends Migration
     {
         Schema::create('equipos', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('id_usuario')->constrained('users')->onDelete('cascade');
             $table->string('nombre')->unique();
             $table->timestamps();
         });

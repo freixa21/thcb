@@ -9,7 +9,7 @@ class Jugador extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['nombre', 'apellidos', 'sexo', 'talla', 'alergenos', 'after'];
+    protected $fillable = ['nombre', 'apellidos', 'sexo', 'talla', 'alergenos', 'after', 'equipo_id'];
     protected $table = 'jugadores';
 
     public function equipo()
