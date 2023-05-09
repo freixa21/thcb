@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegistroEquiposController;
+use App\Http\Controllers\RegistroEspectadoresController;
 use App\Http\Controllers\LoginController;
 /*
 |--------------------------------------------------------------------------
@@ -25,7 +26,6 @@ Route::get("registre-equips", [RegistroEquiposController::class, "index"])->name
 Route::post("registre-equips", [RegistroEquiposController::class, "store"])->name('registrar.equip');
 
 // Registre ESPECTADORS
-Route::get('registre-espectadors', function () {
-    return view('register-espectadors');
-});
-Route::post("registre-espectadors", [RegistroEquiposController::class, "store"]);
+// Registre EQUIPS
+Route::get("registre-espectadors", [RegistroEspectadoresController::class, "index"])->name('index.espectadors');
+Route::post("registre-espectadors", [RegistroEspectadoresController::class, "store"])->name('registrar.espectador');
