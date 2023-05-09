@@ -103,92 +103,92 @@
                             <label for="sexo-hombre"
                                 class="w-full py-4 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Dona
                                 state</label>
-                        </div </div>
+                        </div>
+                    </div>
 
 
 
-                        <div class="mt-2">
-                            <label for="talla" class="block text-sm font-medium text-gray-700 leading-5">
-                                Talla samarreta
+                    <div class="mt-2">
+                        <label for="talla" class="block text-sm font-medium text-gray-700 leading-5">
+                            Talla samarreta
+                        </label>
+
+                        <div class="mt-1 rounded-md shadow-sm">
+                            <input id="talla" name="talla" type="radio" required="" autofocus=""
+                                class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 ">
+                        </div>
+                    </div>
+
+                    <div class="mt-2">
+                        <label for="afterparty" class="block text-sm font-medium text-gray-700 leading-5">
+                            Vols comprar entrada a l'afterparty?
+                        </label>
+
+                        <div class="mt-1 rounded-md shadow-sm">
+                            <input id="afterparty" name="afterparty" type="radio" required="" autofocus=""
+                                class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 ">
+                        </div>
+                    </div>
+
+                    <div class="mt-2">
+                        <label for="alergenos" class="block text-sm font-medium text-gray-700 leading-5">
+                            Al·lèrgies / Intoleràncies
+                        </label>
+
+                        <div class="mt-1 rounded-md shadow-sm">
+                            <input id="alergenos" name="alergenos" type="text" required="" autofocus=""
+                                class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 ">
+                        </div>
+                    </div>
+
+                    <div class="mt-2">
+                        <label for="password" class="block text-sm font-medium text-gray-700 leading-5">
+                            Contrasenya
+                        </label>
+                        <div class="mt-1 rounded-md shadow-sm">
+                            <input id="password" type="password" name="password" required=""
+                                class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 ">
+                        </div>
+                    </div>
+
+                    <div class="mt-2">
+                        <label for="password_confirmation" class="block text-sm font-medium text-gray-700 leading-5">
+                            Confirmar contrasenya
+                        </label>
+
+                        <div class="mt-1 rounded-md shadow-sm">
+                            <input id="password_confirmation" name="password_confirmation" type="password"
+                                required="" autofocus=""
+                                class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 ">
+                        </div>
+                    </div>
+
+
+                    <div class="flex items-center justify-between mt-6">
+                        <div class="flex items-center">
+                            <input id="remember" type="checkbox"
+                                class="form-checkbox w-4 h-4 text-blue-600 transition duration-150 ease-in-out">
+                            <label for="remember" class="block ml-2 text-sm text-gray-900 leading-5">
+                                He llegit i accepto la política de privacitat
                             </label>
-
-                            <div class="mt-1 rounded-md shadow-sm">
-                                <input id="talla" name="talla" type="radio" required="" autofocus=""
-                                    class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 ">
-                            </div>
                         </div>
 
-                        <div class="mt-2">
-                            <label for="afterparty" class="block text-sm font-medium text-gray-700 leading-5">
-                                Vols comprar entrada a l'afterparty?
-                            </label>
-
-                            <div class="mt-1 rounded-md shadow-sm">
-                                <input id="afterparty" name="afterparty" type="radio" required="" autofocus=""
-                                    class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 ">
-                            </div>
+                        <div class="text-sm leading-5">
+                            <a href="#"
+                                class="font-medium text-blue-600 hover:text-blue-500 focus:outline-none focus:underline transition ease-in-out duration-150">
+                                Has oblidat la contraseña?
+                            </a>
                         </div>
+                    </div>
 
-                        <div class="mt-2">
-                            <label for="alergenos" class="block text-sm font-medium text-gray-700 leading-5">
-                                Al·lèrgies / Intoleràncies
-                            </label>
-
-                            <div class="mt-1 rounded-md shadow-sm">
-                                <input id="alergenos" name="alergenos" type="text" required="" autofocus=""
-                                    class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 ">
-                            </div>
-                        </div>
-
-                        <div class="mt-2">
-                            <label for="password" class="block text-sm font-medium text-gray-700 leading-5">
-                                Contrasenya
-                            </label>
-                            <div class="mt-1 rounded-md shadow-sm">
-                                <input id="password" type="password" name="password" required=""
-                                    class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 ">
-                            </div>
-                        </div>
-
-                        <div class="mt-2">
-                            <label for="password_confirmation"
-                                class="block text-sm font-medium text-gray-700 leading-5">
-                                Confirmar contrasenya
-                            </label>
-
-                            <div class="mt-1 rounded-md shadow-sm">
-                                <input id="password_confirmation" name="password_confirmation" type="password"
-                                    required="" autofocus=""
-                                    class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 ">
-                            </div>
-                        </div>
-
-
-                        <div class="flex items-center justify-between mt-6">
-                            <div class="flex items-center">
-                                <input id="remember" type="checkbox"
-                                    class="form-checkbox w-4 h-4 text-blue-600 transition duration-150 ease-in-out">
-                                <label for="remember" class="block ml-2 text-sm text-gray-900 leading-5">
-                                    He llegit i accepto la política de privacitat
-                                </label>
-                            </div>
-
-                            <div class="text-sm leading-5">
-                                <a href="#"
-                                    class="font-medium text-blue-600 hover:text-blue-500 focus:outline-none focus:underline transition ease-in-out duration-150">
-                                    Has oblidat la contraseña?
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="mt-6">
-                            <span class="block w-full rounded-md shadow-sm">
-                                <button type="submit"
-                                    class="flex justify-center w-full px-4 py-2 text-sm font-medium text-white bg-blue-900 border border-transparent rounded-md hover:bg-blue-700 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out">
-                                    Registrar-me com espectador
-                                </button>
-                            </span>
-                        </div>
+                    <div class="mt-6">
+                        <span class="block w-full rounded-md shadow-sm">
+                            <button type="submit"
+                                class="flex justify-center w-full px-4 py-2 text-sm font-medium text-white bg-blue-900 border border-transparent rounded-md hover:bg-blue-700 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out">
+                                Registrar-me com espectador
+                            </button>
+                        </span>
+                    </div>
                 </form>
             </div>
         </div>
