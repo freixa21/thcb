@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Equipo extends Model {
     use HasFactory;
 
-    protected $fillable = ['nombre', 'usuari_id'];
+    protected $fillable = ['nombre', 'id_usuario'];
 
     public function user() {
         return $this->belongsTo(User::class, 'id_usuario');

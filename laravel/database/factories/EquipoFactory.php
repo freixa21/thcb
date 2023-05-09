@@ -14,7 +14,7 @@ class EquipoFactory extends Factory
     {
         return [
             'nombre' => $this->faker->unique()->word,
-            'usuario_id' => User::factory(),
+            'id_usuario' => User::factory(),
         ];
     }
 }

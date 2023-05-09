@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Equipo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\RedirectResponse;
 
@@ -31,11 +32,17 @@ class RegistroEquiposController extends Controller {
         ]);
         // Con bcrypt hasheamos la contraseña
         $validated_usuario['password'] = bcrypt($validated_usuario['password']);
-        // Creamos el usuario una vez pasada la validación, si no se valida no passa a este paso
-        
+
+        // CREAMOS USUARIO
         User::create($validated_usuario);
+
+        // CREAMOS EQUIPO
+        $validated_equipo['id_usuario'] = DB::getPdo()->lastInsertId();
         Equipo::create($validated_equipo);
+
         
+
+
 
         // Preparamos el mensaje i enviamos los parametros
         //$nombreRegistrado = $validated['nombre'];

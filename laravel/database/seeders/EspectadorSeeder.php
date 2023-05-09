@@ -13,7 +13,7 @@ class EspectadorSeeder extends Seeder
 
         foreach ($espectadores as $espectador) {
             Espectador::factory()->count(1)->create([
-                'usuario_id' => $espectador->id,
+                'id_usuario' => $espectador->id,
             ]);
         }
     }
