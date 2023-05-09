@@ -15,9 +15,13 @@
             </h2>
             <p class="mt-2 text-sm text-center text-gray-600 leading-5 max-w">
                 o
-                <a href="/registre"
-                    class="font-medium text-blue-600 hover:text-blue-500 focus:outline-none focus:underline transition ease-in-out duration-150">
-                    registrar equip/espectador
+                <a href="/registre-equip"
+class="font-medium text-blue-600 hover:text-blue-500 focus:outline-none focus:underline transition ease-in-out duration-150">
+                    registrar equip / 
+                </a>
+                <a href="/registre-espectador"
+class="font-medium text-blue-600 hover:text-blue-500 focus:outline-none focus:underline transition ease-in-out duration-150">
+                    registrar espectador
                 </a>
             </p>
         </div>
