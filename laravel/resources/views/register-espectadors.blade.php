@@ -43,7 +43,7 @@
                         </label>
 
                         <div class="mt-1 rounded-md shadow-sm">
-                            <input id="name" name="name" type="text" required="" autofocus=""
+                            <input required id="name" name="name" type="text" required="" autofocus=""
                                 class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 ">
                         </div>
 
@@ -55,7 +55,7 @@
                         </label>
 
                         <div class="mt-1 rounded-md shadow-sm">
-                            <input id="apellidos" name="apellidos" type="text" required="" autofocus=""
+                            <input required id="apellidos" name="apellidos" type="text" required="" autofocus=""
                                 class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 ">
                         </div>
 
@@ -67,7 +67,7 @@
                         </label>
 
                         <div class="mt-1 rounded-md shadow-sm">
-                            <input id="email" name="email" type="email" required="" autofocus=""
+                            <input required id="email" name="email" type="email" required="" autofocus=""
                                 class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 ">
                         </div>
 
@@ -79,7 +79,7 @@
                         </label>
 
                         <div class="mt-1 rounded-md shadow-sm">
-                            <input id="phone" name="phone" type="tel" required="" autofocus=""
+                            <input required id="phone" name="phone" type="tel" required="" autofocus=""
                                 class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 ">
                         </div>
 
@@ -95,7 +95,7 @@
                                 class="inline-flex items-center gap-x-2.5 py-3 px-4 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg">
                                 <div class="relative flex items-start w-full">
                                     <div class="flex items-center h-5">
-                                        <input id="sexe-home" name="sexe" type="radio"
+                                        <input required id="sexe-home" name="sexe" type="radio"
                                             class="border-gray-200 rounded-full :bg-gray-800 :border-gray-700 :checked:bg-blue-500 :checked:border-blue-500 :focus:ring-offset-gray-800"
                                             checked>
                                     </div>
@@ -108,7 +108,7 @@
                                 class="inline-flex items-center gap-x-2.5 py-3 px-4 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg :bg-gray-800 :border-gray-700 :text-white">
                                 <div class="relative flex items-start w-full">
                                     <div class="flex items-center h-5">
-                                        <input id="sexe-dona" name="sexe" type="radio"
+                                        <input required id="sexe-dona" name="sexe" type="radio"
                                             class="border-gray-200 rounded-full :bg-gray-800 :border-gray-700 :checked:bg-blue-500 :checked:border-blue-500 :focus:ring-offset-gray-800">
                                     </div>
                                     <label for="sexe-dona"
@@ -132,7 +132,7 @@
                                 class="inline-flex items-center gap-x-2 py-3 px-2 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg">
                                 <div class="relative flex items-start w-full">
                                     <div class="flex items-center h-5">
-                                        <input id="XS" value="XS" name="talla" type="radio"
+                                        <input required id="XS" value="XS" name="talla" type="radio"
                                             class="border-gray-200 rounded-full :bg-gray-800 :border-gray-700 :checked:bg-blue-500 :checked:border-blue-500 :focus:ring-offset-gray-800"
                                             checked>
                                     </div>
@@ -146,7 +146,7 @@
                                 class="inline-flex items-center gap-x-2 py-3 px-2 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg">
                                 <div class="relative flex items-start w-full">
                                     <div class="flex items-center h-5">
-                                        <input id="S" value="S" name="talla" type="radio"
+                                        <input required id="S" value="S" name="talla" type="radio"
                                             class="border-gray-200 rounded-full :bg-gray-800 :border-gray-700 :checked:bg-blue-500 :checked:border-blue-500 :focus:ring-offset-gray-800"
                                             checked>
                                     </div>
@@ -160,7 +160,7 @@
                                 class="inline-flex items-center gap-x-2 py-3 px-2 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg">
                                 <div class="relative flex items-start w-full">
                                     <div class="flex items-center h-5">
-                                        <input id="M" value="M" name="talla" type="radio"
+                                        <input required id="M" value="M" name="talla" type="radio"
                                             class="border-gray-200 rounded-full :bg-gray-800 :border-gray-700 :checked:bg-blue-500 :checked:border-blue-500 :focus:ring-offset-gray-800"
                                             checked>
                                     </div>
@@ -174,7 +174,7 @@
                                 class="inline-flex items-center gap-x-2 py-3 px-2 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg">
                                 <div class="relative flex items-start w-full">
                                     <div class="flex items-center h-5">
-                                        <input id="L" value="L" name="talla" type="radio"
+                                        <input required id="L" value="L" name="talla" type="radio"
                                             class="border-gray-200 rounded-full :bg-gray-800 :border-gray-700 :checked:bg-blue-500 :checked:border-blue-500 :focus:ring-offset-gray-800"
                                             checked>
                                     </div>
@@ -188,7 +188,7 @@
                                 class="inline-flex items-center gap-x-2 py-3 px-2 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg">
                                 <div class="relative flex items-start w-full">
                                     <div class="flex items-center h-5">
-                                        <input id="XL" value="XL" name="talla" type="radio"
+                                        <input required id="XL" value="XL" name="talla" type="radio"
                                             class="border-gray-200 rounded-full :bg-gray-800 :border-gray-700 :checked:bg-blue-500 :checked:border-blue-500 :focus:ring-offset-gray-800"
                                             checked>
                                     </div>
@@ -202,7 +202,7 @@
                                 class="inline-flex items-center gap-x-2 py-3 px-2 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg">
                                 <div class="relative flex items-start w-full">
                                     <div class="flex items-center h-5">
-                                        <input id="XXL" value="XXL" name="talla" type="radio"
+                                        <input required id="XXL" value="XXL" name="talla" type="radio"
                                             class="border-gray-200 rounded-full :bg-gray-800 :border-gray-700 :checked:bg-blue-500 :checked:border-blue-500 :focus:ring-offset-gray-800"
                                             checked>
                                     </div>
@@ -224,7 +224,7 @@
                                 class="inline-flex items-center gap-x-2 py-3 px-2 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg">
                                 <div class="relative flex items-start w-full">
                                     <div class="flex items-center h-5">
-                                        <input id="afterparty-si" name="afterparty" type="radio"
+                                        <input required id="afterparty-si" name="afterparty" type="radio"
                                             class="border-gray-200 rounded-full :bg-gray-800 :border-gray-700 :checked:bg-blue-500 :checked:border-blue-500 :focus:ring-offset-gray-800"
                                             checked>
                                     </div>
@@ -237,7 +237,7 @@
                                 class="inline-flex items-center gap-x-2 py-3 px-2 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg">
                                 <div class="relative flex items-start w-full">
                                     <div class="flex items-center h-5">
-                                        <input id="afterparty-no" name="afterparty" type="radio"
+                                        <input required id="afterparty-no" name="afterparty" type="radio"
                                             class="border-gray-200 rounded-full :bg-gray-800 :border-gray-700 :checked:bg-blue-500 :checked:border-blue-500 :focus:ring-offset-gray-800"
                                             checked>
                                     </div>
@@ -255,7 +255,7 @@
                         </label>
 
                         <div class="mt-1 rounded-md shadow-sm">
-                            <input id="alergenos" name="alergenos" type="text" required="" autofocus=""
+                            <input required id="alergenos" name="alergenos" type="text" required="" autofocus=""
                                 class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 ">
                         </div>
                     </div>
@@ -265,7 +265,7 @@
                             Contrasenya
                         </label>
                         <div class="mt-1 rounded-md shadow-sm">
-                            <input id="password" type="password" name="password" required=""
+                            <input required id="password" type="password" name="password" required=""
                                 class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 ">
                         </div>
                     </div>
@@ -276,7 +276,7 @@
                         </label>
 
                         <div class="mt-1 rounded-md shadow-sm">
-                            <input id="password_confirmation" name="password_confirmation" type="password" required=""
+                            <input required id="password_confirmation" name="password_confirmation" type="password" required=""
                                 autofocus=""
                                 class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 ">
                         </div>
@@ -285,7 +285,7 @@
 
                     <div class="flex items-center justify-between mt-6">
                         <div class="flex items-center">
-                            <input id="remember" type="checkbox"
+                            <input required id="remember" type="checkbox"
                                 class="form-checkbox w-4 h-4 text-blue-600 transition duration-150 ease-in-out">
                             <label for="remember" class="block ml-2 text-sm text-gray-900 leading-5">
                                 He llegit i accepto la política de privacitat
