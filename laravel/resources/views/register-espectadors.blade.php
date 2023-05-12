@@ -23,16 +23,16 @@
         </div>
 
         @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
         @endif
 
-        <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+        <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md px-4">
             <div class="px-4 py-8 bg-white shadow sm:rounded-lg sm:px-10">
                 <form autocomplete="off" action="{{ route('registrar.espectador') }}" method="POST">
                     @csrf
@@ -86,24 +86,38 @@
                     </div>
 
                     <div class="mt-2">
-                        <label for="sexo" class="block text-sm font-medium text-gray-700 leading-5">
+                        <label for="talla" class="block text-sm font-medium text-gray-700 leading-5">
                             Sexe
                         </label>
 
-                        <div class="flex items-center pl-4 border border-gray-200 rounded dark:border-gray-700">
-                            <input id="sexo-hombre" type="radio" value="" name="sexo"
-                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                            <label for="sexo-hombre"
-                                class="w-full py-4 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Home
-                                radio</label>
-                        </div>
-                        <div class="flex items-center pl-4 border border-gray-200 rounded dark:border-gray-700">
-                            <input checked id="sexo-hombre" type="radio" value="" name="sexo"
-                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                            <label for="sexo-hombre"
-                                class="w-full py-4 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Dona
-                                state</label>
-                        </div>
+                        <ul class="flex flex-col sm:flex-row mt-1">
+                            <li
+                                class="inline-flex items-center gap-x-2.5 py-3 px-4 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg">
+                                <div class="relative flex items-start w-full">
+                                    <div class="flex items-center h-5">
+                                        <input id="sexe-home" name="sexe" type="radio"
+                                            class="border-gray-200 rounded-full :bg-gray-800 :border-gray-700 :checked:bg-blue-500 :checked:border-blue-500 :focus:ring-offset-gray-800"
+                                            checked>
+                                    </div>
+                                    <label for="sexe-home" class="ml-3 block w-full text-sm text-black">
+                                        Home
+                                    </label>
+                                </div>
+                            </li>
+                            <li
+                                class="inline-flex items-center gap-x-2.5 py-3 px-4 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg :bg-gray-800 :border-gray-700 :text-white">
+                                <div class="relative flex items-start w-full">
+                                    <div class="flex items-center h-5">
+                                        <input id="sexe-dona" name="sexe" type="radio"
+                                            class="border-gray-200 rounded-full :bg-gray-800 :border-gray-700 :checked:bg-blue-500 :checked:border-blue-500 :focus:ring-offset-gray-800">
+                                    </div>
+                                    <label for="sexe-dona"
+                                        class="ml-3 block w-full text-sm text-gray-600 :text-gray-500">
+                                        Dona
+                                    </label>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
 
 
@@ -113,10 +127,91 @@
                             Talla samarreta
                         </label>
 
-                        <div class="mt-1 rounded-md shadow-sm">
-                            <input id="talla" name="talla" type="radio" required="" autofocus=""
-                                class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 ">
-                        </div>
+                        <ul class="flex flex-col sm:flex-row mt-1">
+                            <li
+                                class="inline-flex items-center gap-x-2 py-3 px-2 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg">
+                                <div class="relative flex items-start w-full">
+                                    <div class="flex items-center h-5">
+                                        <input id="XS" value="XS" name="talla" type="radio"
+                                            class="border-gray-200 rounded-full :bg-gray-800 :border-gray-700 :checked:bg-blue-500 :checked:border-blue-500 :focus:ring-offset-gray-800"
+                                            checked>
+                                    </div>
+                                    <label for="XS" class="ml-3 block w-full text-sm text-black">
+                                        XS
+                                    </label>
+                                </div>
+                            </li>
+
+                            <li
+                                class="inline-flex items-center gap-x-2 py-3 px-2 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg">
+                                <div class="relative flex items-start w-full">
+                                    <div class="flex items-center h-5">
+                                        <input id="S" value="S" name="talla" type="radio"
+                                            class="border-gray-200 rounded-full :bg-gray-800 :border-gray-700 :checked:bg-blue-500 :checked:border-blue-500 :focus:ring-offset-gray-800"
+                                            checked>
+                                    </div>
+                                    <label for="S" class="ml-3 block w-full text-sm text-black">
+                                        S
+                                    </label>
+                                </div>
+                            </li>
+
+                            <li
+                                class="inline-flex items-center gap-x-2 py-3 px-2 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg">
+                                <div class="relative flex items-start w-full">
+                                    <div class="flex items-center h-5">
+                                        <input id="M" value="M" name="talla" type="radio"
+                                            class="border-gray-200 rounded-full :bg-gray-800 :border-gray-700 :checked:bg-blue-500 :checked:border-blue-500 :focus:ring-offset-gray-800"
+                                            checked>
+                                    </div>
+                                    <label for="M" class="ml-3 block w-full text-sm text-black">
+                                        M
+                                    </label>
+                                </div>
+                            </li>
+
+                            <li
+                                class="inline-flex items-center gap-x-2 py-3 px-2 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg">
+                                <div class="relative flex items-start w-full">
+                                    <div class="flex items-center h-5">
+                                        <input id="L" value="L" name="talla" type="radio"
+                                            class="border-gray-200 rounded-full :bg-gray-800 :border-gray-700 :checked:bg-blue-500 :checked:border-blue-500 :focus:ring-offset-gray-800"
+                                            checked>
+                                    </div>
+                                    <label for="L" class="ml-3 block w-full text-sm text-black">
+                                        L
+                                    </label>
+                                </div>
+                            </li>
+
+                            <li
+                                class="inline-flex items-center gap-x-2 py-3 px-2 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg">
+                                <div class="relative flex items-start w-full">
+                                    <div class="flex items-center h-5">
+                                        <input id="XL" value="XL" name="talla" type="radio"
+                                            class="border-gray-200 rounded-full :bg-gray-800 :border-gray-700 :checked:bg-blue-500 :checked:border-blue-500 :focus:ring-offset-gray-800"
+                                            checked>
+                                    </div>
+                                    <label for="XL" class="ml-3 block w-full text-sm text-black">
+                                        XL
+                                    </label>
+                                </div>
+                            </li>
+
+                            <li
+                                class="inline-flex items-center gap-x-2 py-3 px-2 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg">
+                                <div class="relative flex items-start w-full">
+                                    <div class="flex items-center h-5">
+                                        <input id="XXL" value="XXL" name="talla" type="radio"
+                                            class="border-gray-200 rounded-full :bg-gray-800 :border-gray-700 :checked:bg-blue-500 :checked:border-blue-500 :focus:ring-offset-gray-800"
+                                            checked>
+                                    </div>
+                                    <label for="XXL" class="ml-3 block w-full text-sm text-black">
+                                        XXL
+                                    </label>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
 
                     <div class="mt-2">
@@ -124,10 +219,34 @@
                             Vols comprar entrada a l'afterparty?
                         </label>
 
-                        <div class="mt-1 rounded-md shadow-sm">
-                            <input id="afterparty" name="afterparty" type="radio" required="" autofocus=""
-                                class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 ">
-                        </div>
+                        <ul class="flex flex-col sm:flex-row mt-1">
+                            <li
+                                class="inline-flex items-center gap-x-2 py-3 px-2 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg">
+                                <div class="relative flex items-start w-full">
+                                    <div class="flex items-center h-5">
+                                        <input id="afterparty-si" name="afterparty" type="radio"
+                                            class="border-gray-200 rounded-full :bg-gray-800 :border-gray-700 :checked:bg-blue-500 :checked:border-blue-500 :focus:ring-offset-gray-800"
+                                            checked>
+                                    </div>
+                                    <label for="afterparty-si" class="ml-3 block w-full text-sm text-black">
+                                        Sí
+                                    </label>
+                                </div>
+                            </li>
+                            <li
+                                class="inline-flex items-center gap-x-2 py-3 px-2 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg">
+                                <div class="relative flex items-start w-full">
+                                    <div class="flex items-center h-5">
+                                        <input id="afterparty-no" name="afterparty" type="radio"
+                                            class="border-gray-200 rounded-full :bg-gray-800 :border-gray-700 :checked:bg-blue-500 :checked:border-blue-500 :focus:ring-offset-gray-800"
+                                            checked>
+                                    </div>
+                                    <label for="afterparty-no" class="ml-3 block w-full text-sm text-black">
+                                        No
+                                    </label>
+                                </div>
+                            </li>
+
                     </div>
 
                     <div class="mt-2">
@@ -157,8 +276,8 @@
                         </label>
 
                         <div class="mt-1 rounded-md shadow-sm">
-                            <input id="password_confirmation" name="password_confirmation" type="password"
-                                required="" autofocus=""
+                            <input id="password_confirmation" name="password_confirmation" type="password" required=""
+                                autofocus=""
                                 class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 ">
                         </div>
                     </div>
@@ -171,13 +290,6 @@
                             <label for="remember" class="block ml-2 text-sm text-gray-900 leading-5">
                                 He llegit i accepto la política de privacitat
                             </label>
-                        </div>
-
-                        <div class="text-sm leading-5">
-                            <a href="#"
-                                class="font-medium text-blue-600 hover:text-blue-500 focus:outline-none focus:underline transition ease-in-out duration-150">
-                                Has oblidat la contraseña?
-                            </a>
                         </div>
                     </div>
 
