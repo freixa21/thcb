@@ -30,7 +30,7 @@ class RegistroEspectadoresController extends Controller {
         $validated_usuario['password'] = bcrypt($validated_usuario['password']);
 
         $validated_espectador = $request->validate([
-            'name' => 'required|unique:equipos',
+            'name' => 'required',
             'apellidos' => 'required|max:100',
             'sexo' => 'max:100',
             'talla' => 'required',
@@ -50,6 +50,6 @@ class RegistroEspectadoresController extends Controller {
         //$correoRegistrado = $validated['email'];
         //Mail::to($correoRegistrado)->send(new RegistroEmail($nombreRegistrado));
         // Una vez creado correctamente el usuario devolvemos con mensaje correcto
-        return redirect()->route('login')->with('registroCorrecto', 'Usuario registrado correctamente');
+        return redirect()->route('login')->with('registroCorrecto', 'Espectador registrat correctament. Recorda que s\'ha de realitzar el pagament per validar la teva inscripció!');
     }
 }

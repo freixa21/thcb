@@ -15,8 +15,8 @@ return new class extends Migration {
             $table->string('talla');
             $table->string('alergenos')->nullable();
             $table->boolean('after');
-            $table->boolean('pagado');
-            $table->boolean('pago_confirmado');
+            $table->boolean('pagado')->default(false);
+            $table->boolean('pago_confirmado')->default(false);
             $table->timestamps();
         });
     }

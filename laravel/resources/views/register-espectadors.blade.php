@@ -34,7 +34,7 @@
 
         <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md px-4">
             <div class="px-4 py-8 bg-white shadow sm:rounded-lg sm:px-10">
-                <form autocomplete="off" action="{{ route('registrar.espectador') }}" method="POST">
+                <form autocomplete="on" action="{{ route('registrar.espectador') }}" method="POST">
                     @csrf
 
                     <div class="mt-2">
@@ -95,7 +95,7 @@
                                 class="inline-flex items-center gap-x-2.5 py-3 px-4 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg">
                                 <div class="relative flex items-start w-full">
                                     <div class="flex items-center h-5">
-                                        <input required id="sexe-home" name="sexe" type="radio"
+                                        <input required id="sexe-home" name="sexo" type="radio" value="H"
                                             class="border-gray-200 rounded-full :bg-gray-800 :border-gray-700 :checked:bg-blue-500 :checked:border-blue-500 :focus:ring-offset-gray-800"
                                             checked>
                                     </div>
@@ -108,7 +108,7 @@
                                 class="inline-flex items-center gap-x-2.5 py-3 px-4 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg :bg-gray-800 :border-gray-700 :text-white">
                                 <div class="relative flex items-start w-full">
                                     <div class="flex items-center h-5">
-                                        <input required id="sexe-dona" name="sexe" type="radio"
+                                        <input required id="sexe-dona" name="sexo" type="radio" value="D"
                                             class="border-gray-200 rounded-full :bg-gray-800 :border-gray-700 :checked:bg-blue-500 :checked:border-blue-500 :focus:ring-offset-gray-800">
                                     </div>
                                     <label for="sexe-dona"
@@ -215,7 +215,7 @@
                     </div>
 
                     <div class="mt-2">
-                        <label for="afterparty" class="block text-sm font-medium text-gray-700 leading-5">
+                        <label for="after" class="block text-sm font-medium text-gray-700 leading-5">
                             Vols comprar entrada a l'afterparty?
                         </label>
 
@@ -224,7 +224,7 @@
                                 class="inline-flex items-center gap-x-2 py-3 px-2 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg">
                                 <div class="relative flex items-start w-full">
                                     <div class="flex items-center h-5">
-                                        <input required id="afterparty-si" name="afterparty" type="radio"
+                                        <input required id="afterparty-si" name="after" type="radio" value="1"
                                             class="border-gray-200 rounded-full :bg-gray-800 :border-gray-700 :checked:bg-blue-500 :checked:border-blue-500 :focus:ring-offset-gray-800"
                                             checked>
                                     </div>
@@ -237,7 +237,7 @@
                                 class="inline-flex items-center gap-x-2 py-3 px-2 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg">
                                 <div class="relative flex items-start w-full">
                                     <div class="flex items-center h-5">
-                                        <input required id="afterparty-no" name="afterparty" type="radio"
+                                        <input required id="afterparty-no" name="after" type="radio" value="0"
                                             class="border-gray-200 rounded-full :bg-gray-800 :border-gray-700 :checked:bg-blue-500 :checked:border-blue-500 :focus:ring-offset-gray-800"
                                             checked>
                                     </div>
