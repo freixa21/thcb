@@ -15,11 +15,11 @@
             </h2>
             <p class="mt-2 text-sm text-center text-gray-600 leading-5 max-w">
                 <a href="/registre-equips"
-class="font-medium text-blue-600 hover:text-blue-500 focus:outline-none focus:underline transition ease-in-out duration-150">
-                    <strong>registrar equip</strong>  
+                    class="font-medium text-blue-600 hover:text-blue-500 focus:outline-none focus:underline transition ease-in-out duration-150">
+                    <strong>registrar equip</strong>
                 </a> o
                 <a href="/registre-espectadors"
-class="font-medium text-blue-600 hover:text-blue-500 focus:outline-none focus:underline transition ease-in-out duration-150">
+                    class="font-medium text-blue-600 hover:text-blue-500 focus:outline-none focus:underline transition ease-in-out duration-150">
                     <strong>registrar espectador</strong>
                 </a>
             </p>
@@ -27,13 +27,25 @@ class="font-medium text-blue-600 hover:text-blue-500 focus:outline-none focus:un
 
         @if (session('registroCorrecto'))
             <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md px-4">
-                <div class="px-4 py-4 bg-green-200 shadow sm:rounded-lg sm:px-5 text-green-900">{{ session('registroCorrecto') }}</div>
+                <div class="px-4 py-4 bg-green-200 shadow sm:rounded-lg sm:px-5 text-green-900">
+                    {{ session('registroCorrecto') }}</div>
+            </div>
+        @endif
+
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
             </div>
         @endif
 
         <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md px-4">
             <div class="px-4 py-8 bg-white shadow sm:rounded-lg sm:px-10">
-                <form>
+                <form action="{{ route('auth.login') }}" method="post">
+                    @csrf
                     <div>
                         <label for="email" class="block text-sm font-medium text-gray-700 leading-5">
                             Correu electrònic
@@ -52,7 +64,7 @@ class="font-medium text-blue-600 hover:text-blue-500 focus:outline-none focus:un
                         </label>
 
                         <div class="mt-1 rounded-md shadow-sm">
-                            <input id="password" type="password" required=""
+                            <input id="password" type="password" name="password" required=""
                                 class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 ">
                         </div>
 

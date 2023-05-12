@@ -50,6 +50,6 @@ class RegistroEspectadoresController extends Controller {
         //$correoRegistrado = $validated['email'];
         //Mail::to($correoRegistrado)->send(new RegistroEmail($nombreRegistrado));
         // Una vez creado correctamente el usuario devolvemos con mensaje correcto
-        return redirect()->route('login')->with('registroCorrecto', 'Espectador registrat correctament. Recorda que s\'ha de realitzar el pagament per validar la teva inscripció!');
+        return redirect()->route('auth.login')->with('registroCorrecto', 'Espectador registrat correctament. Recorda que s\'ha de realitzar el pagament per validar la teva inscripció!');
     }
 }

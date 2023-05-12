@@ -14,7 +14,10 @@ use App\Http\Controllers\LoginController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get("/", [LoginController::class, "index"])->name('login');
+// Login
+Route::get('/', [LoginController::class, 'index'])->name('auth.login');
+Route::post('/', [LoginController::class, 'authenticate'])->name('auth.login');
+Route::get('logout', [LoginController::class, 'logout'])->name('auth.logout');
 
 // Registre GENERAL
 /*Route::get('registre', function () {
@@ -32,3 +35,5 @@ Route::get("equip", [RegistroEquiposController::class, "index"])->name('index.eq
 // Registre ESPECTADORS
 Route::get("registre-espectadors", [RegistroEspectadoresController::class, "index"])->name('index.espectadors');
 Route::post("registre-espectadors", [RegistroEspectadoresController::class, "store"])->name('registrar.espectador');
+
+

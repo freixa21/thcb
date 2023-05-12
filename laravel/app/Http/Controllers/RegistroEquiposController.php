@@ -48,6 +48,6 @@ class RegistroEquiposController extends Controller {
         //$correoRegistrado = $validated['email'];
         //Mail::to($correoRegistrado)->send(new RegistroEmail($nombreRegistrado));
         // Una vez creado correctamente el usuario devolvemos con mensaje correcto
-        return redirect()->route('login')->with('registroCorrecto', 'Equip registrat correctament! Inicia sessió i afegeix a tots els jugadors del teu equip.');
+        return redirect()->route('auth.login')->with('registroCorrecto', 'Equip registrat correctament! Inicia sessió i afegeix a tots els jugadors del teu equip.');
     }
 }
