@@ -25,7 +25,10 @@ Route::get("/", [LoginController::class, "index"])->name('login');
 Route::get("registre-equips", [RegistroEquiposController::class, "index"])->name('index.equips');
 Route::post("registre-equips", [RegistroEquiposController::class, "store"])->name('registrar.equip');
 
+// Vista EQUIPS
+Route::get("equip", [RegistroEquiposController::class, "index"])->name('index.equips');
+
+
 // Registre ESPECTADORS
-// Registre EQUIPS
 Route::get("registre-espectadors", [RegistroEspectadoresController::class, "index"])->name('index.espectadors');
 Route::post("registre-espectadors", [RegistroEspectadoresController::class, "store"])->name('registrar.espectador');
