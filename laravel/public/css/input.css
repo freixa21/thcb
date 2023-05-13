@@ -4,11 +4,13 @@
 
 @layer base {
     h1 {
-        font-size: 2em
+        font-size: 2em;
+        line-height: 1.5;
     }
 
     h2 {
         font-size: 1.75em;
+        line-height: 1.5;
     }
 
     h3 {
@@ -28,6 +30,7 @@
 
     .qr-beach {
         max-width: 170px;
+        margin: 0 auto;
     }
 
     ol, ul, menu {
@@ -71,15 +74,9 @@
     }
 
     #informacio {
-        border-bottom: 1px solid;
         border-bottom-color: currentcolor;
-        border-color: #172554;
         margin-bottom: 10px;
     }
 
-    #estat-inscripcio {
-        margin-top: 20px;
-        border-top: 1px solid #172554;
-    }
 
 }

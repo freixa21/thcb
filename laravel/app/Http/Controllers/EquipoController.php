@@ -14,7 +14,8 @@ class EquipoController extends Controller {
     }
 
     public function index() {
-        $jugadores = Jugador::all();
+
+        $jugadores = Auth::user()->equipo->jugadores;
 
         return view('equipo', compact('jugadores'));
     }
