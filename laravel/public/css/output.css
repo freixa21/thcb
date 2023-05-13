@@ -489,6 +489,12 @@ li {
   margin-bottom: 10px;
 }
 
+@media only screen and (max-width: 1000px) {
+  .amagar-mobil {
+    display: none;
+  }
+}
+
 *, ::before, ::after {
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
@@ -1013,10 +1019,6 @@ li {
   text-align: center;
 }
 
-.text-right {
-  text-align: right;
-}
-
 .align-middle {
   vertical-align: middle;
 }
@@ -1210,10 +1212,6 @@ li {
 .hover\:text-white:hover {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-
-.hover\:underline:hover {
-  text-decoration-line: underline;
 }
 
 .focus\:border-blue-300:focus {

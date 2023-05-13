@@ -126,10 +126,11 @@
                         </th>
                         <th scope="col" class="px-6 py-3">Jugador</th>
                         <th scope="col" class="px-6 py-3 amagar-mobil">Sexe</th>
-                        <th scope="col" class="px-6 py-3 amagar-mobil">Al·lèrgies</th>
+                        <th scope="col" class="px-6 py-3 amagar-mobil">Talla</th>
                         <th scope="col" class="px-6 py-3 amagar-mobil">Afterparty</th>
+                        <th scope="col" class="px-6 py-3 amagar-mobil">Al·lèrgies</th>
                         <th scope="col" class="px-6 py-3 amagar-mobil">Data inscripció</th>
-                        <th scope="col" class="px-6 py-3 amagar-mobil">Preu inscripció</th>
+                        <th scope="col" class="px-6 py-3">Preu inscripció</th>
                         <th scope="col" class="px-6 py-3">
                             <span class="sr-only">Editar</span>
                         </th>
@@ -140,9 +141,10 @@
                         <tr class="bg-white border-b  hover:bg-gray-50 ">
                             <td class="px-6 py-4">{{ $loop->index + 1 }}</td>
                             <th scope="row" class="px-6 py-4 font-medium text-gray-900  whitespace-nowrap">
-                                {{ $jugador->name }} {{ $jugador->apellidos }}
+                                {{ $jugador->nombre }} {{ $jugador->apellidos }}
                             </th>
                             <td class="px-6 py-4 amagar-mobil">{{ $jugador->sexo }}</td>
+                            <td class="px-6 py-4 amagar-mobil">{{ $jugador->talla }}</td>
                             <td class="px-6 py-4 amagar-mobil">{{ $jugador->alergenos }}</td>
                             <td class="px-6 py-4 amagar-mobil">
                                 @if ($jugador->after == 1)
@@ -152,18 +154,18 @@
                                 @endif
                             </td>
                             <td class="px-6 py-4 amagar-mobil">{{ $jugador->created_at }}</td>
-                            <td class="px-6 py-4 amagar-mobil">
+                            <td class="px-6 py-4">
                                 @if ($jugador->created_at->lt('2023-06-23 0:00:00'))
                                     @if ($jugador->after)
-                                        35
+                                        35€
                                     @else
-                                        25
+                                        25€
                                     @endif
                                 @else
                                     @if ($jugador->after)
-                                        40
+                                        40€
                                     @else
-                                        25
+                                        25€
                                     @endif
                                 @endif
                             </td>
@@ -171,7 +173,7 @@
                                 <section x-data="{ modalOpen: false }" id="instruccions" class="w-1/2">
                                     <div class="container mx-auto">
                                         <button @click="modalOpen = true" class="">
-                                            Editar
+                                            Veure/Editar
                                         </button>
                                     </div>
                                     <!-- MODAL EDITAR JUGADOR -->
