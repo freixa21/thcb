@@ -1,3 +1,41 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    h1 {
+        font-size: 2em
+    }
+
+    h2 {
+        font-size: 1.75em;
+    }
+
+    h3 {
+        font-size: 1.50em;
+    }
+    
+    p {
+        font-size: 16px;
+        line-height: 1.5;
+        margin-bottom: 10px;
+    }
+
+    .mini-qr {
+        font-size: 12px;
+    }
+
+    .qr-beach {
+        max-width: 170px;
+    }
+
+    ol, ul, menu {
+        list-style: decimal;
+        margin:  inherit;
+        padding:  inherit;
+      }
+    
+      li {
+        padding-left: 10px;
+      }
+}

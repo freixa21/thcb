@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegistroEquiposController;
 use App\Http\Controllers\RegistroEspectadoresController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\EquipoController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,21 +20,11 @@ Route::get('/', [LoginController::class, 'index'])->name('auth.login');
 Route::post('/', [LoginController::class, 'authenticate'])->name('auth.login');
 Route::get('logout', [LoginController::class, 'logout'])->name('auth.logout');
 
-// Registre GENERAL
-/*Route::get('registre', function () {
-    return view('register');
-});*/
-
 // Registre EQUIPS
 Route::get("registre-equips", [RegistroEquiposController::class, "index"])->name('index.equips');
 Route::post("registre-equips", [RegistroEquiposController::class, "store"])->name('registrar.equip');
-
 // Vista EQUIPS
-Route::get("equip", [RegistroEquiposController::class, "index"])->name('index.equips');
-
-
+Route::get("equip", [EquipoController::class, "index"])->name('index.equip');
 // Registre ESPECTADORS
 Route::get("registre-espectadors", [RegistroEspectadoresController::class, "index"])->name('index.espectadors');
 Route::post("registre-espectadors", [RegistroEspectadoresController::class, "store"])->name('registrar.espectador');
-
-

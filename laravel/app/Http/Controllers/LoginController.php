@@ -13,6 +13,17 @@ class LoginController extends Controller {
      */
 
     public function index() {
+
+        if (Auth::check()) {
+            $tieneEquipo = Equipo::where('id_usuario', Auth::id())->first();
+
+            if ($tieneEquipo) {
+                return redirect()->intended('equip');
+            } else {
+                return redirect()->intended('espectador');
+            }
+        }
+
         return view("login");
     }
 
@@ -40,5 +51,16 @@ class LoginController extends Controller {
         return back()->withErrors([
             'email' => 'The provided credentials do not match our records.',
         ])->onlyInput('email');
+    }
+
+
+    public function logout(Request $request): RedirectResponse {
+        Auth::logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect('/');
     }
 }
