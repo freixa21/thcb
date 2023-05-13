@@ -6,12 +6,10 @@ use App\Models\Equipo;
 use App\Models\Jugador;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class JugadorFactory extends Factory
-{
+class JugadorFactory extends Factory {
     protected $model = Jugador::class;
 
-    public function definition()
-    {
+    public function definition() {
         return [
             'nombre' => $this->faker->firstName,
             'apellidos' => $this->faker->lastName,
@@ -20,8 +18,6 @@ class JugadorFactory extends Factory
             'alergenos' => $this->faker->optional()->text(20),
             'after' => $this->faker->boolean(50),
             'equipo_id' => Equipo::factory(),
-            'pagado' => $this->faker->boolean(50),
-            'pago_confirmado' => $this->faker->boolean(50),
         ];
     }
 }

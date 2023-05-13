@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Equipo extends Model {
     use HasFactory;
 
-    protected $fillable = ['nombre', 'id_usuario'];
+    protected $fillable = ['nombre', 'id_usuario', 'estado_inscripcion', 'comprovante_img'];
 
     public function user() {
         return $this->belongsTo(User::class, 'id_usuario');

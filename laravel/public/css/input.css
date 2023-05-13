@@ -12,9 +12,10 @@
     }
 
     h3 {
-        font-size: 1.50em;
+        font-size: 1.25em;
+        font-weight: 500;
     }
-    
+
     p {
         font-size: 16px;
         line-height: 1.5;
@@ -31,11 +32,54 @@
 
     ol, ul, menu {
         list-style: decimal;
-        margin:  inherit;
-        padding:  inherit;
-      }
-    
-      li {
+        margin: inherit;
+        padding: inherit;
+    }
+
+    li {
         padding-left: 10px;
-      }
+    }
+
+    .estat-0 {
+        background-color: #ffbaba;
+        width: fit-content;
+        padding: 1px 10px;
+        border-radius: 5px;
+        margin-top: 5px;
+        color: red;
+        font-weight: 600;
+    }
+
+    .estat-1 {
+        background-color: #c1d5f4;
+        width: fit-content;
+        padding: 1px 10px;
+        border-radius: 5px;
+        margin-top: 5px;
+        color: #0034ff;
+        font-weight: 600;
+    }
+
+    .estat-3 {
+        background-color: #cfffc9;
+        width: fit-content;
+        padding: 1px 10px;
+        border-radius: 5px;
+        margin-top: 5px;
+        color: #00a612;
+        font-weight: 600;
+    }
+
+    #informacio {
+        border-bottom: 1px solid;
+        border-bottom-color: currentcolor;
+        border-color: #172554;
+        margin-bottom: 10px;
+    }
+
+    #estat-inscripcio {
+        margin-top: 20px;
+        border-top: 1px solid #172554;
+    }
+
 }

@@ -15,8 +15,6 @@ class CreateJugadoresTable extends Migration {
             $table->string('talla');
             $table->string('alergenos')->nullable();
             $table->boolean('after');
-            $table->boolean('pagado');
-            $table->boolean('pago_confirmado');
             $table->timestamps();
         });
     }
