@@ -97,7 +97,7 @@
                                     <div class="flex items-center h-5">
                                         <input required id="sexe-home" name="sexo" type="radio" value="H"
                                             class="border-gray-200 rounded-full :bg-gray-800 :border-gray-700 :checked:bg-blue-500 :checked:border-blue-500 :focus:ring-offset-gray-800"
-                                            checked>
+                                            >
                                     </div>
                                     <label for="sexe-home" class="ml-3 block w-full text-sm text-black">
                                         Home
@@ -134,7 +134,7 @@
                                     <div class="flex items-center h-5">
                                         <input required id="XS" value="XS" name="talla" type="radio"
                                             class="border-gray-200 rounded-full :bg-gray-800 :border-gray-700 :checked:bg-blue-500 :checked:border-blue-500 :focus:ring-offset-gray-800"
-                                            checked>
+                                            >
                                     </div>
                                     <label for="XS" class="ml-3 block w-full text-sm text-black">
                                         XS
@@ -148,7 +148,7 @@
                                     <div class="flex items-center h-5">
                                         <input required id="S" value="S" name="talla" type="radio"
                                             class="border-gray-200 rounded-full :bg-gray-800 :border-gray-700 :checked:bg-blue-500 :checked:border-blue-500 :focus:ring-offset-gray-800"
-                                            checked>
+                                            >
                                     </div>
                                     <label for="S" class="ml-3 block w-full text-sm text-black">
                                         S
@@ -162,7 +162,7 @@
                                     <div class="flex items-center h-5">
                                         <input required id="M" value="M" name="talla" type="radio"
                                             class="border-gray-200 rounded-full :bg-gray-800 :border-gray-700 :checked:bg-blue-500 :checked:border-blue-500 :focus:ring-offset-gray-800"
-                                            checked>
+                                            >
                                     </div>
                                     <label for="M" class="ml-3 block w-full text-sm text-black">
                                         M
@@ -176,7 +176,7 @@
                                     <div class="flex items-center h-5">
                                         <input required id="L" value="L" name="talla" type="radio"
                                             class="border-gray-200 rounded-full :bg-gray-800 :border-gray-700 :checked:bg-blue-500 :checked:border-blue-500 :focus:ring-offset-gray-800"
-                                            checked>
+                                            >
                                     </div>
                                     <label for="L" class="ml-3 block w-full text-sm text-black">
                                         L
@@ -190,7 +190,7 @@
                                     <div class="flex items-center h-5">
                                         <input required id="XL" value="XL" name="talla" type="radio"
                                             class="border-gray-200 rounded-full :bg-gray-800 :border-gray-700 :checked:bg-blue-500 :checked:border-blue-500 :focus:ring-offset-gray-800"
-                                            checked>
+                                            >
                                     </div>
                                     <label for="XL" class="ml-3 block w-full text-sm text-black">
                                         XL
@@ -204,7 +204,7 @@
                                     <div class="flex items-center h-5">
                                         <input required id="XXL" value="XXL" name="talla" type="radio"
                                             class="border-gray-200 rounded-full :bg-gray-800 :border-gray-700 :checked:bg-blue-500 :checked:border-blue-500 :focus:ring-offset-gray-800"
-                                            checked>
+                                            >
                                     </div>
                                     <label for="XXL" class="ml-3 block w-full text-sm text-black">
                                         XXL
@@ -226,7 +226,7 @@
                                     <div class="flex items-center h-5">
                                         <input required id="afterparty-si" name="after" type="radio" value="1"
                                             class="border-gray-200 rounded-full :bg-gray-800 :border-gray-700 :checked:bg-blue-500 :checked:border-blue-500 :focus:ring-offset-gray-800"
-                                            checked>
+                                            >
                                     </div>
                                     <label for="afterparty-si" class="ml-3 block w-full text-sm text-black">
                                         Sí
@@ -239,7 +239,7 @@
                                     <div class="flex items-center h-5">
                                         <input required id="afterparty-no" name="after" type="radio" value="0"
                                             class="border-gray-200 rounded-full :bg-gray-800 :border-gray-700 :checked:bg-blue-500 :checked:border-blue-500 :focus:ring-offset-gray-800"
-                                            checked>
+                                            >
                                     </div>
                                     <label for="afterparty-no" class="ml-3 block w-full text-sm text-black">
                                         No
