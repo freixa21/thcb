@@ -177,7 +177,7 @@
                                     </div>
                                     <!-- MODAL EDITAR JUGADOR -->
                                     <div x-show="modalOpen" x-transition style="z-index: 1"
-                                        class="fixed top-0 left-0 flex h-full min-h-screen w-full justify-center bg-black bg-opacity-90 px-4 py-5 overflow-y-auto">
+                                        class="fixed top-0 left-0 flex h-full min-h-screen w-full justify-center bg-black bg-opacity-90 px-4 pt-5 pb-16 overflow-y-auto">
                                         <div @click.outside="modalOpen = false"
                                             class="w-full max-w-[570px] rounded-[20px] bg-white py-12 px-8 md:py-[60px] md:px-[70px] h-fit">
                                             <h3 class="text-dark pb-2 text-xl font-bold sm:text-2xl text-center">
