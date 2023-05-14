@@ -108,16 +108,56 @@
         .amagar-mobil {
             display: none;
         }
+
+        .files-omplir {
+            display: none;
+        }
+
+        .preu-taula {
+            column-span: 4;
+        }
+    }
+
+    .preu-taula {
+        column-span: 2;
     }
 
     #informacio, #estat-inscripcio {
         background-color: #fff;
-    } 
+    }
 
     body {
         background-color: #f4f4f4;
     }
 
+    .afegir-jugador-btn {
+        padding: 10px;
+        display: block;
+        width: fit-content;
+        margin-top: 10px;
+        border-radius: 5px;
+        border: 1px solid #172554;
+        cursor: pointer;
+        opacity: 0.9;
+        transition: 0.2s;
+    }
+
+    .afegir-jugador-btn i {
+        color: #172554;
+        opacity: 0.9;
+        transition: 0.2s;
+    }
+
+    .afegir-jugador-btn:hover {
+        color: #fff;
+        background-color: #172554;
+        opacity: 1;
+    }
+
+    .afegir-jugador-btn:hover i {
+        color: #fff;
+        opacity: 1;
+    }
 
 
 

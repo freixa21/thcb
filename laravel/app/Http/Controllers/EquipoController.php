@@ -6,6 +6,7 @@ use App\Models\Equipo;
 use App\Models\Jugador;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\RedirectResponse;
 
 class EquipoController extends Controller {
 
@@ -41,5 +42,63 @@ class EquipoController extends Controller {
 
 
         return redirect()->back()->with('success', 'El comprovant s\'a enviat correctament. Ens posarem en conctacte amb tu quan haguem verificat el pagament i la inscripció del teu equip quedarà confirmada!');
+    }
+
+    // Actualizar Jugador
+    public function actualizarJugador(Request $request): RedirectResponse {
+
+        $request->flash();
+        $jugador = Jugador::find($request->id);
+
+        $validated_jugador = $request->validate([
+            'name' => 'required',
+            'apellidos' => 'required|max:100',
+            'sexo' => 'max:100',
+            'talla' => 'required',
+            'alergenos' => 'max:500',
+            'after' => 'required|boolean'
+        ]);
+
+        $jugador->nombre = $validated_jugador['name'];
+        $jugador->apellidos = $validated_jugador['apellidos'];
+        $jugador->sexo = $validated_jugador['sexo'];
+        $jugador->talla = $validated_jugador['talla'];
+        $jugador->alergenos = $validated_jugador['alergenos'];
+        $jugador->after = $validated_jugador['after'];
+
+        $jugador->save();
+
+        return redirect()->back()->with('success', 'Jugador actualitzat correctament');
+    }
+
+
+    // Afegir Jugador
+    public function afegirJugador(Request $request): RedirectResponse {
+
+        $request->flash();
+
+        $jugador = new Jugador;
+        $equipo = Auth::user()->equipo->id;
+
+        $validated_jugador = $request->validate([
+            'name' => 'required',
+            'apellidos' => 'required|max:100',
+            'sexo' => 'max:100',
+            'talla' => 'required',
+            'alergenos' => 'max:500',
+            'after' => 'required|boolean'
+        ]);
+
+        $jugador->equipo_id = $equipo;
+        $jugador->nombre = $validated_jugador['name'];
+        $jugador->apellidos = $validated_jugador['apellidos'];
+        $jugador->sexo = $validated_jugador['sexo'];
+        $jugador->talla = $validated_jugador['talla'];
+        $jugador->alergenos = $validated_jugador['alergenos'];
+        $jugador->after = $validated_jugador['after'];
+
+        $jugador->save();
+
+        return redirect()->back()->with('success', 'Jugador actualitzat correctament');
     }
 }

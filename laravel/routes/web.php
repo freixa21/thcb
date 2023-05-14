@@ -26,6 +26,8 @@ Route::post("registre-equips", [RegistroEquiposController::class, "store"])->nam
 // Vista EQUIPS
 Route::get("equip", [EquipoController::class, "index"])->name('index.equip');
 Route::post('/image/upload', [EquipoController::class, 'uploadComprovant'])->name('uploadComprovant');
+Route::post("/equip/actualitzar-jugador", [EquipoController::class, "actualizarJugador"])->name('actualitzarJugador');
+Route::post("/equip/afegir-jugador", [EquipoController::class, "afegirJugador"])->name('afegirJugador');
 
 // Registre ESPECTADORS
 Route::get("registre-espectadors", [RegistroEspectadoresController::class, "index"])->name('index.espectadors');
