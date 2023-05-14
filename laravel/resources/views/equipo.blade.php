@@ -5,8 +5,8 @@
 @section('content')
     <div class="w-full max-w-screen-2xl">
         <div class="w-full">
-            <div id="bloc-principal" class="flex">
-                <div id="informacio" class="w-1/2 shadow-md  p-3 rounded-lg">
+            <div id="bloc-principal" class="flex flex-col lg:flex-row">
+                <div id="informacio" class="w-full lg:w-1/2 shadow-md  p-3 rounded-lg mb-5 lg:mb-0">
                     <h1 class="mr-2 mb-2">{{ Auth::user()->equipo->nombre }}</h1>
 
                     @if ($errors->any())
@@ -24,7 +24,7 @@
                     <p><strong>Telèfon:</strong> {{ Auth::user()->phone }} </p>
                 </div>
                 <!-- ====== Modal Section Start -->
-                    <div id="estat-inscripcio" class="flex flex-col shadow-md  p-3 rounded-lg w-1/2">
+                    <div id="estat-inscripcio" class="flex flex-col shadow-md  p-3 rounded-lg w-full lg:w-1/2">
 
                         <div class="items-center">
                             <h2 class="mr-2 mb-2">Estat de la inscripció:</h2>
@@ -60,7 +60,7 @@
                         <div class="estat-2">Pagament verificat. Inscripcio confirmada!</div>
                     </div>
                     @endif
-                    <section x-data="{ modalOpen: false }" id="instruccions" class="w-1/2">
+                    <section x-data="{ modalOpen: false }" id="instruccions">
                         <div class="container mx-auto">
                             <button @click="modalOpen = true"
                                 class="bg-blue-950 text-white rounded-md px-1 py-1 mt-4 text-base font-medium">
@@ -169,7 +169,7 @@
                                 @endif
                             </td>
                             <td class="px-6 py-4">
-                                <section x-data="{ modalOpen: false }" id="instruccions" class="w-1/2">
+                                <section x-data="{ modalOpen: false }" id="instruccions">
                                     <div class="container mx-auto">
                                         <button @click="modalOpen = true" class="">
                                             Veure/Editar
