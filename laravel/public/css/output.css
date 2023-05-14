@@ -425,22 +425,34 @@ video {
 h1 {
   font-size: 2em;
   line-height: 1.5;
+  font-family: 'Recoleta';
 }
 
 h2 {
   font-size: 1.75em;
   line-height: 1.5;
+  font-family: 'Recoleta';
 }
 
 h3 {
   font-size: 1.25em;
   font-weight: 500;
+  font-family: 'Recoleta';
 }
 
 p {
   font-size: 16px;
   line-height: 1.5;
   margin-bottom: 10px;
+  font-family: 'Recoleta Regular';
+}
+
+table {
+  font-family: 'Recoleta Regular';
+}
+
+div {
+  font-family: 'Recoleta Regular';
 }
 
 .mini-qr {
@@ -486,13 +498,21 @@ li {
 
 #informacio {
   border-bottom-color: currentcolor;
-  margin-bottom: 10px;
+  margin-right: 20px;
 }
 
 @media only screen and (max-width: 1000px) {
   .amagar-mobil {
     display: none;
   }
+}
+
+#informacio, #estat-inscripcio {
+  background-color: #fff;
+}
+
+body {
+  background-color: #f4f4f4;
 }
 
 *, ::before, ::after {
@@ -768,6 +788,11 @@ li {
   height: 100%;
 }
 
+.h-fit {
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
 .min-h-screen {
   min-height: 100vh;
 }
@@ -846,6 +871,10 @@ li {
 
 .overflow-x-auto {
   overflow-x: auto;
+}
+
+.overflow-y-auto {
+  overflow-y: auto;
 }
 
 .whitespace-nowrap {
@@ -952,6 +981,11 @@ li {
   padding: 0.75rem;
 }
 
+.px-1 {
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+}
+
 .px-2 {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
@@ -975,6 +1009,11 @@ li {
 .px-8 {
   padding-left: 2rem;
   padding-right: 2rem;
+}
+
+.py-1 {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
 }
 
 .py-12 {
@@ -1168,6 +1207,26 @@ li {
 
 .ease-in-out {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@font-face {
+  font-family: 'Recoleta';
+
+  src: url('/fonts/Recoleta-Bold.ttf');
+
+  font-weight: 500;
+
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Recoleta Regular';
+
+  src: url('/fonts/Recoleta-Regular.ttf');
+
+  font-weight: 500;
+
+  font-style: normal;
 }
 
 .first\:mt-0:first-child {

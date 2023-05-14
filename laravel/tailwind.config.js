@@ -8,7 +8,11 @@
       extend: {},
     },
     variants: {
-      extend: {},
+      extend: {
+        fontFamily: {
+          'Recoleta Regular': ['Recoleta Regular', 'sans-serif']
+        }
+      },
     },
     plugins: [],
  }

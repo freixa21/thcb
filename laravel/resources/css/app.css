@@ -2,26 +2,52 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+    font-family: 'Recoleta';
+    src: url('/fonts/Recoleta-Bold.ttf');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Recoleta Regular';
+    src: url('/fonts/Recoleta-Regular.ttf');
+    font-weight: 500;
+    font-style: normal;
+}
+
 @layer base {
     h1 {
         font-size: 2em;
         line-height: 1.5;
+        font-family: 'Recoleta';
     }
 
     h2 {
         font-size: 1.75em;
         line-height: 1.5;
+        font-family: 'Recoleta';
     }
 
     h3 {
         font-size: 1.25em;
         font-weight: 500;
+        font-family: 'Recoleta';
     }
 
     p {
         font-size: 16px;
         line-height: 1.5;
         margin-bottom: 10px;
+        font-family: 'Recoleta Regular';
+    }
+
+    table {
+        font-family: 'Recoleta Regular';
+    }
+
+    div {
+        font-family: 'Recoleta Regular';
     }
 
     .mini-qr {
@@ -75,14 +101,26 @@
 
     #informacio {
         border-bottom-color: currentcolor;
-        margin-bottom: 10px;
+        margin-right: 20px;
     }
 
     @media only screen and (max-width: 1000px) {
         .amagar-mobil {
-          display: none;
+            display: none;
         }
-      }
+    }
+
+    #informacio, #estat-inscripcio {
+        background-color: #fff;
+    } 
+
+    body {
+        background-color: #f4f4f4;
+    }
+
+
+
+
 
 
 }

@@ -6,8 +6,8 @@
     <div class="w-full max-w-screen-2xl">
         <div class="w-full">
             <div id="bloc-principal" class="flex">
-                <div id="informacio" class="w-1/2">
-                    <h1>{{ Auth::user()->equipo->nombre }}</h1>
+                <div id="informacio" class="w-1/2 shadow-md  p-3 rounded-lg">
+                    <h1 class="mr-2 mb-2">{{ Auth::user()->equipo->nombre }}</h1>
 
                     @if ($errors->any())
                         <div class="alert alert-danger">
@@ -24,18 +24,53 @@
                     <p><strong>Telèfon:</strong> {{ Auth::user()->phone }} </p>
                 </div>
                 <!-- ====== Modal Section Start -->
-                <div class="w-1/2">
+                    <div id="estat-inscripcio" class="flex flex-col shadow-md  p-3 rounded-lg w-1/2">
+
+                        <div class="items-center">
+                            <h2 class="mr-2 mb-2">Estat de la inscripció:</h2>
+                            @if (Auth::user()->equipo->estado_inscripcion == 0)
+                                <div class="estat-0">Pendent de pagament</div>
+                        </div>
+                        <div class="flex">
+                            <form action="{{ route('uploadComprovant') }}" method="POST" enctype="multipart/form-data">
+                                @csrf
+                                <div class="mb-4">
+                                    <label for="comprovante_img" class="block mt-3">Adjuntar comprovant/captura de
+                                        pantalla:</label>
+                                    <input type="file" name="comprovante_img" id="comprovante_img"
+                                        class="form-input rounded-md shadow-sm mt-1 block w-full">
+                                    @error('comprovante_img')
+                                        <p class="text-red-500 mt-1">{{ $message }}</p>
+                                    @enderror
+                                </div>
+                                <div class="mt-8">
+                                    <button type="submit"
+                                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                                        Marcar com a pagada
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    @elseif(Auth::user()->equipo->estado_inscripcion == 1)
+                        <div class="estat-1 mt-3 mb-2">Pagament realitzat. Validació en procés.</div>
+                        <a href="{{ asset('images/uploads/' . Auth::user()->equipo->comprovante_img) }}"class="text-xs mt-2 underline"
+                            target="_blank">Veure
+                            comprovant adjuntat</a>
+                    @elseif(Auth::user()->equipo->estado_inscripcion == 2)
+                        <div class="estat-2">Pagament verificat. Inscripcio confirmada!</div>
+                    </div>
+                    @endif
                     <section x-data="{ modalOpen: false }" id="instruccions" class="w-1/2">
                         <div class="container mx-auto">
                             <button @click="modalOpen = true"
-                                class="bg-blue-950 text-white rounded-full py-3 px-6 text-base font-medium">
-                                Obrir instruccions
+                                class="bg-blue-950 text-white rounded-md px-1 py-1 mt-4 text-base font-medium">
+                                Com fer el pagament?
                             </button>
                         </div>
                         <div x-show="modalOpen" x-transition style="z-index: 1"
-                            class="fixed top-0 left-0 flex h-full min-h-screen w-full items-center justify-center bg-black bg-opacity-90 px-4 py-5">
+                            class="fixed top-0 left-0 flex h-full min-h-screen w-full justify-center bg-black bg-opacity-90 px-4 py-5 overflow-y-auto" >
                             <div @click.outside="modalOpen = false"
-                                class="w-full max-w-[570px] rounded-[20px] bg-white py-12 px-8 text-center md:py-[60px] md:px-[70px]">
+                                class="w-full max-w-[570px] rounded-[20px] bg-white py-12 px-8 text-center md:py-[60px] md:px-[70px] h-fit">
                                 <h3 class="text-dark pb-2 text-xl font-bold sm:text-2xl">
                                     Instruccions
                                 </h3>
@@ -70,45 +105,9 @@
                             </div>
                         </div>
                     </section>
-                </div>
             </div>
             <!-- ====== Modal Section End -->
-            <div id="estat-inscripcio" class="flex flex-col">
 
-                <div class="items-center mt-3">
-                    <h2 class="mr-2 mb-2">Estat de la inscripció:</h2>
-                    @if (Auth::user()->equipo->estado_inscripcion == 0)
-                        <div class="estat-0">Pendent de pagament</div>
-                </div>
-                <div class="flex">
-                    <form action="{{ route('uploadComprovant') }}" method="POST" enctype="multipart/form-data">
-                        @csrf
-                        <div class="mb-4">
-                            <label for="comprovante_img" class="block mt-3">Adjuntar comprovant/captura de
-                                pantalla:</label>
-                            <input type="file" name="comprovante_img" id="comprovante_img"
-                                class="form-input rounded-md shadow-sm mt-1 block w-full">
-                            @error('comprovante_img')
-                                <p class="text-red-500 mt-1">{{ $message }}</p>
-                            @enderror
-                        </div>
-                        <div class="mt-8">
-                            <button type="submit"
-                                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                                Marcar com a pagada
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            @elseif(Auth::user()->equipo->estado_inscripcion == 1)
-                <div class="estat-1 mt-3">Pagament realitzat. Esperant confirmació dels organitzadors.</div>
-                <a href="{{ asset('images/uploads/' . Auth::user()->equipo->comprovante_img) }}"class="text-xs mt-2 underline"
-                    target="_blank">Veure
-                    comprovant adjuntat</a>
-            @elseif(Auth::user()->equipo->estado_inscripcion == 2)
-                <div class="estat-2">Pagament verificat. Inscripcio confirmada!</div>
-            </div>
-            @endif
         </div>
 
 
@@ -178,9 +177,9 @@
                                     </div>
                                     <!-- MODAL EDITAR JUGADOR -->
                                     <div x-show="modalOpen" x-transition style="z-index: 1"
-                                        class="fixed top-0 left-0 flex h-full min-h-screen w-full items-center justify-center bg-black bg-opacity-90 px-4 py-5">
+                                        class="fixed top-0 left-0 flex h-full min-h-screen w-full justify-center bg-black bg-opacity-90 px-4 py-5 overflow-y-auto">
                                         <div @click.outside="modalOpen = false"
-                                            class="w-full max-w-[570px] rounded-[20px] bg-white py-12 px-8 md:py-[60px] md:px-[70px]">
+                                            class="w-full max-w-[570px] rounded-[20px] bg-white py-12 px-8 md:py-[60px] md:px-[70px] h-fit">
                                             <h3 class="text-dark pb-2 text-xl font-bold sm:text-2xl text-center">
                                                 {{ $jugador->nombre }} {{ $jugador->apellidos }}
                                             </h3>
@@ -379,8 +378,9 @@
                                                                 <div class="flex items-center h-5">
                                                                     <input required id="afterparty-si" name="after"
                                                                         type="radio" value="1"
-                                                                        class="border-gray-200 rounded-full :bg-gray-800 :border-gray-700 :checked:bg-blue-500 :checked:border-blue-500 :focus:ring-offset-gray-800" @if ($jugador->after == 1) checked @endif>
-                                                                        
+                                                                        class="border-gray-200 rounded-full :bg-gray-800 :border-gray-700 :checked:bg-blue-500 :checked:border-blue-500 :focus:ring-offset-gray-800"
+                                                                        @if ($jugador->after == 1) checked @endif>
+
                                                                 </div>
                                                                 <label for="afterparty-si"
                                                                     class="ml-3 block w-full text-sm text-black">
@@ -394,9 +394,10 @@
                                                                 <div class="flex items-center h-5">
                                                                     <input required id="afterparty-no" name="after"
                                                                         type="radio" value="0"
-                                                                        class="border-gray-200 rounded-full :bg-gray-800 :border-gray-700 :checked:bg-blue-500 :checked:border-blue-500 :focus:ring-offset-gray-800" @if ($jugador->after == 0) checked @endif>
-                                                                        
-                                                                    </div>
+                                                                        class="border-gray-200 rounded-full :bg-gray-800 :border-gray-700 :checked:bg-blue-500 :checked:border-blue-500 :focus:ring-offset-gray-800"
+                                                                        @if ($jugador->after == 0) checked @endif>
+
+                                                                </div>
                                                                 <label for="afterparty-no"
                                                                     class="ml-3 block w-full text-sm text-black">
                                                                     No
@@ -413,8 +414,9 @@
                                                     </label>
 
                                                     <div class="mt-1 rounded-md shadow-sm">
-                                                        <input required id="alergenos" name="alergenos" type="text" value="{{ $jugador->alergenos }}"
-                                                            required="" autofocus=""
+                                                        <input required id="alergenos" name="alergenos" type="text"
+                                                            value="{{ $jugador->alergenos }}" required=""
+                                                            autofocus=""
                                                             class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 ">
                                                     </div>
                                                 </div>
