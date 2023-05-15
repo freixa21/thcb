@@ -10,12 +10,12 @@
 </head>
 
 <body>
-
-    @include('partials.header')
-    <div id="container-body" class="flex justify-center mx-5 lg:mx-20">
-        @yield('content')
+    <div id="master-div">
+        @include('partials.header')
+        <div id="container-body" class="flex justify-center mx-5 lg:mx-20">
+            @yield('content')
+        </div>
     </div>
-
 </body>
 
 </html>

@@ -1286,6 +1286,10 @@ html, body {
   height: 100%;
 }
 
+#master-div {
+  min-height: 100vh;
+}
+
 @font-face {
   font-family: 'Recoleta';
 
