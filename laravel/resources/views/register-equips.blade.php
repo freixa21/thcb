@@ -128,13 +128,6 @@
                                 He llegit i accepto la política de privacitat
                             </label>
                         </div>
-
-                        <div class="text-sm leading-5">
-                            <a href="#"
-                                class="font-medium text-blue-600 hover:text-blue-500 focus:outline-none focus:underline transition ease-in-out duration-150">
-                                Has oblidat la contraseña?
-                            </a>
-                        </div>
                     </div>
 
                     <div class="mt-6">
