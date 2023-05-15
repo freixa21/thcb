@@ -420,7 +420,7 @@
                                                         </label>
 
                                                         <div class="mt-1 rounded-md shadow-sm">
-                                                            <input required id="alergenos" name="alergenos"
+                                                            <input id="alergenos" name="alergenos"
                                                                 type="text" value="{{ $jugador->alergenos }}"
                                                                 autofocus=""
                                                                 class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 ">
@@ -444,7 +444,7 @@
                                                             @csrf
                                                             @method('DELETE')
                                                             <button type="submit"
-                                                                onclick="return confirm('¿Estás seguro de que deseas eliminar este registro?')"
+                                                                onclick="return confirm('Estàs segur de que vols eliminar aquest jugador?')"
                                                                 class="text-dark block w-full rounded-lg border-2 text-sm border-[#b00;] cursor-pointer px-4 py-2 text-center font-black text-red-600 transition hover:border-red-600 hover:bg-red-600 hover:text-white">Eliminar
                                                                 jugador</button>
                                                         </form>
