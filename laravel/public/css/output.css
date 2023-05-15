@@ -481,7 +481,7 @@ li {
   padding: 1px 10px;
   border-radius: 5px;
   margin-top: 5px;
-  color: red;
+  color: #d70000;
   font-weight: 600;
 }
 
@@ -887,6 +887,10 @@ body {
   width: 100%;
 }
 
+.w-1\/2 {
+  width: 50%;
+}
+
 .max-w-0 {
   max-width: 0rem;
 }
@@ -911,6 +915,10 @@ body {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
+}
+
+.flex-row {
+  flex-direction: row;
 }
 
 .flex-col {
@@ -1089,6 +1097,10 @@ body {
   padding: 0.75rem;
 }
 
+.p-1 {
+  padding: 0.25rem;
+}
+
 .px-2 {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
@@ -1149,6 +1161,10 @@ body {
 
 .pt-5 {
   padding-top: 1.25rem;
+}
+
+.pr-2 {
+  padding-right: 0.5rem;
 }
 
 .text-left {
@@ -1561,6 +1577,14 @@ html, body {
 
   .lg\:w-1\/2 {
     width: 50%;
+  }
+
+  .lg\:w-1\/3 {
+    width: 33.333333%;
+  }
+
+  .lg\:w-2\/3 {
+    width: 66.666667%;
   }
 
   .lg\:flex-row {

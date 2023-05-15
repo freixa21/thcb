@@ -15,13 +15,14 @@ return new class extends Migration {
             $table->string('talla');
             $table->string('alergenos')->nullable();
             $table->boolean('after');
-            $table->boolean('pagado')->default(false);
-            $table->boolean('pago_confirmado')->default(false);
+            $table->boolean('pago_confirmado')->default(0);
+            $table->string('estado_inscripcion')->default("0");
+            $table->string('comprovante_img')->nullable();
             $table->timestamps();
         });
     }
 
     public function down() {
-        Schema::dropIfExists('equipos');
+        Schema::dropIfExists('espectador');
     }
 };
