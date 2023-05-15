@@ -6,6 +6,7 @@ use App\Http\Controllers\RegistroEspectadoresController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\EquipoController;
 use App\Http\Controllers\EspectadorController;
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,6 +21,13 @@ use App\Http\Controllers\EspectadorController;
 Route::get('/', [LoginController::class, 'index'])->name('auth.login');
 Route::post('/', [LoginController::class, 'authenticate'])->name('auth.login');
 Route::get('logout', [LoginController::class, 'logout'])->name('auth.logout');
+
+// Recuperar Password
+Route::get('/recuperar-contrasenya', [UserController::class, 'recuperarPasswordView'])->middleware('guest')->name('password.request');
+Route::post('/recuperar-contrasenya', [UserController::class, 'enviarLink'])->middleware('guest')->name('password.email');
+// Reiniciar Password
+Route::get('/reiniciar-contrasenya/{token}', [UserController::class, 'reiniciarPasswordView'])->middleware('guest')->name('password.reset');
+Route::get('/reiniciar-contrasenya', [UserController::class, 'reiniciarPassword'])->middleware('guest')->name('password.update');
 
 // Registre EQUIPS
 Route::get("registre-equips", [RegistroEquiposController::class, "index"])->name('index.equips');

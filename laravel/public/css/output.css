@@ -863,6 +863,10 @@ body {
   min-height: 100vh;
 }
 
+.w-1\/2 {
+  width: 50%;
+}
+
 .w-1\/3 {
   width: 33.333333%;
 }
@@ -885,10 +889,6 @@ body {
 
 .w-full {
   width: 100%;
-}
-
-.w-1\/2 {
-  width: 50%;
 }
 
 .max-w-0 {
@@ -1097,10 +1097,6 @@ body {
   padding: 0.75rem;
 }
 
-.p-1 {
-  padding: 0.25rem;
-}
-
 .px-2 {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
@@ -1159,12 +1155,12 @@ body {
   padding-bottom: 8rem;
 }
 
-.pt-5 {
-  padding-top: 1.25rem;
-}
-
 .pr-2 {
   padding-right: 0.5rem;
+}
+
+.pt-5 {
+  padding-top: 1.25rem;
 }
 
 .text-left {
