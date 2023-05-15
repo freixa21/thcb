@@ -29,7 +29,7 @@
             </div>
         @endif
 
-        <div id="container-body" class="flex justify-center flex-col mx-5 lg:mx-20">
+        <div id="container-body" class="mb-4 flex justify-center align-middle">
             @yield('content')
         </div>
     </div>

@@ -3,109 +3,110 @@
 @section('title', Auth::user()->equipo->nombre)
 
 @section('content')
-    <div class="w-full max-w-screen-2xl">
-        <div class="w-full">
-            <div id="bloc-principal" class="flex flex-col lg:flex-row">
-                <div id="informacio" class="w-full lg:w-1/2 shadow-md  p-3 rounded-lg mb-5 lg:mb-0">
-                    <h1 class="mr-2 mb-2">{{ Auth::user()->equipo->nombre }}</h1>
-                    <p><strong>Nom capità: </strong> {{ Auth::user()->name }} {{ Auth::user()->apellidos }} </p>
-                    <p><strong>Correu electrònic:</strong> {{ Auth::user()->email }} </p>
-                    <p><strong>Telèfon:</strong> {{ Auth::user()->phone }} </p>
-                </div>
-                <!-- ====== Modal Section Start -->
-                <div id="estat-inscripcio" class="flex flex-col shadow-md  p-3 rounded-lg w-full lg:w-1/2">
-
-                    <div class="flex flex-col">
-                        <h2 class="mr-2 mb-2">Estat de la inscripció:</h2>
-                        @if (Auth::user()->equipo->estado_inscripcion == 0)
-                            <div class="estat-0">Pendent de pagament</div>
+    <div class="flex  mx-5 lg:mx-20 max-w-screen-2xl w-full flex-col">
+        <div class="w-full max-w-screen-2xl">
+            <div class="w-full">
+                <div id="bloc-principal" class="flex flex-col lg:flex-row">
+                    <div id="informacio" class="w-full lg:w-1/2 shadow-md  p-3 rounded-lg mb-5 lg:mb-0">
+                        <h1 class="mr-2 mb-2">{{ Auth::user()->equipo->nombre }}</h1>
+                        <p><strong>Nom capità: </strong> {{ Auth::user()->name }} {{ Auth::user()->apellidos }} </p>
+                        <p><strong>Correu electrònic:</strong> {{ Auth::user()->email }} </p>
+                        <p><strong>Telèfon:</strong> {{ Auth::user()->phone }} </p>
                     </div>
-                    <div class="flex">
-                        <form action="{{ route('uploadComprovant') }}" method="POST" enctype="multipart/form-data" class="mb-0">
-                            @csrf
-                            <div class="mb-4">
-                                <label for="comprovante_img" class="block mt-3">Adjuntar comprovant/captura de
-                                    pantalla:</label>
-                                <input type="file" name="comprovante_img" id="comprovante_img"
-                                    class="form-input rounded-md shadow-sm mt-1 block w-full">
-                                @error('comprovante_img')
-                                    <p class="text-red-500 mt-1">{{ $message }}</p>
-                                @enderror
-                            </div>
-                            <div class="mt-2">
-                                <button type="submit"
-                                    class="bg-blue-900 hover:bg-blue-800 text-white font-bold py-2 px-2 rounded">
-                                    Enviar
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                @elseif(Auth::user()->equipo->estado_inscripcion == 1)
-                    <div class="estat-1 mt-3 mb-2">Pagament realitzat. Validació en procés.</div>
-                    <a href="{{ asset('images/uploads/' . Auth::user()->equipo->comprovante_img) }}"class="text-xs mt-2 underline"
-                        target="_blank">Veure
-                        comprovant adjuntat</a>
-                @elseif(Auth::user()->equipo->estado_inscripcion == 2)
-                    <div class="estat-2">Pagament verificat. Inscripcio confirmada!</div>
-                </div>
-                @endif
-                <section x-data="{ modalOpen: false }" id="instruccions">
+                    <!-- ====== Modal Section Start -->
+                    <div id="estat-inscripcio" class="flex flex-col shadow-md  p-3 rounded-lg w-full lg:w-1/2">
 
-                        <button @click="modalOpen = true"
-                            class="text-blue-950 underline font-medium mt-4">
+                        <div class="flex flex-col">
+                            <h2 class="mr-2 mb-2">Estat de la inscripció:</h2>
+                            @if (Auth::user()->equipo->estado_inscripcion == 0)
+                                <div class="estat-0">Pendent de pagament</div>
+                        </div>
+                        <div class="flex">
+                            <form action="{{ route('uploadComprovant') }}" method="POST" enctype="multipart/form-data"
+                                class="mb-0">
+                                @csrf
+                                <div class="mb-4">
+                                    <label for="comprovante_img" class="block mt-3">Adjuntar comprovant/captura de
+                                        pantalla:</label>
+                                    <input type="file" name="comprovante_img" id="comprovante_img"
+                                        class="form-input rounded-md shadow-sm mt-1 block w-full" required>
+                                    @error('comprovante_img')
+                                        <p class="text-red-500 mt-1">{{ $message }}</p>
+                                    @enderror
+                                </div>
+                                <div class="mt-2">
+                                    <button type="submit"
+                                        class="bg-blue-900 hover:bg-blue-800 text-white font-bold py-2 px-2 rounded">
+                                        Enviar
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    @elseif(Auth::user()->equipo->estado_inscripcion == 1)
+                        <div class="estat-1 mt-3 mb-2">Pagament realitzat. Validació en procés.</div>
+                        <a href="{{ asset('images/uploads/' . Auth::user()->equipo->comprovante_img) }}"class="text-xs mt-2 underline"
+                            target="_blank">Veure
+                            comprovant adjuntat</a>
+                    @elseif(Auth::user()->equipo->estado_inscripcion == 2)
+                        <div class="estat-2">Pagament verificat. Inscripció confirmada!</div>
+                    </div>
+                    @endif
+                    <section x-data="{ modalOpen: false }" id="instruccions">
+
+                        <button @click="modalOpen = true" class="text-blue-950 underline font-medium mt-4">
                             Com fer el pagament?
                         </button>
 
-                    <div x-show="modalOpen" x-transition style="z-index: 1"
-                        class="fixed top-0 left-0 flex h-full min-h-screen w-full justify-center bg-black bg-opacity-90 px-4 py-5 overflow-y-auto">
-                        <div @click.outside="modalOpen = false"
-                            class="w-full max-w-[570px] rounded-[20px] bg-white py-12 px-8 text-center md:py-[60px] md:px-[70px] h-fit">
-                            <h3 class="text-dark pb-2 text-xl font-bold sm:text-2xl">
-                                Instruccions
-                            </h3>
-                            <span class="bg-primary mx-auto mb-6 inline-block h-1 w-[90px] rounded"></span>
-                            <p><strong>1.</strong> Afegiu, editeu i elimineu jugadors.</p>
-                            <p><strong>2.</strong> Un cop afegits tots els jugadors, feu el pagament a través de
-                                l’aplicació
-                                Verse a:
-                                <br> - Al número: 630 206 438
-                                <br> - Al $VerseTag: $maxfreixa
-                                <br> - o escanejant el QR:
-                            </p>
-                            <a href="#" target="_blank"><img src="{{ asset('images/qr-web-thcb.png') }}"
-                                    alt="" class="qr-beach"></a>
-                            <p class="mini-qr">Si estàs conectat desde el mòbil obrir l'enllaç del QR picant l'imatge
-                            </p>
-                            <p><strong>3.</strong> Adjunteu una captura de pantalla del pagament i marqueu l’opció
-                                “Confirmar pagament”.
-                                Un cop verifiquem que em rebut correctament el pagament, confirmarem la vostra
-                                inscripció
-                                del
-                                torneig
-                                per correu electrònic.</p>
-                            <div class="-mx-3 flex flex-wrap">
-                                <div class="w-full px-3">
-                                    <button @click="modalOpen = false"
-                                        class="text-dark block w-full rounded-lg border border-[#E9EDF9] p-3 text-center text-base font-medium bg-blue-950 text-white transition hover:border-blue-900 hover:bg-blue-900 hover:text-white">
-                                        Tancar finestra
-                                    </button>
+                        <div x-show="modalOpen" x-transition style="z-index: 1"
+                            class="fixed top-0 left-0 flex h-full min-h-screen w-full justify-center bg-black bg-opacity-90 px-4 py-5 overflow-y-auto">
+                            <div @click.outside="modalOpen = false"
+                                class="w-full max-w-[570px] rounded-[20px] bg-white py-12 px-8 text-center md:py-[60px] md:px-[70px] h-fit">
+                                <h3 class="text-dark pb-2 text-xl font-bold sm:text-2xl">
+                                    Instruccions
+                                </h3>
+                                <span class="bg-primary mx-auto mb-6 inline-block h-1 w-[90px] rounded"></span>
+                                <p><strong>1.</strong> Afegiu, editeu i elimineu jugadors.</p>
+                                <p><strong>2.</strong> Un cop afegits tots els jugadors, feu el pagament a través de
+                                    l’aplicació
+                                    Verse a:
+                                    <br> - Al número: 630 206 438
+                                    <br> - Al $VerseTag: $maxfreixa
+                                    <br> - o escanejant el QR:
+                                </p>
+                                <a href="#" target="_blank"><img src="{{ asset('images/qr-web-thcb.png') }}"
+                                        alt="" class="qr-beach"></a>
+                                <p class="mini-qr">Si estàs conectat desde el mòbil obrir l'enllaç del QR picant l'imatge
+                                </p>
+                                <p><strong>3.</strong> Adjunteu una captura de pantalla del pagament i marqueu l’opció
+                                    “Confirmar pagament”.
+                                    Un cop verifiquem que em rebut correctament el pagament, confirmarem la vostra
+                                    inscripció
+                                    del
+                                    torneig
+                                    per correu electrònic.</p>
+                                <div class="-mx-3 flex flex-wrap">
+                                    <div class="w-full px-3">
+                                        <button @click="modalOpen = false"
+                                            class="text-dark block w-full rounded-lg border border-[#E9EDF9] p-3 text-center text-base font-medium bg-blue-950 text-white transition hover:border-blue-900 hover:bg-blue-900 hover:text-white">
+                                            Tancar finestra
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </section>
+                    </section>
+                </div>
+                <!-- ====== Modal Section End -->
             </div>
-            <!-- ====== Modal Section End -->
+
+
+
+
         </div>
-        
-
-
-
     </div>
-    </div>
-    <div class="w-full mt-4">
+    <div class="w-full mt-4 max-w-screen-2xl">
         <h2 class="mb-2">Jugadors</h2>
-        <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+        <div class="relative overflow-x-auto shadow-md rounded-lg">
             <table class="w-full text-sm text-left text-gray-500 ">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50  ">
                     <tr>
@@ -118,7 +119,7 @@
                         <th scope="col" class="px-2 py-3 amagar-mobil">Afterparty</th>
                         <th scope="col" class="px-2 py-3 amagar-mobil">Al·lèrgies</th>
                         <th scope="col" class="px-2 py-3 amagar-mobil">Data inscripció</th>
-                        <th scope="col" class="px-2 py-3">Inscripció</th>
+                        <th scope="col" class="px-2 py-3">€</th>
                         <th scope="col" class="px-2 py-3">
                             <span class="sr-only"></span>
                         </th>
@@ -407,7 +408,7 @@
 
                                                     <div class="mt-1 rounded-md shadow-sm">
                                                         <input required id="alergenos" name="alergenos" type="text"
-                                                            value="{{ $jugador->alergenos }}" required=""
+                                                            value="{{ $jugador->alergenos }}"
                                                             autofocus=""
                                                             class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 ">
                                                     </div>
@@ -425,10 +426,14 @@
 
                                             <div class="-mx-3 flex flex-wrap mb-2">
                                                 <div class="w-full px-3">
-                                                    <form action="{{ route('eliminarJugador', $jugador->id) }}" method="POST" class="mb-0">
+                                                    <form action="{{ route('eliminarJugador', $jugador->id) }}"
+                                                        method="POST" class="mb-0">
                                                         @csrf
                                                         @method('DELETE')
-                                                        <button type="submit" onclick="return confirm('¿Estás seguro de que deseas eliminar este registro?')"  class="text-dark block w-full rounded-lg border-2 text-sm border-[#b00;] cursor-pointer px-4 py-2 text-center font-black text-red-600 transition hover:border-red-600 hover:bg-red-600 hover:text-white">Eliminar jugador</button>
+                                                        <button type="submit"
+                                                            onclick="return confirm('¿Estás seguro de que deseas eliminar este registro?')"
+                                                            class="text-dark block w-full rounded-lg border-2 text-sm border-[#b00;] cursor-pointer px-4 py-2 text-center font-black text-red-600 transition hover:border-red-600 hover:bg-red-600 hover:text-white">Eliminar
+                                                            jugador</button>
                                                     </form>
                                                 </div>
                                             </div>
@@ -680,8 +685,8 @@
                             </label>
 
                             <div class="mt-1 rounded-md shadow-sm">
-                                <input required id="alergenos" name="alergenos" type="text" value=""
-                                    required="" autofocus=""
+                                <input id="alergenos" name="alergenos" type="text" value=""
+                                     autofocus=""
                                     class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 ">
                             </div>
                         </div>
@@ -711,5 +716,5 @@
 
     </div>
     </div>
-
+    </div>
 @endsection
