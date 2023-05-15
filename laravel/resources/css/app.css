@@ -11,6 +11,24 @@ html, body {
     min-height: 100vh;
 }
 
+.alert {
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+.alert-success {
+    background-color: #adffad;
+    color: #010400;
+}
+
+.alert-danger {
+    background-color: #ffb1b1;
+    color: #d60000;
+}
+
+
+
 @font-face {
     font-family: 'Recoleta';
     src: url('/fonts/Recoleta-Bold.ttf');

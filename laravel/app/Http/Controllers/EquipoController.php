@@ -41,7 +41,7 @@ class EquipoController extends Controller {
         ]);
 
 
-        return redirect()->back()->with('success', 'El comprovant s\'a enviat correctament. Ens posarem en conctacte amb tu quan haguem verificat el pagament i la inscripció del teu equip quedarà confirmada!');
+        return redirect()->back()->with('success', 'El comprovant s\'ha enviat correctament. Ens posarem en conctacte amb tu quan haguem verificat el pagament i la inscripció del teu equip quedarà confirmada!');
     }
 
     // Actualizar Jugador
@@ -99,6 +99,15 @@ class EquipoController extends Controller {
 
         $jugador->save();
 
-        return redirect()->back()->with('success', 'Jugador actualitzat correctament');
+        return redirect()->back()->with('success', 'Jugador afegit correctament');
+    }
+
+    // Eliminar Jugador
+    public function eliminarJugador($id): RedirectResponse {
+
+        $jugador = Jugador::find($id);
+        $jugador->delete();
+
+        return redirect()->back()->with('success', 'Jugador eliminat correctament');
     }
 }

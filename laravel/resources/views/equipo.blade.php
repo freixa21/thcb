@@ -8,17 +8,6 @@
             <div id="bloc-principal" class="flex flex-col lg:flex-row">
                 <div id="informacio" class="w-full lg:w-1/2 shadow-md  p-3 rounded-lg mb-5 lg:mb-0">
                     <h1 class="mr-2 mb-2">{{ Auth::user()->equipo->nombre }}</h1>
-
-                    @if ($errors->any())
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
-
                     <p><strong>Nom capità: </strong> {{ Auth::user()->name }} {{ Auth::user()->apellidos }} </p>
                     <p><strong>Correu electrònic:</strong> {{ Auth::user()->email }} </p>
                     <p><strong>Telèfon:</strong> {{ Auth::user()->phone }} </p>
@@ -26,13 +15,13 @@
                 <!-- ====== Modal Section Start -->
                 <div id="estat-inscripcio" class="flex flex-col shadow-md  p-3 rounded-lg w-full lg:w-1/2">
 
-                    <div class="items-center">
+                    <div class="flex flex-col">
                         <h2 class="mr-2 mb-2">Estat de la inscripció:</h2>
                         @if (Auth::user()->equipo->estado_inscripcion == 0)
                             <div class="estat-0">Pendent de pagament</div>
                     </div>
                     <div class="flex">
-                        <form action="{{ route('uploadComprovant') }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('uploadComprovant') }}" method="POST" enctype="multipart/form-data" class="mb-0">
                             @csrf
                             <div class="mb-4">
                                 <label for="comprovante_img" class="block mt-3">Adjuntar comprovant/captura de
@@ -43,10 +32,10 @@
                                     <p class="text-red-500 mt-1">{{ $message }}</p>
                                 @enderror
                             </div>
-                            <div class="mt-8">
+                            <div class="mt-2">
                                 <button type="submit"
-                                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                                    Marcar com a pagada
+                                    class="bg-blue-900 hover:bg-blue-800 text-white font-bold py-2 px-2 rounded">
+                                    Enviar
                                 </button>
                             </div>
                         </form>
@@ -61,12 +50,12 @@
                 </div>
                 @endif
                 <section x-data="{ modalOpen: false }" id="instruccions">
-                    <div class="container mx-auto">
+
                         <button @click="modalOpen = true"
-                            class="bg-blue-950 text-white rounded-md px-1 py-1 mt-4 text-base font-medium">
+                            class="text-blue-950 underline font-medium mt-4">
                             Com fer el pagament?
                         </button>
-                    </div>
+
                     <div x-show="modalOpen" x-transition style="z-index: 1"
                         class="fixed top-0 left-0 flex h-full min-h-screen w-full justify-center bg-black bg-opacity-90 px-4 py-5 overflow-y-auto">
                         <div @click.outside="modalOpen = false"
@@ -107,8 +96,8 @@
                 </section>
             </div>
             <!-- ====== Modal Section End -->
-
         </div>
+        
 
 
 
@@ -187,7 +176,7 @@
                                             </h3>
 
                                             <form autocomplete="on" action="{{ route('actualitzarJugador') }}"
-                                                method="POST">
+                                                method="POST" class="mb-2">
                                                 @csrf
 
                                                 <input type="hidden" name="id" value="{{ $jugador->id }}">
@@ -371,7 +360,7 @@
                                                 <div class="mt-2">
                                                     <label for="after"
                                                         class="block text-sm font-medium text-gray-700 leading-5">
-                                                        Vols comprar entrada a l'afterparty?
+                                                        Entrada a l'afterparty?
                                                     </label>
 
                                                     <ul class="flex flex-col sm:flex-row mt-1">
@@ -427,17 +416,27 @@
                                                 <div class="mt-6">
                                                     <span class="block w-full rounded-md shadow-sm">
                                                         <button type="submit"
-                                                            class="flex justify-center w-full px-4 py-2 text-sm font-medium text-white bg-blue-900 border border-transparent rounded-md hover:bg-blue-700 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out">
-                                                            Actualitzar informació
+                                                            class="flex justify-center w-full px-4 py-2 text-sm text-white font-black bg-green-500 border border-transparent rounded-md hover:bg-green-800 transition duration-150 ease-in-out">
+                                                            Guardar canvis
                                                         </button>
                                                     </span>
                                                 </div>
                                             </form>
 
+                                            <div class="-mx-3 flex flex-wrap mb-2">
+                                                <div class="w-full px-3">
+                                                    <form action="{{ route('eliminarJugador', $jugador->id) }}" method="POST" class="mb-0">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" onclick="return confirm('¿Estás seguro de que deseas eliminar este registro?')"  class="text-dark block w-full rounded-lg border-2 text-sm border-[#b00;] cursor-pointer px-4 py-2 text-center font-black text-red-600 transition hover:border-red-600 hover:bg-red-600 hover:text-white">Eliminar jugador</button>
+                                                    </form>
+                                                </div>
+                                            </div>
+
                                             <div class="-mx-3 flex flex-wrap">
                                                 <div class="w-full px-3">
                                                     <button @click="modalOpen = false"
-                                                        class="text-dark block w-full rounded-lg border border-[#E9EDF9] p-3 text-center text-base font-medium bg-blue-950 text-white transition hover:border-blue-900 hover:bg-blue-900 hover:text-white">
+                                                        class="text-dark block w-full rounded-lg border-2 text-sm border-[#1e3a8a;] px-4 py-2 text-center font-black text-blue-950 transition hover:border-blue-900 hover:bg-blue-900 hover:text-white">
                                                         Tancar finestra
                                                     </button>
                                                 </div>
@@ -487,7 +486,7 @@
                         Afegir nou jugador
                     </h3>
 
-                    <form autocomplete="on" action="{{ route('afegirJugador') }}" method="POST">
+                    <form autocomplete="on" action="{{ route('afegirJugador') }}" method="POST" class="mb-2">
                         @csrf
 
                         <div class="mt-2">
@@ -640,7 +639,7 @@
 
                         <div class="mt-2">
                             <label for="after" class="block text-sm font-medium text-gray-700 leading-5">
-                                Vols comprar entrada a l'afterparty?
+                                Entrada a l'afterparty?
                             </label>
 
                             <ul class="flex flex-col sm:flex-row mt-1">
@@ -700,7 +699,7 @@
                     <div class="-mx-3 flex flex-wrap">
                         <div class="w-full px-3">
                             <button @click="modalOpen = false"
-                                class="text-dark block w-full rounded-lg border border-[#E9EDF9] p-3 text-center text-base font-medium bg-blue-950 text-white transition hover:border-blue-900 hover:bg-blue-900 hover:text-white">
+                                class="text-dark block w-full rounded-lg border-2 text-sm border-[#1e3a8a;] px-4 py-2 text-center font-black text-blue-950 transition hover:border-blue-900 hover:bg-blue-900 hover:text-white">
                                 Tancar finestra
                             </button>
                         </div>
