@@ -88,8 +88,6 @@ html, body {
 
     ol, ul, menu {
         list-style: decimal;
-        margin: inherit;
-        padding: inherit;
     }
 
     li {

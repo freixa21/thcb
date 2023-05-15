@@ -27,7 +27,7 @@ Route::get('/recuperar-contrasenya', [UserController::class, 'recuperarPasswordV
 Route::post('/recuperar-contrasenya', [UserController::class, 'enviarLink'])->middleware('guest')->name('password.email');
 // Reiniciar Password
 Route::get('/reiniciar-contrasenya/{token}', [UserController::class, 'reiniciarPasswordView'])->middleware('guest')->name('password.reset');
-Route::get('/reiniciar-contrasenya', [UserController::class, 'reiniciarPassword'])->middleware('guest')->name('password.update');
+Route::post('/reiniciar-contrasenya', [UserController::class, 'reiniciarPassword'])->middleware('guest')->name('password.update');
 
 // Registre EQUIPS
 Route::get("registre-equips", [RegistroEquiposController::class, "index"])->name('index.equips');

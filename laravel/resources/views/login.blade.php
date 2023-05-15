@@ -33,12 +33,22 @@
         @endif
 
         @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
+            <div class="flex justify-center w-full">
+                <div class="alert alert-danger">
+                    <ul class="list-none p-0 m-0">
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            </div>
+        @endif
+
+        @if (session()->has('success'))
+            <div class="flex justify-center w-full">
+                <div class="alert alert-success max-w-screen-2xl mx-5 lg:mx-20">
+                    {{ session()->get('success') }}
+                </div>
             </div>
         @endif
 
@@ -73,7 +83,7 @@
                     <div class="flex items-center justify-between mt-6">
 
                         <div class="text-sm leading-5">
-                            <a href="#"
+                            <a href="{{ route('password.request') }}"
                                 class="font-medium text-blue-600 hover:text-blue-500 focus:outline-none focus:underline transition ease-in-out duration-150">
                                 Has oblidat la contrasenya?
                             </a>

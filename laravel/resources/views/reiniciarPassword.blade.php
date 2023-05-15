@@ -22,19 +22,34 @@
         </div>
 
         @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
+            <div class="flex justify-center w-full">
+                <div class="alert alert-danger">
+                    <ul class="p-0 m-0 list-none">
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            </div>
+        @endif
+
+        @if (session()->has('success'))
+            <div class="flex justify-center w-full">
+                <div class="alert alert-success max-w-screen-2xl mx-5 lg:mx-20">
+                    {{ session()->get('success') }}
+                </div>
             </div>
         @endif
 
         <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md px-4">
             <div class="px-4 py-8 bg-white shadow sm:rounded-lg sm:px-10">
-                <form action="" method="post">
+                <form action="{{ route('password.update', ['token' => $token]) }}" method="post" autocomplete="off">
                     @csrf
+
+                    <input type="hidden" name="token" value="{{ $token }}">
+                    <input type="hidden" id="email" name="email" value="{{ app('request')->input('email') }}"
+                        required autofocus>
+
                     <div class="mt-2">
                         <label for="password" class="block text-sm font-medium text-gray-700 leading-5">
                             Contrasenya

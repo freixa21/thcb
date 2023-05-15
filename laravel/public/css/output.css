@@ -466,8 +466,6 @@ div {
 
 ol, ul, menu {
   list-style: decimal;
-  margin: inherit;
-  padding: inherit;
 }
 
 li {
@@ -901,6 +899,11 @@ body {
 
 .max-w-screen-2xl {
   max-width: 1536px;
+}
+
+.max-w-fit {
+  max-width: -moz-fit-content;
+  max-width: fit-content;
 }
 
 .cursor-pointer {

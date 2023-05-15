@@ -22,12 +22,12 @@ class UserController extends Controller {
         );
 
         return $status === Password::RESET_LINK_SENT
-            ? back()->with(['status' => __($status)])
+            ? back()->with(['success' => __($status)])
             : back()->withErrors(['email' => __($status)]);
     }
 
-    public function reiniciarPasswordView() {
-        return view('reiniciarPassword');
+    public function reiniciarPasswordView(string $token) {
+        return view('reiniciarPassword', ['token' => $token]);
     }
 
     public function reiniciarPassword(Request $request) {
@@ -35,7 +35,7 @@ class UserController extends Controller {
             $request->validate([
                 'token' => 'required',
                 'email' => 'required|email',
-                'password' => 'required|min:8|confirmed',
+                'password' => 'required|min:6|confirmed',
             ]);
          
             $status = Password::reset(
@@ -52,7 +52,7 @@ class UserController extends Controller {
             );
          
             return $status === Password::PASSWORD_RESET
-                        ? redirect()->route('login')->with('status', __($status))
+                        ? redirect()->route('auth.login')->with('success', __($status))
                         : back()->withErrors(['email' => [__($status)]]);
     }
     
