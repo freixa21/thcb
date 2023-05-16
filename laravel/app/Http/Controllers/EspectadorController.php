@@ -52,7 +52,7 @@ class EspectadorController extends Controller {
     public function actualizarEspectador(Request $request): RedirectResponse {
 
         $request->flash();
-        $espectador = Espectador::find($request->id);
+        $espectador = Espectador::findOrFail(Auth::user()->espectador->id);
 
         if ($espectador->estado_inscripcion != 0) {
             $request->merge([

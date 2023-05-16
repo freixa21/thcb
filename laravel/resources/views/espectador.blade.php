@@ -13,9 +13,6 @@
 
                         <form autocomplete="on" action="{{ route('actualitzarEspectador') }}" method="POST" class="mb-2">
                             @csrf
-
-                            <input type="hidden" name="id" value="{{ $espectador->id }}">
-
                             <div class="flex flex-row flex-wrap">
                                 <div class="mt-2 w-1/2 pr-2">
                                     <label for="name" class="block text-sm font-medium text-gray-700 leading-5">
