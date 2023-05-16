@@ -7,6 +7,7 @@ use App\Models\Equipo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Redirect;
 
 class RegistroEquiposController extends Controller {
     public function index() {
@@ -15,6 +16,12 @@ class RegistroEquiposController extends Controller {
 
     // Registrar usuario
     public function store(Request $request): RedirectResponse {
+
+        $totalEquips = Equipo::All();
+
+        if(count($totalEquips) >= 30) {
+            return Redirect::back()->withErrors(['error' => 'Ja no hi ha places per equips nous. Estigueu pendents a Instagram per si se n\'allibera alguna o també podeu registrar-vos com a espectadors.']);
+        }
 
         $request->flash();
 
@@ -39,15 +46,6 @@ class RegistroEquiposController extends Controller {
         $validated_equipo['id_usuario'] = DB::getPdo()->lastInsertId();
         Equipo::create($validated_equipo);
 
-        
-
-
-
-        // Preparamos el mensaje i enviamos los parametros
-        //$nombreRegistrado = $validated['nombre'];
-        //$correoRegistrado = $validated['email'];
-        //Mail::to($correoRegistrado)->send(new RegistroEmail($nombreRegistrado));
-        // Una vez creado correctamente el usuario devolvemos con mensaje correcto
         return redirect()->route('auth.login')->with('registroCorrecto', 'Equip registrat correctament! Inicia sessió i afegeix a tots els jugadors del teu equip.');
     }
 }

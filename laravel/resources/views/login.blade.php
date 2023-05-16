@@ -1,28 +1,13 @@
-<!doctype html>
-<html>
+@extends('partials.head')
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="{{ asset('css/output.css') }}" rel="stylesheet">
-</head>
+@section('title', 'Login')
 
-<body>
+
     <div class="flex flex-col justify-center min-h-screen py-12 bg-gray-50 sm:px-6 lg:px-8">
         <div class="sm:mx-auto sm:w-full sm:max-w-md">
-            <h2 class="mt-6 text-3xl font-extrabold text-center text-gray-900 leading-9">
+            <h1 class="text-3xl font-extrabold text-center text-gray-900 leading-9">
                 Iniciar sessió
-            </h2>
-            <p class="mt-2 text-sm text-center text-gray-600 leading-5 max-w">
-                <a href="/registre-equips"
-                    class="font-medium text-blue-600 hover:text-blue-500 focus:outline-none focus:underline transition ease-in-out duration-150">
-                    <strong>registrar equip</strong>
-                </a> o
-                <a href="/registre-espectadors"
-                    class="font-medium text-blue-600 hover:text-blue-500 focus:outline-none focus:underline transition ease-in-out duration-150">
-                    <strong>registrar espectador</strong>
-                </a>
-            </p>
+            </h1>
         </div>
 
         @if (session('registroCorrecto'))
@@ -52,7 +37,7 @@
             </div>
         @endif
 
-        <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md px-4">
+        <div class="mt-2 sm:mx-auto sm:w-full sm:max-w-md px-4">
             <div class="px-4 py-8 bg-white shadow sm:rounded-lg sm:px-10">
                 <form action="{{ route('auth.login') }}" method="post">
                     @csrf
@@ -68,7 +53,7 @@
 
                     </div>
 
-                    <div class="mt-6">
+                    <div class="mt-4">
                         <label for="password" class="block text-sm font-medium text-gray-700 leading-5">
                             Contrasenya
                         </label>
@@ -80,7 +65,7 @@
 
                     </div>
 
-                    <div class="flex items-center justify-between mt-6">
+                    <div class="flex items-center justify-between mt-4">
 
                         <div class="text-sm leading-5">
                             <a href="{{ route('password.request') }}"
@@ -90,15 +75,37 @@
                         </div>
                     </div>
 
-                    <div class="mt-6">
+                    <div class="mt-4">
                         <span class="block w-full rounded-md shadow-sm">
                             <button type="submit"
-                                class="flex justify-center w-full px-4 py-2 text-sm font-medium text-white bg-blue-900 border border-transparent rounded-md hover:bg-blue-700 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out">
+                                class="flex justify-center w-full px-4 py-2 text-sm font-medium text-white bg-blue-900 border border-transparent rounded-md hover:bg-blue-700 focus:outline-none transition duration-150 ease-in-out">
                                 Iniciar sessió
                             </button>
                         </span>
                     </div>
                 </form>
+            </div>
+        </div>
+
+        <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md px-4">
+
+            <h3 class="text-center mb-2">No estás registrat?</h3>
+
+            <div class="px-4 py-8 bg-white shadow sm:rounded-lg sm:px-10 flex flex-row">
+                <div class="w-1/2 text-center">
+                    <a href="/registre-equips"
+                        class="font-medium text-sm  block p-2 w-full rounded-md bg-blue-900 text-white hover:bg-blue-700 mr-2 focus:outline-none focus:underline transition ease-in-out duration-150">
+                        Registrar equip &nbsp;<i class="fa-solid fa-people-group" style="color: #ffffff;"></i>
+                    </a>
+                </div>
+                <div class="w-1/2 text-center">
+
+                    <a href="/registre-espectadors"
+                    class="font-medium text-sm  block p-2 w-full rounded-md bg-blue-900 text-white hover:bg-blue-700 ml-2 focus:outline-none focus:underline transition ease-in-out duration-150">
+                        Registrar espectador &nbsp;<i class="fa-solid fa-person" style="color: #ffffff;"></i>
+                    </a>
+                </div>
+
             </div>
         </div>
     </div>

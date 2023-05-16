@@ -22,7 +22,6 @@ Route::group(['middleware' => 'guest'], function () {
     // Login
     Route::get('/', [LoginController::class, 'index'])->name('auth.login');
     Route::post('/', [LoginController::class, 'authenticate'])->name('auth.login');
-    Route::get('logout', [LoginController::class, 'logout'])->name('auth.logout');
 
     // Recuperar Password
     Route::get('/recuperar-contrasenya', [UserController::class, 'recuperarPasswordView'])->middleware('guest')->name('password.request');
@@ -51,3 +50,6 @@ Route::delete("/equip/eliminar-jugador/{id}", [EquipoController::class, "elimina
 Route::get("espectador", [EspectadorController::class, "index"])->name('index.espectadors');
 Route::post("actualitzar-espectador", [EspectadorController::class, "actualizarEspectador"])->name('actualitzarEspectador');
 Route::post('espectador/image/upload', [EspectadorController::class, 'espectadorComprovant'])->name('espectadorComprovant');
+
+// Logout
+Route::get('logout', [LoginController::class, 'logout'])->name('auth.logout');

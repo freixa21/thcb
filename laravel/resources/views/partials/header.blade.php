@@ -5,7 +5,9 @@
         </div>
         <div class="w-2/3 flex items-center text-white justify-end">
 
-            @if (Auth::user()->equipo)
+            @if (Auth::user() == null)
+            
+            @elseif (Auth::user()->equipo)
                 <strong>{{ Auth::user()->equipo->nombre }} &nbsp;</strong>
             @elseif(Auth::user()->name)
                 <strong>{{ Auth::user()->name }} &nbsp; &nbsp;</strong>                
