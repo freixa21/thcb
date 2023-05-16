@@ -91,17 +91,17 @@
 
             <h3 class="text-center mb-2">No estás registrat?</h3>
 
-            <div class="px-4 py-8 bg-white shadow sm:rounded-lg sm:px-10 flex flex-row">
-                <div class="w-1/2 text-center">
+            <div class="px-4 py-8 bg-white shadow sm:rounded-lg sm:px-10 flex flex-col lg:flex-row">
+                <div class="w-full text-center lg:w-1/2">
                     <a href="/registre-equips"
-                        class="font-medium text-sm  block p-2 w-full rounded-md bg-blue-900 text-white hover:bg-blue-700 mr-2 focus:outline-none focus:underline transition ease-in-out duration-150">
+                        class="font-medium text-sm  block p-2 w-full rounded-md bg-blue-900 text-white hover:bg-blue-700 lg:mr-2 mb-2 lg:mb-0 focus:outline-none focus:underline transition ease-in-out duration-150">
                         Registrar equip &nbsp;<i class="fa-solid fa-people-group" style="color: #ffffff;"></i>
                     </a>
                 </div>
-                <div class="w-1/2 text-center">
+                <div class="w-full text-center lg:w-1/2">
 
                     <a href="/registre-espectadors"
-                    class="font-medium text-sm  block p-2 w-full rounded-md bg-blue-900 text-white hover:bg-blue-700 ml-2 focus:outline-none focus:underline transition ease-in-out duration-150">
+                    class="font-medium text-sm  block p-2 w-full rounded-md bg-blue-900 text-white hover:bg-blue-700 lg:ml-2 focus:outline-none focus:underline transition ease-in-out duration-150">
                         Registrar espectador &nbsp;<i class="fa-solid fa-person" style="color: #ffffff;"></i>
                     </a>
                 </div>
