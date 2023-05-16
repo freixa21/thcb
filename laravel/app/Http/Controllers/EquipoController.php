@@ -157,6 +157,6 @@ class EquipoController extends Controller {
             $request->session()->invalidate();
             $usuari->delete();
             
-            return redirect()->route('auth.login')->with('success', 'Equip eliminat correctament.');
+            return redirect()->route('auth.login')->with('success', 'Inscripció eliminada correctament.');
         }
 }
