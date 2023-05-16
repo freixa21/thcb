@@ -63,6 +63,13 @@ class EquipoController extends Controller {
             return Redirect::back()->withErrors(['error' => 'Error en actualizar el jugador.']);
         }
 
+        if ($equipo->estado_inscripcion != 0) {
+            $request->merge([
+                'talla' => $jugador->talla,
+                'after' => $jugador->after
+            ]);
+        }
+
         $validated_jugador = $request->validate([
             'name' => 'required',
             'apellidos' => 'required|max:100',
@@ -75,8 +82,8 @@ class EquipoController extends Controller {
         $jugador->nombre = $validated_jugador['name'];
         $jugador->apellidos = $validated_jugador['apellidos'];
         $jugador->sexo = $validated_jugador['sexo'];
-        $jugador->talla = $validated_jugador['talla'];
         $jugador->alergenos = $validated_jugador['alergenos'];
+        $jugador->talla = $validated_jugador['talla'];
         $jugador->after = $validated_jugador['after'];
 
         $jugador->save();

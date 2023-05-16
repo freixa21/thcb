@@ -901,11 +901,6 @@ body {
   max-width: 1536px;
 }
 
-.max-w-fit {
-  max-width: -moz-fit-content;
-  max-width: fit-content;
-}
-
 .cursor-pointer {
   cursor: pointer;
 }

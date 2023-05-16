@@ -25,6 +25,8 @@
                                 <div class="estat-0">Pendent de pagament. No confirmada.</div>
                         </div>
                         <div class="flex flex-col">
+                            <p class="mt-2">Has d'afegir un mínim de 5 jugadors per poder fer el pagament</p>
+                            @if(count($jugadores) > 4))
                             <form action="{{ route('uploadComprovant') }}" method="POST" enctype="multipart/form-data"
                                 class="mb-0">
                                 @csrf
@@ -44,6 +46,7 @@
                                     </button>
                                 </div>
                             </form>
+                            @endif
                             <section x-data="{ modalOpen: false }" id="instruccions">
                                 <button @click="modalOpen = true" class="text-blue-950 underline font-medium mt-4 text-left">
                                     Com fer el pagament?
@@ -56,10 +59,10 @@
                                             Instruccions
                                         </h3>
                                         <span class="bg-primary mx-auto mb-6 inline-block h-1 w-[90px] rounded"></span>
-                                        <p><strong>1.</strong> Afegiu, editeu i elimineu jugadors.</p>
-                                        <p><strong>2.</strong> Un cop afegits tots els jugadors, feu el pagament a través de
+                                        <p><strong>1.</strong> Afegiu mínim 5 jugadors.</p>
+                                        <p><strong>2.</strong> Un cop afegits, feu el pagament a través de
                                             l’aplicació
-                                            Verse a:
+                                            VERSE amb les següents opcions:
                                             <br> - Al número: 630 206 438
                                             <br> - Al $VerseTag: $maxfreixa
                                             <br> - o escanejant el QR:
@@ -129,11 +132,9 @@
                         <th scope="col" class="px-2 py-3 amagar-mobil">Al·lèrgies</th>
                         <th scope="col" class="px-2 py-3 amagar-mobil">Data inscripció</th>
                         <th scope="col" class="px-2 py-3">€</th>
-                        @if (Auth::user()->equipo->estado_inscripcion == 0)
                             <th scope="col" class="px-2 py-3">
                                 <span class="sr-only"></span>
                             </th>
-                        @endif
                     </tr>
                 </thead>
                 <tbody>
@@ -171,7 +172,7 @@
                                     @endif
                                 @endif
                             </td>
-                            @if (Auth::user()->equipo->estado_inscripcion == 0)
+                            
                                 <td class="py-4 max-w-0">
                                     <section x-data="{ modalOpen: false }" id="instruccions">
                                         <div class="container mx-auto">
@@ -195,30 +196,30 @@
                                                     <input type="hidden" name="id" value="{{ $jugador->id }}">
 
                                                     <div class="mt-2">
-                                                        <label for="name"
+                                                        <label for="name-{{ $loop->index}}"
                                                             class="block text-sm font-medium text-gray-700 leading-5">
                                                             Nom
                                                         </label>
 
                                                         <div class="mt-1 rounded-md shadow-sm">
-                                                            <input required id="name" name="name" type="text"
+                                                            <input required id="name-{{ $loop->index}}" name="name" type="text"
                                                                 value="{{ $jugador->nombre }}" required=""
-                                                                autofocus=""
+                                                                autofocus
                                                                 class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 ">
                                                         </div>
 
                                                     </div>
 
                                                     <div class="mt-2">
-                                                        <label for="apellidos"
+                                                        <label for="apellidos-{{ $loop->index}}"
                                                             class="block text-sm font-medium text-gray-700 leading-5">
                                                             Cognoms
                                                         </label>
 
                                                         <div class="mt-1 rounded-md shadow-sm">
-                                                            <input required id="apellidos" name="apellidos"
+                                                            <input required id="apellidos-{{ $loop->index}}" name="apellidos"
                                                                 type="text" value="{{ $jugador->apellidos }}"
-                                                                required="" autofocus=""
+                                                                required=""
                                                                 class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 ">
                                                         </div>
 
@@ -235,12 +236,12 @@
                                                                 class="inline-flex items-center gap-x-2.5 py-3 px-4 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg">
                                                                 <div class="relative flex items-start w-full">
                                                                     <div class="flex items-center h-5">
-                                                                        <input required id="sexe-home" name="sexo"
+                                                                        <input required id="sexe-home-{{ $loop->index}}" name="sexo"
                                                                             type="radio" value="H"
                                                                             class="border-gray-200 rounded-full :bg-gray-800 :border-gray-700 :checked:bg-blue-500 :checked:border-blue-500 :focus:ring-offset-gray-800"
                                                                             @if ($jugador->sexo == 'H') checked @endif>
                                                                     </div>
-                                                                    <label for="sexe-home"
+                                                                    <label for="sexe-home-{{ $loop->index}}"
                                                                         class="ml-3 block w-full text-sm text-black">
                                                                         Home
                                                                     </label>
@@ -250,12 +251,12 @@
                                                                 class="inline-flex items-center gap-x-2.5 py-3 px-4 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg :bg-gray-800 :border-gray-700 :text-white">
                                                                 <div class="relative flex items-start w-full">
                                                                     <div class="flex items-center h-5">
-                                                                        <input required id="sexe-dona" name="sexo"
+                                                                        <input required id="sexe-dona-{{ $loop->index}}" name="sexo"
                                                                             type="radio" value="D"
                                                                             class="border-gray-200 rounded-full :bg-gray-800 :border-gray-700 :checked:bg-blue-500 :checked:border-blue-500 :focus:ring-offset-gray-800"
                                                                             @if ($jugador->sexo == 'D') checked @endif>
                                                                     </div>
-                                                                    <label for="sexe-dona"
+                                                                    <label for="sexe-dona-{{ $loop->index}}"
                                                                         class="ml-3 block w-full text-sm text-gray-600 :text-gray-500">
                                                                         Dona
                                                                     </label>
@@ -277,12 +278,12 @@
                                                                 class="inline-flex items-center gap-x-2 py-3 px-2 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg">
                                                                 <div class="relative flex items-start w-full">
                                                                     <div class="flex items-center h-5">
-                                                                        <input required id="XS" value="XS"
+                                                                        <input required id="XS-{{ $loop->index}}" value="XS" @if (Auth::user()->equipo->estado_inscripcion != 0) disabled @endif
                                                                             name="talla" type="radio"
                                                                             class="border-gray-200 rounded-full :bg-gray-800 :border-gray-700 :checked:bg-blue-500 :checked:border-blue-500 :focus:ring-offset-gray-800"
                                                                             @if ($jugador->talla == 'XS') checked @endif>
                                                                     </div>
-                                                                    <label for="XS"
+                                                                    <label for="XS-{{ $loop->index}}"
                                                                         class="ml-3 block w-full text-sm text-black">
                                                                         XS
                                                                     </label>
@@ -293,12 +294,12 @@
                                                                 class="inline-flex items-center gap-x-2 py-3 px-2 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg">
                                                                 <div class="relative flex items-start w-full">
                                                                     <div class="flex items-center h-5">
-                                                                        <input required id="S" value="S"
+                                                                        <input required id="S-{{ $loop->index}}" value="S" @if (Auth::user()->equipo->estado_inscripcion != 0) disabled @endif
                                                                             name="talla" type="radio"
                                                                             class="border-gray-200 rounded-full :bg-gray-800 :border-gray-700 :checked:bg-blue-500 :checked:border-blue-500 :focus:ring-offset-gray-800"
                                                                             @if ($jugador->talla == 'S') checked @endif>
                                                                     </div>
-                                                                    <label for="S"
+                                                                    <label for="S-{{ $loop->index}}"
                                                                         class="ml-3 block w-full text-sm text-black">
                                                                         S
                                                                     </label>
@@ -309,12 +310,12 @@
                                                                 class="inline-flex items-center gap-x-2 py-3 px-2 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg">
                                                                 <div class="relative flex items-start w-full">
                                                                     <div class="flex items-center h-5">
-                                                                        <input required id="M" value="M"
+                                                                        <input required id="M-{{ $loop->index}}" value="M" @if (Auth::user()->equipo->estado_inscripcion != 0) disabled @endif
                                                                             name="talla" type="radio"
                                                                             class="border-gray-200 rounded-full :bg-gray-800 :border-gray-700 :checked:bg-blue-500 :checked:border-blue-500 :focus:ring-offset-gray-800"
                                                                             @if ($jugador->talla == 'M') checked @endif>
                                                                     </div>
-                                                                    <label for="M"
+                                                                    <label for="M-{{ $loop->index}}"
                                                                         class="ml-3 block w-full text-sm text-black">
                                                                         M
                                                                     </label>
@@ -325,12 +326,12 @@
                                                                 class="inline-flex items-center gap-x-2 py-3 px-2 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg">
                                                                 <div class="relative flex items-start w-full">
                                                                     <div class="flex items-center h-5">
-                                                                        <input required id="L" value="L"
+                                                                        <input required id="L-{{ $loop->index}}" value="L" @if (Auth::user()->equipo->estado_inscripcion != 0) disabled @endif
                                                                             name="talla" type="radio"
                                                                             class="border-gray-200 rounded-full :bg-gray-800 :border-gray-700 :checked:bg-blue-500 :checked:border-blue-500 :focus:ring-offset-gray-800"
                                                                             @if ($jugador->talla == 'L') checked @endif>
                                                                     </div>
-                                                                    <label for="L"
+                                                                    <label for="L-{{ $loop->index}}"
                                                                         class="ml-3 block w-full text-sm text-black">
                                                                         L
                                                                     </label>
@@ -341,12 +342,12 @@
                                                                 class="inline-flex items-center gap-x-2 py-3 px-2 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg">
                                                                 <div class="relative flex items-start w-full">
                                                                     <div class="flex items-center h-5">
-                                                                        <input required id="XL" value="XL"
+                                                                        <input required id="XL-{{ $loop->index}}" value="XL" @if (Auth::user()->equipo->estado_inscripcion != 0) disabled @endif
                                                                             name="talla" type="radio"
                                                                             class="border-gray-200 rounded-full :bg-gray-800 :border-gray-700 :checked:bg-blue-500 :checked:border-blue-500 :focus:ring-offset-gray-800"
                                                                             @if ($jugador->talla == 'XL') checked @endif>
                                                                     </div>
-                                                                    <label for="XL"
+                                                                    <label for="XL-{{ $loop->index}}"
                                                                         class="ml-3 block w-full text-sm text-black">
                                                                         XL
                                                                     </label>
@@ -357,12 +358,12 @@
                                                                 class="inline-flex items-center gap-x-2 py-3 px-2 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg">
                                                                 <div class="relative flex items-start w-full">
                                                                     <div class="flex items-center h-5">
-                                                                        <input required id="XXL" value="XXL"
+                                                                        <input required id="XXL-{{ $loop->index}}" value="XXL" @if (Auth::user()->equipo->estado_inscripcion != 0) disabled @endif
                                                                             name="talla" type="radio"
                                                                             class="border-gray-200 rounded-full :bg-gray-800 :border-gray-700 :checked:bg-blue-500 :checked:border-blue-500 :focus:ring-offset-gray-800"
                                                                             @if ($jugador->talla == 'XXL') checked @endif>
                                                                     </div>
-                                                                    <label for="XXL"
+                                                                    <label for="XXL-{{ $loop->index}}"
                                                                         class="ml-3 block w-full text-sm text-black">
                                                                         XXL
                                                                     </label>
@@ -382,13 +383,13 @@
                                                                 class="inline-flex items-center gap-x-2 py-3 px-2 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg">
                                                                 <div class="relative flex items-start w-full">
                                                                     <div class="flex items-center h-5">
-                                                                        <input required id="afterparty-si" name="after"
+                                                                        <input required id="afterparty-si-{{ $loop->index}}" name="after" @if (Auth::user()->equipo->estado_inscripcion != 0) disabled @endif
                                                                             type="radio" value="1"
                                                                             class="border-gray-200 rounded-full :bg-gray-800 :border-gray-700 :checked:bg-blue-500 :checked:border-blue-500 :focus:ring-offset-gray-800"
                                                                             @if ($jugador->after == 1) checked @endif>
 
                                                                     </div>
-                                                                    <label for="afterparty-si"
+                                                                    <label for="afterparty-si-{{ $loop->index}}"
                                                                         class="ml-3 block w-full text-sm text-black">
                                                                         Sí
                                                                     </label>
@@ -398,13 +399,13 @@
                                                                 class="inline-flex items-center gap-x-2 py-3 px-2 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg">
                                                                 <div class="relative flex items-start w-full">
                                                                     <div class="flex items-center h-5">
-                                                                        <input required id="afterparty-no" name="after"
+                                                                        <input required id="afterparty-no-{{ $loop->index}}" name="after" @if (Auth::user()->equipo->estado_inscripcion != 0) disabled @endif
                                                                             type="radio" value="0"
                                                                             class="border-gray-200 rounded-full :bg-gray-800 :border-gray-700 :checked:bg-blue-500 :checked:border-blue-500 :focus:ring-offset-gray-800"
                                                                             @if ($jugador->after == 0) checked @endif>
 
                                                                     </div>
-                                                                    <label for="afterparty-no"
+                                                                    <label for="afterparty-no-{{ $loop->index}}"
                                                                         class="ml-3 block w-full text-sm text-black">
                                                                         No
                                                                     </label>
@@ -414,15 +415,15 @@
                                                     </div>
 
                                                     <div class="mt-2">
-                                                        <label for="alergenos"
+                                                        <label for="alergenos-{{ $loop->index}}"
                                                             class="block text-sm font-medium text-gray-700 leading-5">
                                                             Al·lèrgies / Intoleràncies
                                                         </label>
 
                                                         <div class="mt-1 rounded-md shadow-sm">
-                                                            <input id="alergenos" name="alergenos"
+                                                            <input id="alergenos-{{ $loop->index}}" name="alergenos"
                                                                 type="text" value="{{ $jugador->alergenos }}"
-                                                                autofocus=""
+                                                                
                                                                 class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 ">
                                                         </div>
                                                     </div>
@@ -436,7 +437,7 @@
                                                         </span>
                                                     </div>
                                                 </form>
-
+                                                @if (Auth::user()->equipo->estado_inscripcion == 0)
                                                 <div class="-mx-3 flex flex-wrap mb-2">
                                                     <div class="w-full px-3">
                                                         <form action="{{ route('eliminarJugador', $jugador->id) }}"
@@ -450,7 +451,7 @@
                                                         </form>
                                                     </div>
                                                 </div>
-
+                                                @endif
                                                 <div class="-mx-3 flex flex-wrap">
                                                     <div class="w-full px-3">
                                                         <button @click="modalOpen = false"
@@ -464,7 +465,6 @@
                                         <!-- FINAL MODAL EDITAR JUGADOR -->
                                     </section>
                                 </td>
-                            @endif
                         </tr>
                     @endforeach
                 </tbody>
@@ -490,6 +490,7 @@
             </div>
             <!-- Calculadora inscripcio END -->
         </div>
+        @if (Auth::user()->equipo->estado_inscripcion == 0)
         <section x-data="{ modalOpen: false }" id="instruccions">
             <div class="container mx-auto">
                 <a @click="modalOpen = true" class="afegir-jugador-btn">
@@ -509,26 +510,25 @@
                         @csrf
 
                         <div class="mt-2">
-                            <label for="name" class="block text-sm font-medium text-gray-700 leading-5">
+                            <label for="name-afegir" class="block text-sm font-medium text-gray-700 leading-5">
                                 Nom
                             </label>
 
                             <div class="mt-1 rounded-md shadow-sm">
-                                <input required id="name" name="name" type="text" required=""
-                                    autofocus=""
+                                <input required id="name-afegir" name="name" type="text" required=""
+                                    autofocus
                                     class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 ">
                             </div>
 
                         </div>
 
                         <div class="mt-2">
-                            <label for="apellidos" class="block text-sm font-medium text-gray-700 leading-5">
+                            <label for="apellidos-afegir" class="block text-sm font-medium text-gray-700 leading-5">
                                 Cognoms
                             </label>
 
                             <div class="mt-1 rounded-md shadow-sm">
-                                <input required id="apellidos" name="apellidos" type="text" required=""
-                                    autofocus=""
+                                <input required id="apellidos-afegir" name="apellidos" type="text" required=""
                                     class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 ">
                             </div>
 
@@ -544,10 +544,10 @@
                                     class="inline-flex items-center gap-x-2.5 py-3 px-4 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg">
                                     <div class="relative flex items-start w-full">
                                         <div class="flex items-center h-5">
-                                            <input required id="sexe-home" name="sexo" type="radio" value="H"
+                                            <input required id="sexe-home-afegir" name="sexo" type="radio" value="H"
                                                 class="border-gray-200 rounded-full :bg-gray-800 :border-gray-700 :checked:bg-blue-500 :checked:border-blue-500 :focus:ring-offset-gray-800">
                                         </div>
-                                        <label for="sexe-home" class="ml-3 block w-full text-sm text-black">
+                                        <label for="sexe-home-afegir" class="ml-3 block w-full text-sm text-black">
                                             Home
                                         </label>
                                     </div>
@@ -556,10 +556,10 @@
                                     class="inline-flex items-center gap-x-2.5 py-3 px-4 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg :bg-gray-800 :border-gray-700 :text-white">
                                     <div class="relative flex items-start w-full">
                                         <div class="flex items-center h-5">
-                                            <input required id="sexe-dona" name="sexo" type="radio" value="D"
+                                            <input required id="sexe-dona-afegir" name="sexo" type="radio" value="D"
                                                 class="border-gray-200 rounded-full :bg-gray-800 :border-gray-700 :checked:bg-blue-500 :checked:border-blue-500 :focus:ring-offset-gray-800">
                                         </div>
-                                        <label for="sexe-dona"
+                                        <label for="sexe-dona-afegir"
                                             class="ml-3 block w-full text-sm text-gray-600 :text-gray-500">
                                             Dona
                                         </label>
@@ -580,10 +580,10 @@
                                     class="inline-flex items-center gap-x-2 py-3 px-2 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg">
                                     <div class="relative flex items-start w-full">
                                         <div class="flex items-center h-5">
-                                            <input required id="XS" value="XS" name="talla" type="radio"
+                                            <input required id="XS-afegir" value="XS" name="talla" type="radio"
                                                 class="border-gray-200 rounded-full :bg-gray-800 :border-gray-700 :checked:bg-blue-500 :checked:border-blue-500 :focus:ring-offset-gray-800">
                                         </div>
-                                        <label for="XS" class="ml-3 block w-full text-sm text-black">
+                                        <label for="XS-afegir" class="ml-3 block w-full text-sm text-black">
                                             XS
                                         </label>
                                     </div>
@@ -593,10 +593,10 @@
                                     class="inline-flex items-center gap-x-2 py-3 px-2 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg">
                                     <div class="relative flex items-start w-full">
                                         <div class="flex items-center h-5">
-                                            <input required id="S" value="S" name="talla" type="radio"
+                                            <input required id="S-afegir" value="S" name="talla" type="radio"
                                                 class="border-gray-200 rounded-full :bg-gray-800 :border-gray-700 :checked:bg-blue-500 :checked:border-blue-500 :focus:ring-offset-gray-800">
                                         </div>
-                                        <label for="S" class="ml-3 block w-full text-sm text-black">
+                                        <label for="S-afegir" class="ml-3 block w-full text-sm text-black">
                                             S
                                         </label>
                                     </div>
@@ -606,10 +606,10 @@
                                     class="inline-flex items-center gap-x-2 py-3 px-2 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg">
                                     <div class="relative flex items-start w-full">
                                         <div class="flex items-center h-5">
-                                            <input required id="M" value="M" name="talla" type="radio"
+                                            <input required id="M-afegir" value="M" name="talla" type="radio"
                                                 class="border-gray-200 rounded-full :bg-gray-800 :border-gray-700 :checked:bg-blue-500 :checked:border-blue-500 :focus:ring-offset-gray-800">
                                         </div>
-                                        <label for="M" class="ml-3 block w-full text-sm text-black">
+                                        <label for="M-afegir" class="ml-3 block w-full text-sm text-black">
                                             M
                                         </label>
                                     </div>
@@ -619,10 +619,10 @@
                                     class="inline-flex items-center gap-x-2 py-3 px-2 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg">
                                     <div class="relative flex items-start w-full">
                                         <div class="flex items-center h-5">
-                                            <input required id="L" value="L" name="talla" type="radio"
+                                            <input required id="L-afegir" value="L" name="talla" type="radio"
                                                 class="border-gray-200 rounded-full :bg-gray-800 :border-gray-700 :checked:bg-blue-500 :checked:border-blue-500 :focus:ring-offset-gray-800">
                                         </div>
-                                        <label for="L" class="ml-3 block w-full text-sm text-black">
+                                        <label for="L-afegir" class="ml-3 block w-full text-sm text-black">
                                             L
                                         </label>
                                     </div>
@@ -632,10 +632,10 @@
                                     class="inline-flex items-center gap-x-2 py-3 px-2 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg">
                                     <div class="relative flex items-start w-full">
                                         <div class="flex items-center h-5">
-                                            <input required id="XL" value="XL" name="talla" type="radio"
+                                            <input required id="XL-afegir" value="XL" name="talla" type="radio"
                                                 class="border-gray-200 rounded-full :bg-gray-800 :border-gray-700 :checked:bg-blue-500 :checked:border-blue-500 :focus:ring-offset-gray-800">
                                         </div>
-                                        <label for="XL" class="ml-3 block w-full text-sm text-black">
+                                        <label for="XL-afegir" class="ml-3 block w-full text-sm text-black">
                                             XL
                                         </label>
                                     </div>
@@ -645,10 +645,10 @@
                                     class="inline-flex items-center gap-x-2 py-3 px-2 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg">
                                     <div class="relative flex items-start w-full">
                                         <div class="flex items-center h-5">
-                                            <input required id="XXL" value="XXL" name="talla" type="radio"
+                                            <input required id="XXL-afegir" value="XXL" name="talla" type="radio"
                                                 class="border-gray-200 rounded-full :bg-gray-800 :border-gray-700 :checked:bg-blue-500 :checked:border-blue-500 :focus:ring-offset-gray-800">
                                         </div>
-                                        <label for="XXL" class="ml-3 block w-full text-sm text-black">
+                                        <label for="XXL-afegir" class="ml-3 block w-full text-sm text-black">
                                             XXL
                                         </label>
                                     </div>
@@ -666,12 +666,12 @@
                                     class="inline-flex items-center gap-x-2 py-3 px-2 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg">
                                     <div class="relative flex items-start w-full">
                                         <div class="flex items-center h-5">
-                                            <input required id="afterparty-si" name="after" type="radio"
+                                            <input required id="afterparty-si-afegir" name="after" type="radio"
                                                 value="1"
                                                 class="border-gray-200 rounded-full :bg-gray-800 :border-gray-700 :checked:bg-blue-500 :checked:border-blue-500 :focus:ring-offset-gray-800">
 
                                         </div>
-                                        <label for="afterparty-si" class="ml-3 block w-full text-sm text-black">
+                                        <label for="afterparty-si-afegir" class="ml-3 block w-full text-sm text-black">
                                             Sí
                                         </label>
                                     </div>
@@ -680,12 +680,12 @@
                                     class="inline-flex items-center gap-x-2 py-3 px-2 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg">
                                     <div class="relative flex items-start w-full">
                                         <div class="flex items-center h-5">
-                                            <input required id="afterparty-no" name="after" type="radio"
+                                            <input required id="afterparty-no-afegir" name="after" type="radio"
                                                 value="0"
                                                 class="border-gray-200 rounded-full :bg-gray-800 :border-gray-700 :checked:bg-blue-500 :checked:border-blue-500 :focus:ring-offset-gray-800">
 
                                         </div>
-                                        <label for="afterparty-no" class="ml-3 block w-full text-sm text-black">
+                                        <label for="afterparty-no-afegir" class="ml-3 block w-full text-sm text-black">
                                             No
                                         </label>
                                     </div>
@@ -694,12 +694,12 @@
                         </div>
 
                         <div class="mt-2">
-                            <label for="alergenos" class="block text-sm font-medium text-gray-700 leading-5">
+                            <label for="alergenos-afegir" class="block text-sm font-medium text-gray-700 leading-5">
                                 Al·lèrgies / Intoleràncies
                             </label>
 
                             <div class="mt-1 rounded-md shadow-sm">
-                                <input id="alergenos" name="alergenos" type="text" value="" autofocus=""
+                                <input id="alergenos-afegir" name="alergenos" type="text" value=""
                                     class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 ">
                             </div>
                         </div>
@@ -726,6 +726,7 @@
             </div>
             <!-- FINAL MODAL AFEGIR JUGADOR -->
         </section>
+        @endif
 
     </div>
     </div>
