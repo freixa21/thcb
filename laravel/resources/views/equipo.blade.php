@@ -55,6 +55,17 @@
                                     class="text-blue-950 underline font-medium mt-4 text-left">
                                     Com fer el pagament?
                                 </button>
+                                @if (Auth::user()->equipo->estado_inscripcion == 0)
+                                    <form action="{{ route('eliminarInscripcioEquip') }}" method="POST"
+                                        class="mt-8 mb-0">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit"
+                                            onclick="return confirm('Estàs segur que vols eliminar la teva inscripció? S\'esborrarà el teu usuari i t\'hauràs de registrar de nou.')"
+                                            class="text-dark block w-fit rounded-lg border-2 text-sm border-[#b00;] cursor-pointer px-4 py-2 text-center font-black text-red-600 transition hover:border-red-600 hover:bg-red-600 hover:text-white">Eliminar
+                                            inscripció</button>
+                                    </form>
+                                @endif
                                 <div x-show="modalOpen" x-transition style="z-index: 1"
                                     class="fixed top-0 left-0 flex h-full min-h-screen w-full justify-center bg-black bg-opacity-90 px-4 py-5 overflow-y-auto">
                                     <div @click.outside="modalOpen = false"
@@ -64,7 +75,8 @@
                                         </h3>
                                         <span class="bg-primary mx-auto mb-6 inline-block h-1 w-[90px] rounded"></span>
                                         <p><strong>1.</strong> Afegiu mínim 5 jugadors.</p>
-                                        <p><strong>2.</strong> Un cop afegits, un integrant de l'equip ha de fer <strong>un sol pagament de totes les inscripcions</strong> a través de
+                                        <p><strong>2.</strong> Un cop afegits, un integrant de l'equip ha de fer <strong>un
+                                                sol pagament de totes les inscripcions</strong> a través de
                                             l’aplicació
                                             VERSE amb les següents opcions:
                                             <br> - Al número: 630 206 438
@@ -162,7 +174,8 @@
                                     </label>
 
                                     <div class="mt-1 rounded-md shadow-sm">
-                                        <input required id="apellidos-afegir" name="apellidos" type="text" required=""
+                                        <input required id="apellidos-afegir" name="apellidos" type="text"
+                                            required=""
                                             class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 ">
                                     </div>
 

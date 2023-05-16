@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Equipo;
 use App\Models\Jugador;
 use Illuminate\Http\Request;
@@ -137,4 +138,25 @@ class EquipoController extends Controller {
 
         return redirect()->back()->with('success', 'Jugador eliminat correctament');
     }
+
+        // Eliminar equip + usuari
+        public function eliminarInscripcioEquip(Request $request): RedirectResponse {
+            
+            $jugadors = Auth::user()->equipo->jugadores;
+            $equip = Equipo::findOrFail(Auth::user()->equipo->id);
+            $usuari = User::findOrFail(Auth::user()->id);
+
+            // Esborrar jugadors
+            foreach ($jugadors as $jugador) {
+                $jugador->delete();
+            }
+            // Esborrar equip
+            $equip->delete();
+            //Esborrar usuari
+            Auth::logout();
+            $request->session()->invalidate();
+            $usuari->delete();
+            
+            return redirect()->route('auth.login')->with('success', 'Equip eliminat correctament.');
+        }
 }

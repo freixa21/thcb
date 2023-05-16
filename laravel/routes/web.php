@@ -45,6 +45,7 @@ Route::post('/image/upload', [EquipoController::class, 'uploadComprovant'])->nam
 Route::post("/equip/actualitzar-jugador", [EquipoController::class, "actualizarJugador"])->name('actualitzarJugador');
 Route::post("/equip/afegir-jugador", [EquipoController::class, "afegirJugador"])->name('afegirJugador');
 Route::delete("/equip/eliminar-jugador/{id}", [EquipoController::class, "eliminarJugador"])->name('eliminarJugador');
+Route::delete("eliminar-inscripcio-equip", [EquipoController::class, "eliminarInscripcioEquip"])->name('eliminarInscripcioEquip');
 
 // Vista + accions ESPECTADORS
 Route::get("espectador", [EspectadorController::class, "index"])->name('index.espectadors');

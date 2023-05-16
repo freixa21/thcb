@@ -89,7 +89,7 @@
 
         <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md px-4">
 
-            <h3 class="text-center mb-2">No estás registrat?</h3>
+            <h3 class="text-center mb-2">No estàs registrat?</h3>
 
             <div class="px-4 py-8 bg-white shadow sm:rounded-lg sm:px-10 flex flex-col lg:flex-row">
                 <div class="w-full text-center lg:w-1/2">

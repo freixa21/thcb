@@ -353,7 +353,7 @@
                             @csrf
                             @method('DELETE')
                             <button type="submit"
-                                onclick="return confirm('Estàs segur que vols eliminar la teva inscripció? S\'esborrarà el teu usuari i t\'hauràs de registrar de nou.')"
+                                onclick="return confirm('Estàs segur que vols eliminar la teva inscripció i equip? S\'esborrarà el teu usuari i t\'hauràs de registrar de nou.')"
                                 class="text-dark block w-fit rounded-lg border-2 text-sm border-[#b00;] cursor-pointer px-4 py-2 text-center font-black text-red-600 transition hover:border-red-600 hover:bg-red-600 hover:text-white">Eliminar
                                 inscripció</button>
                         </form>
