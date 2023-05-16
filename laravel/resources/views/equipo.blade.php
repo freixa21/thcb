@@ -391,7 +391,7 @@
             <table class="w-full text-sm text-left text-gray-500 ">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50  ">
                     <tr>
-                        <th scope="col" class="px-2 py-3">
+                        <th scope="col" class="px-2 py-3 text-center">
                             #
                         </th>
                         <th scope="col" class="px-2 py-3">Jugador</th>
@@ -409,7 +409,7 @@
                 <tbody>
                     @foreach ($jugadores as $jugador)
                         <tr class="bg-white border-b  hover:bg-gray-50 ">
-                            <td class="px-2 py-3">{{ $loop->index + 1 }}</td>
+                            <td class="px-2 py-3 text-center">{{ $loop->index + 1 }}</td>
                             <th scope="row" class="px-2 py-3 font-medium text-gray-900  whitespace-nowrap truncate"
                                 style="max-width: 100px">
                                 {{ $jugador->nombre }} {{ $jugador->apellidos }}
