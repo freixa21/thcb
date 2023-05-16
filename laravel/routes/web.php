@@ -40,14 +40,14 @@ Route::group(['middleware' => 'guest'], function () {
     Route::post("registre-espectadors", [RegistroEspectadoresController::class, "store"])->name('registrar.espectador');
 });
 
-// Vista EQUIPS
+// Vista + accions EQUIPS
 Route::get("equip", [EquipoController::class, "index"])->name('index.equip');
 Route::post('/image/upload', [EquipoController::class, 'uploadComprovant'])->name('uploadComprovant');
 Route::post("/equip/actualitzar-jugador", [EquipoController::class, "actualizarJugador"])->name('actualitzarJugador');
 Route::post("/equip/afegir-jugador", [EquipoController::class, "afegirJugador"])->name('afegirJugador');
 Route::delete("/equip/eliminar-jugador/{id}", [EquipoController::class, "eliminarJugador"])->name('eliminarJugador');
 
-// Vista ESPECTADORS
+// Vista + accions ESPECTADORS
 Route::get("espectador", [EspectadorController::class, "index"])->name('index.espectadors');
 Route::post("actualitzar-espectador", [EspectadorController::class, "actualizarEspectador"])->name('actualitzarEspectador');
 Route::post('espectador/image/upload', [EspectadorController::class, 'espectadorComprovant'])->name('espectadorComprovant');
