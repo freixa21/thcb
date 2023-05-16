@@ -7,6 +7,7 @@ use App\Models\Jugador;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Redirect;
 
 class EquipoController extends Controller {
 
@@ -48,7 +49,13 @@ class EquipoController extends Controller {
     public function actualizarJugador(Request $request): RedirectResponse {
 
         $request->flash();
-        $jugador = Jugador::find($request->id);
+        $jugador = Jugador::findOrFail($request->id);
+        $equipo = $jugador->equipo;
+
+        if (!$equipo || $equipo->id_usuario !== Auth::user()->id) {
+            // El equipo no existe o el usuario no es propietario del equipo.
+            return Redirect::back()->withErrors(['error' => 'Error en actualizar el jugador.']);
+        }
 
         $validated_jugador = $request->validate([
             'name' => 'required',
@@ -105,9 +112,19 @@ class EquipoController extends Controller {
     // Eliminar Jugador
     public function eliminarJugador($id): RedirectResponse {
 
-        $jugador = Jugador::find($id);
+        $jugador = Jugador::findOrFail($id);
+        $equipo = $jugador->equipo;
+
+        if (!$equipo || $equipo->id_usuario !== Auth::user()->id) {
+            // El equipo no existe o el usuario no es propietario del equipo.
+            return Redirect::back()->withErrors(['error' => 'Error en borrar el jugador.']);
+        }
+
         $jugador->delete();
 
         return redirect()->back()->with('success', 'Jugador eliminat correctament');
     }
 }
+
+
+
