@@ -14,16 +14,6 @@ class LoginController extends Controller {
 
     public function index() {
 
-        if (Auth::check()) {
-            $tieneEquipo = Equipo::where('id_usuario', Auth::id())->first();
-
-            if ($tieneEquipo) {
-                return redirect()->intended('equip');
-            } else {
-                return redirect()->intended('espectador');
-            }
-        }
-
         return view("login");
     }
 

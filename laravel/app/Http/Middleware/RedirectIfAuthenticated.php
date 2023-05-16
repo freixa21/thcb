@@ -2,10 +2,11 @@
 
 namespace App\Http\Middleware;
 
-use App\Providers\RouteServiceProvider;
 use Closure;
+use App\Models\Equipo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Providers\RouteServiceProvider;
 
 class RedirectIfAuthenticated
 {
@@ -23,6 +24,17 @@ class RedirectIfAuthenticated
 
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
+
+                if (Auth::check()) {
+                    $tieneEquipo = Equipo::where('id_usuario', Auth::id())->first();
+        
+                    if ($tieneEquipo) {
+                        return redirect()->intended('equip');
+                    } else {
+                        return redirect()->intended('espectador');
+                    }
+                }
+
                 return redirect(RouteServiceProvider::HOME);
             }
         }
