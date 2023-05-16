@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Equipo;
 use App\Models\Espectador;
 use Illuminate\Http\Request;
@@ -81,5 +82,21 @@ class EspectadorController extends Controller {
         $espectador->save();
 
         return redirect()->back()->with('success', 'Dades actualitzades correctament');
+    }
+
+    // Eliminar espectador + usuari
+    public function eliminarInscripcioEspectador(Request $request): RedirectResponse {
+
+        $espectador = Espectador::findOrFail(Auth::user()->espectador->id);
+        $usuari = User::findOrFail(Auth::user()->id);
+
+        // Esborrar espectador
+        $espectador->delete();
+        //Esborrar usuari
+        Auth::logout();
+        $request->session()->invalidate();
+        $usuari->delete();
+        
+        return redirect()->route('auth.login')->with('success', 'Inscripció eliminada correctament.');
     }
 }

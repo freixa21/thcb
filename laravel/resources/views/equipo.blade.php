@@ -64,7 +64,7 @@
                                         </h3>
                                         <span class="bg-primary mx-auto mb-6 inline-block h-1 w-[90px] rounded"></span>
                                         <p><strong>1.</strong> Afegiu mínim 5 jugadors.</p>
-                                        <p><strong>2.</strong> Un cop afegits, feu el pagament a través de
+                                        <p><strong>2.</strong> Un cop afegits, un integrant de l'equip ha de fer <strong>un sol pagament de totes les inscripcions</strong> a través de
                                             l’aplicació
                                             VERSE amb les següents opcions:
                                             <br> - Al número: 630 206 438
@@ -76,9 +76,8 @@
                                         <p class="mini-qr">Si estàs conectat desde el mòbil obrir l'enllaç del QR picant
                                             l'imatge
                                         </p>
-                                        <p><strong>3.</strong> Adjunteu una captura de pantalla del pagament i marqueu
-                                            l’opció
-                                            “Confirmar pagament”.
+                                        <p><strong>3.</strong> Adjunteu una captura de pantalla del pagament i premeu
+                                            “Enviar”.
                                             Un cop verifiquem que em rebut correctament el pagament, confirmarem la vostra
                                             inscripció
                                             del

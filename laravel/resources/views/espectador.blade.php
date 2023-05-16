@@ -302,7 +302,7 @@
                                         <p><strong>1.</strong> Editar la teva informació.</p>
                                         <p><strong>2.</strong> Fes el pagament a través de
                                             l’aplicació
-                                            Verse a:
+                                            Verse amb les següents opcions:
                                             <br> - Al número: 630 206 438
                                             <br> - Al $VerseTag: $maxfreixa
                                             <br> - o escanejant el QR:
@@ -314,7 +314,7 @@
                                             l'imatge
                                         </p>
                                         <p><strong>3.</strong> Adjunta una captura de pantalla del pagament i
-                                            “Enviar”.
+                                            premeu “Enviar”.
                                             Un cop verifiquem que em rebut correctament el pagament, confirmarem la teva
                                             inscripció
                                             del
@@ -348,6 +348,16 @@
                     <p class="mt-3">* Recordeu que les
                         inscripcions no són reembolsables, però es pot substituïr un espectador inscrit per un altre.
                     </p>
+                    @if (Auth::user()->espectador->estado_inscripcion == 0)
+                        <form action="{{ route('eliminarInscripcioEspectador') }}" method="POST" class="mb-0">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit"
+                                onclick="return confirm('Estàs segur que vols eliminar la teva inscripció? S\'esborrarà el teu usuari i t\'hauràs de registrar de nou.')"
+                                class="text-dark block w-fit rounded-lg border-2 text-sm border-[#b00;] cursor-pointer px-4 py-2 text-center font-black text-red-600 transition hover:border-red-600 hover:bg-red-600 hover:text-white">Eliminar
+                                inscripció</button>
+                        </form>
+                    @endif
                 </div>
                 <!-- ====== Modal Section End -->
             </div>

@@ -10,7 +10,7 @@
             @elseif (Auth::user()->equipo)
                 <strong>{{ Auth::user()->equipo->nombre }} &nbsp;</strong>
             @elseif(Auth::user()->name)
-                <strong>{{ Auth::user()->name }} &nbsp; &nbsp;</strong>                
+                <strong>{{ Auth::user()->espectador->name }} &nbsp; &nbsp;</strong>                
             @endif
             <a href="{{ route('auth.logout') }}">  <i class="fa-solid fa-right-from-bracket" style="color: #ffffff;"></i></a>
         </div>

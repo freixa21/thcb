@@ -910,6 +910,11 @@ body {
   width: 100%;
 }
 
+.w-fit {
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
 .max-w-0 {
   max-width: 0rem;
 }

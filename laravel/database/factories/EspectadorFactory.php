@@ -20,8 +20,6 @@ class EspectadorFactory extends Factory
             'alergenos' => $this->faker->optional()->text(20),
             'after' => $this->faker->boolean(50),
             'id_usuario' => User::factory(),
-            'pagado' => $this->faker->boolean(50),
-            'pago_confirmado' => $this->faker->boolean(50),
         ];
     }
 }

@@ -50,6 +50,7 @@ Route::delete("/equip/eliminar-jugador/{id}", [EquipoController::class, "elimina
 Route::get("espectador", [EspectadorController::class, "index"])->name('index.espectadors');
 Route::post("actualitzar-espectador", [EspectadorController::class, "actualizarEspectador"])->name('actualitzarEspectador');
 Route::post('espectador/image/upload', [EspectadorController::class, 'espectadorComprovant'])->name('espectadorComprovant');
+Route::delete("eliminar-inscripcio", [EspectadorController::class, "eliminarInscripcioEspectador"])->name('eliminarInscripcioEspectador');
 
 // Logout
 Route::get('logout', [LoginController::class, 'logout'])->name('auth.logout');
