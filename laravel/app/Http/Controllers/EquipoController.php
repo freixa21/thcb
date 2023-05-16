@@ -17,6 +17,12 @@ class EquipoController extends Controller {
 
     public function index() {
 
+        $tieneEquipo = Equipo::where('id_usuario', Auth::id())->first();
+
+        if (!$tieneEquipo) {
+            return redirect()->intended('/');
+        }
+
         $jugadores = Auth::user()->equipo->jugadores;
 
         return view('equipo', compact('jugadores'));
@@ -125,6 +131,3 @@ class EquipoController extends Controller {
         return redirect()->back()->with('success', 'Jugador eliminat correctament');
     }
 }
-
-
-

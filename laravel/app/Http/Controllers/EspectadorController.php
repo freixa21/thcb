@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Equipo;
 use App\Models\Espectador;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -14,6 +15,12 @@ class EspectadorController extends Controller {
     }
 
     public function index() {
+
+        $tieneEquipo = Equipo::where('id_usuario', Auth::id())->first();
+
+        if ($tieneEquipo) {
+            return redirect()->intended('/');
+        }
 
         $espectador = Auth::user()->espectador;
         return view('espectador', compact('espectador'));
