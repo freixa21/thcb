@@ -156,20 +156,19 @@ html, body {
     }
 
     .afegir-jugador-btn {
-        padding: 10px;
+        padding: 3px 8px;
         display: block;
         width: fit-content;
-        margin-top: 10px;
         border-radius: 5px;
         border: 1px solid #172554;
         cursor: pointer;
-        opacity: 0.9;
         transition: 0.2s;
+        margin-bottom: 0.5rem;
+        margin-left: 0.75rem;
     }
 
     .afegir-jugador-btn i {
         color: #172554;
-        opacity: 0.9;
         transition: 0.2s;
     }
 
