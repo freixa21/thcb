@@ -17,13 +17,13 @@ class RegistroEquiposController extends Controller {
     // Registrar usuario
     public function store(Request $request): RedirectResponse {
 
+        $request->flash();
+
         $totalEquips = Equipo::All();
 
         if(count($totalEquips) >= 30) {
             return Redirect::back()->withErrors(['error' => 'Ja no hi ha places per equips nous. Estigueu pendents a Instagram per si se n\'allibera alguna o també podeu registrar-vos com a espectadors.']);
         }
-
-        $request->flash();
 
         $validated_equipo = $request->validate([
             'nombre' => 'required|unique:equipos'

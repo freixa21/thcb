@@ -37,7 +37,7 @@
                         </label>
 
                         <div class="mt-1 rounded-md shadow-sm">
-                            <input required id="name" name="name" type="text" required="" autofocus=""
+                            <input required id="name" name="name" type="text" required="" autofocus="" value="{{ old('name') }}"
                                 class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 ">
                         </div>
 
@@ -49,7 +49,7 @@
                         </label>
 
                         <div class="mt-1 rounded-md shadow-sm">
-                            <input required id="apellidos" name="apellidos" type="text" required="" autofocus=""
+                            <input required id="apellidos" name="apellidos" type="text" required="" autofocus="" value="{{ old('apellidos') }}"
                                 class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 ">
                         </div>
 
@@ -61,7 +61,7 @@
                         </label>
 
                         <div class="mt-1 rounded-md shadow-sm">
-                            <input required id="email" name="email" type="email" required="" autofocus=""
+                            <input required id="email" name="email" type="email" required="" autofocus="" value="{{ old('email') }}"
                                 class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 ">
                         </div>
 
@@ -73,7 +73,7 @@
                         </label>
 
                         <div class="mt-1 rounded-md shadow-sm">
-                            <input required id="phone" name="phone" type="tel" required="" autofocus=""
+                            <input required id="phone" name="phone" type="tel" required="" autofocus="" value="{{ old('phone') }}"
                                 class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 ">
                         </div>
 
@@ -249,7 +249,7 @@
                         </label>
 
                         <div class="mt-1 rounded-md shadow-sm">
-                            <input id="alergenos" name="alergenos" type="text"
+                            <input id="alergenos" name="alergenos" type="text" value="{{ old('alergenos') }}"
                                 class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 ">
                         </div>
                     </div>
@@ -259,7 +259,7 @@
                             Contrasenya
                         </label>
                         <div class="mt-1 rounded-md shadow-sm">
-                            <input required id="password" type="password" name="password" required=""
+                            <input required id="password" type="password" name="password" required="" 
                                 class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 ">
                         </div>
                     </div>
