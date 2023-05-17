@@ -121,8 +121,8 @@
                         <div class="flex items-center">
                             <input id="remember" type="checkbox"
                                 class="form-checkbox w-4 h-4 text-blue-600 transition duration-150 ease-in-out">
-                            <label for="remember" class="block ml-2 text-sm text-gray-900 leading-5" required>
-                                He llegit i accepto la política de privacitat
+                            <label for="remember" class="block ml-2 text-sm text-gray-900 leading-5 underline" required>
+                                He llegit i accepto la <a href="https://hockeycostabrava.com/avis-legal-politica-privacitat/" target="_blank">política de privacitat</a>
                             </label>
                         </div>
                     </div>
