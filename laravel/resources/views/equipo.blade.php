@@ -550,7 +550,7 @@
                                                                 <div class="flex items-center h-5">
                                                                     <input required id="XS-{{ $loop->index }}"
                                                                         value="XS"
-                                                                        @if (Auth::user()->equipo->estado_inscripcion != 0) disabled @endif
+                                                                        @if (Carbon\Carbon::now()->gt('2023-07-06 0:00:00')) disabled @endif
                                                                         name="talla" type="radio"
                                                                         class="border-gray-200 rounded-full :bg-gray-800 :border-gray-700 :checked:bg-blue-500 :checked:border-blue-500 :focus:ring-offset-gray-800"
                                                                         @if ($jugador->talla == 'XS') checked @endif>
@@ -568,7 +568,7 @@
                                                                 <div class="flex items-center h-5">
                                                                     <input required id="S-{{ $loop->index }}"
                                                                         value="S"
-                                                                        @if (Auth::user()->equipo->estado_inscripcion != 0) disabled @endif
+                                                                        @if (Carbon\Carbon::now()->gt('2023-07-06 0:00:00')) disabled @endif
                                                                         name="talla" type="radio"
                                                                         class="border-gray-200 rounded-full :bg-gray-800 :border-gray-700 :checked:bg-blue-500 :checked:border-blue-500 :focus:ring-offset-gray-800"
                                                                         @if ($jugador->talla == 'S') checked @endif>
@@ -586,7 +586,7 @@
                                                                 <div class="flex items-center h-5">
                                                                     <input required id="M-{{ $loop->index }}"
                                                                         value="M"
-                                                                        @if (Auth::user()->equipo->estado_inscripcion != 0) disabled @endif
+                                                                        @if (Carbon\Carbon::now()->gt('2023-07-06 0:00:00')) disabled @endif
                                                                         name="talla" type="radio"
                                                                         class="border-gray-200 rounded-full :bg-gray-800 :border-gray-700 :checked:bg-blue-500 :checked:border-blue-500 :focus:ring-offset-gray-800"
                                                                         @if ($jugador->talla == 'M') checked @endif>
@@ -604,7 +604,7 @@
                                                                 <div class="flex items-center h-5">
                                                                     <input required id="L-{{ $loop->index }}"
                                                                         value="L"
-                                                                        @if (Auth::user()->equipo->estado_inscripcion != 0) disabled @endif
+                                                                        @if (Carbon\Carbon::now()->gt('2023-07-06 0:00:00')) disabled @endif
                                                                         name="talla" type="radio"
                                                                         class="border-gray-200 rounded-full :bg-gray-800 :border-gray-700 :checked:bg-blue-500 :checked:border-blue-500 :focus:ring-offset-gray-800"
                                                                         @if ($jugador->talla == 'L') checked @endif>
@@ -622,7 +622,7 @@
                                                                 <div class="flex items-center h-5">
                                                                     <input required id="XL-{{ $loop->index }}"
                                                                         value="XL"
-                                                                        @if (Auth::user()->equipo->estado_inscripcion != 0) disabled @endif
+                                                                        @if (Carbon\Carbon::now()->gt('2023-07-06 0:00:00')) disabled @endif
                                                                         name="talla" type="radio"
                                                                         class="border-gray-200 rounded-full :bg-gray-800 :border-gray-700 :checked:bg-blue-500 :checked:border-blue-500 :focus:ring-offset-gray-800"
                                                                         @if ($jugador->talla == 'XL') checked @endif>
@@ -640,7 +640,7 @@
                                                                 <div class="flex items-center h-5">
                                                                     <input required id="XXL-{{ $loop->index }}"
                                                                         value="XXL"
-                                                                        @if (Auth::user()->equipo->estado_inscripcion != 0) disabled @endif
+                                                                        @if (Carbon\Carbon::now()->gt('2023-07-06 0:00:00')) disabled @endif
                                                                         name="talla" type="radio"
                                                                         class="border-gray-200 rounded-full :bg-gray-800 :border-gray-700 :checked:bg-blue-500 :checked:border-blue-500 :focus:ring-offset-gray-800"
                                                                         @if ($jugador->talla == 'XXL') checked @endif>
