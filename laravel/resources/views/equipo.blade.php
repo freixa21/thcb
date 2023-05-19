@@ -3,6 +3,24 @@
 @section('title', Auth::user()->equipo->nombre)
 
 @section('content')
+
+    @php  $total = 0 @endphp
+    @foreach ($jugadores as $jugador)
+        @if ($jugador->created_at->lt('2023-06-23 0:00:00'))
+            @if ($jugador->after)
+                @php $total += 35 @endphp
+            @else
+                @php  $total += 25 @endphp
+            @endif
+        @else
+            @if ($jugador->after)
+                @php  $total += 40  @endphp
+            @else
+                @php  $total += 25  @endphp
+            @endif
+        @endif
+    @endforeach
+
     <div class="flex  mx-5 lg:mx-20 max-w-screen-2xl w-full flex-col">
         <div class="w-full max-w-screen-2xl">
             <div class="w-full">
@@ -26,9 +44,12 @@
                             <h2 class="mr-2 mb-2">Estat de la inscripció:</h2>
                             @if (Auth::user()->equipo->estado_inscripcion == 0)
                                 <div class="estat-0">Pendent de pagament. No confirmada.</div>
+                                <p class="mt-2">Has d'afegir un mínim de 5 jugadors per poder fer el pagament.</p>
                         </div>
                         <div class="flex flex-col">
-                            <p class="mt-2">Has d'afegir un mínim de 5 jugadors per poder fer el pagament.</p>
+                            <p class="mt-2">Total inscripció:
+                                <strong>{{ $total }}€</strong>
+                            </p>
                             @if (count($jugadores) > 4)
                                 <form action="{{ route('uploadComprovant') }}" method="POST" enctype="multipart/form-data"
                                     class="mb-0">
@@ -56,8 +77,7 @@
                                     Com fer el pagament?
                                 </button>
                                 @if (Auth::user()->equipo->estado_inscripcion == 0)
-                                    <form action="{{ route('eliminarInscripcioEquip') }}" method="POST"
-                                        class="mt-8 mb-0">
+                                    <form action="{{ route('eliminarInscripcioEquip') }}" method="POST" class="mt-8 mb-0">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit"
@@ -755,22 +775,7 @@
                 </tbody>
             </table>
             <!-- CALCULADORA INSCRIPCIO SEGONS LA DATA DE INSCRIPCIÓ DE CADA PARTICIPANT -->
-            <div class="text-right mr-10 p-2">Total inscripció equip: @php  $total = 0 @endphp
-                @foreach ($jugadores as $jugador)
-                    @if ($jugador->created_at->lt('2023-06-23 0:00:00'))
-                        @if ($jugador->after)
-                            @php $total += 35 @endphp
-                        @else
-                            @php  $total += 25 @endphp
-                        @endif
-                    @else
-                        @if ($jugador->after)
-                            @php  $total += 40  @endphp
-                        @else
-                            @php  $total += 25  @endphp
-                        @endif
-                    @endif
-                @endforeach
+            <div class="text-right mr-10 p-2">Total inscripció equip:
                 <strong>{{ $total }}€</strong>
             </div>
             <!-- Calculadora inscripcio END -->
