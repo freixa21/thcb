@@ -20,7 +20,8 @@ class UserSeeder extends Seeder
         $u->apellidos = 'Apellidos';
         $u->email = 'admin@hockeycostabrava.com';
         $u->password = Hash::make('Almax1821.');
-        $u->phone = '630206438'; 
+        $u->phone = '630206438';
+        $u->is_admin = 1; 
         $u->save();
     }
 }

@@ -55,6 +55,10 @@ class EquipoController extends Controller {
     // Actualizar Jugador
     public function actualizarJugador(Request $request): RedirectResponse {
 
+        if(Auth::user()->is_admin) {
+            return redirect()->intended('admin');
+        }
+
         $request->flash();
         $jugador = Jugador::findOrFail($request->id);
         $equipo = $jugador->equipo;

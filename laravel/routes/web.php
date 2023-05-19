@@ -7,6 +7,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\EquipoController;
 use App\Http\Controllers\EspectadorController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -39,6 +40,12 @@ Route::group(['middleware' => 'guest'], function () {
     Route::post("registre-espectadors", [RegistroEspectadoresController::class, "store"])->name('registrar.espectador');
 });
 
+// Logout
+Route::get('logout', [LoginController::class, 'logout'])->name('auth.logout');
+
+// Vista + accions ADMIN
+Route::get("admin", [AdminController::class, "index"])->name('admin.index');
+
 // Vista + accions EQUIPS
 Route::get("equip", [EquipoController::class, "index"])->name('index.equip');
 Route::post('/image/upload', [EquipoController::class, 'uploadComprovant'])->name('uploadComprovant');
@@ -53,5 +60,3 @@ Route::post("actualitzar-espectador", [EspectadorController::class, "actualizarE
 Route::post('espectador/image/upload', [EspectadorController::class, 'espectadorComprovant'])->name('espectadorComprovant');
 Route::delete("eliminar-inscripcio", [EspectadorController::class, "eliminarInscripcioEspectador"])->name('eliminarInscripcioEspectador');
 
-// Logout
-Route::get('logout', [LoginController::class, 'logout'])->name('auth.logout');

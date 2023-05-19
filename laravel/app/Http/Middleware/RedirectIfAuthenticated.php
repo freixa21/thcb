@@ -26,6 +26,11 @@ class RedirectIfAuthenticated
             if (Auth::guard($guard)->check()) {
 
                 if (Auth::check()) {
+
+                    if(Auth::user()->is_admin) {
+                        return redirect()->intended('admin');
+                    }
+                    
                     $tieneEquipo = Equipo::where('id_usuario', Auth::id())->first();
         
                     if ($tieneEquipo) {
