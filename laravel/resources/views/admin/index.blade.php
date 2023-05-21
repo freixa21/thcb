@@ -103,23 +103,23 @@
                 <table>
                     <tr>
                         <td>S: </td>
-                        <td>XXXXX</td>
+                        <td>{{$totalS}}</td>
                     </tr>
                     <tr>
                         <td>M:</td>
-                        <td>XXXXX</td>
+                        <td>{{$totalM}}</td>
                     </tr>
                     <tr>
                         <td>L:</td>
-                        <td>XXXXX</td>
+                        <td>{{$totalL}}</td>
                     </tr>
                     <tr>
                         <td>XL:</td>
-                        <td>XXXXX</td>
+                        <td>{{$totalXL}}</td>
                     </tr>
                     <tr>
                         <td>XXL:</td>
-                        <td>XXXXX</td>
+                        <td>{{$totalXXL}}</td>
                     </tr>
                 </table>
             </div>

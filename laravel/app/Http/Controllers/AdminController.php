@@ -159,6 +159,30 @@ class AdminController extends Controller {
             // Total ingressos confirmats
             $totalIngressosConfirmats = $ingressosConfirmatsJugadors + $ingressosConfirmatsEspectadors;
 
+
+            ////////////  SAMARRETES /////////
+            $tallaSJugador = Jugador::where('talla', 'S')->count();
+            $tallaSEspectador = Espectador::where('talla', 'S')->count();
+            $totalS = $tallaSJugador + $tallaSEspectador;
+
+            $tallaMJugador = Jugador::where('talla', 'M')->count();
+            $tallaMEspectador = Espectador::where('talla', 'M')->count();
+            $totalM = $tallaMJugador + $tallaMEspectador;
+
+            $tallaLJugador = Jugador::where('talla', 'L')->count();
+            $tallaLEspectador = Espectador::where('talla', 'L')->count();
+            $totalL = $tallaLJugador + $tallaLEspectador;
+
+            $tallaXLJugador = Jugador::where('talla', 'XL')->count();
+            $tallaXLEspectador = Espectador::where('talla', 'XL')->count();
+            $totalXL = $tallaXLJugador + $tallaXLEspectador;
+
+            $tallaXXLJugador = Jugador::where('talla', 'XXL')->count();
+            $tallaXXLEspectador = Espectador::where('talla', 'XXL')->count();
+            $totalXXL = $tallaXXLJugador + $tallaXXLEspectador;
+
+            
+
             return view('admin.index', [
                 'totalPagats' => $totalPagats,
                 'totalAfters' => $totalAfters,
@@ -179,6 +203,11 @@ class AdminController extends Controller {
                 'afterEspectadors' => $afterEspectadors,
                 'ingressosPrevistosEspectadors' => $ingressosPrevistosEspectadors,
                 'ingressosConfirmatsEspectadors' => $ingressosConfirmatsEspectadors,
+                'totalS' => $totalS,
+                'totalM' => $totalM,
+                'totalL' => $totalL,
+                'totalXL' => $totalXL,
+                'totalXXL' => $totalXXL,
 
             ]);
         }
