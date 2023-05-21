@@ -9,32 +9,32 @@
                 <h2>General</h2>
                 <table>
                     <tr>
-                        <td>Inscrits totals: </td>
-                        <td>X</td>
+                        <td>Inscrits totals:</td>
+                        <td> {{ $totalInscrits }}</td>
                     </tr>
                     <tr>
                         <td>Inscrits confirmats:</td>
-                        <td>X</td>
+                        <td> {{ $totalIngressosConfirmats }}</td>
                     </tr>
                     <tr>
                         <td>Afters totals:</td>
-                        <td>X</td>
+                        <td> {{ $totalAfters }}</td>
                     </tr>
                     <tr>
                         <td>Homes:</td>
-                        <td>X</td>
+                        <td>{{ $totalHomes }}</td>
                     </tr>
                     <tr>
                         <td>Dones:</td>
-                        <td>X</td>
+                        <td>{{ $totalDones }}</td>
                     </tr>
                     <tr>
                         <td>Ingressos previstos</td>
-                        <td>X</td>
+                        <td>{{ $totalIngressosPrevistos }}</td>
                     </tr>
                     <tr>
                         <td>Ingressos confirmats:</td>
-                        <td>X</td>
+                        <td>{{ $totalIngressosConfirmats }}</td>
                     </tr>
                 </table>
             </div>
@@ -43,31 +43,31 @@
                 <table>
                     <tr>
                         <td>Equips inscrits: </td>
-                        <td>X</td>
+                        <td>{{ $totalEquips }}</td>
                     </tr>
                     <tr>
                         <td>Equips confirmats:</td>
-                        <td>X</td>
+                        <td>{{ $equipsConfirmats }}</td>
                     </tr>
                     <tr>
                         <td>Jugadors inscrits:</td>
-                        <td>X</td>
+                        <td>{{ $totalJugadors }}</td>
                     </tr>
                     <tr>
                         <td>Jugadors confirmats:</td>
-                        <td>X</td>
+                        <td>{{ $jugadorsConfirmats }}</td>
                     </tr>
                     <tr>
                         <td>Afters:</td>
-                        <td>X</td>
+                        <td>{{ $afterJugadors }}</td>
                     </tr>
                     <tr>
                         <td>Ingressos previstos:</td>
-                        <td>X</td>
+                        <td>{{ $ingressosPrevistosJugadors }}</td>
                     </tr>
                     <tr>
                         <td>Ingressos confirmats:</td>
-                        <td>X</td>
+                        <td>{{ $ingressosConfirmatsJugadors }}</td>
                     </tr>
                 </table>
             </div>
@@ -76,23 +76,23 @@
                     <table>
                         <tr>
                             <td>Espectadors inscrits: </td>
-                            <td>X</td>
+                            <td>{{ $espectadorsInscrits }}</td>
                         </tr>
                         <tr>
                             <td>Espectadors confirmats:</td>
-                            <td>X</td>
+                            <td>{{ $espectadorsConfirmats }}</td>
                         </tr>
                         <tr>
                             <td>Afters:</td>
-                            <td>X</td>
+                            <td>{{ $afterEspectadors }}</td>
                         </tr>
                         <tr>
                             <td>Ingressos previstos:</td>
-                            <td>X</td>
+                            <td>{{ $ingressosPrevistosEspectadors }}</td>
                         </tr>
                         <tr>
                             <td>Ingressos confirmats:</td>
-                            <td>X</td>
+                            <td>{{ $ingressosConfirmatsEspectadors }}</td>
                         </tr>
                     </table>
             </div>
@@ -103,23 +103,23 @@
                 <table>
                     <tr>
                         <td>S: </td>
-                        <td>X</td>
+                        <td>XXXXX</td>
                     </tr>
                     <tr>
                         <td>M:</td>
-                        <td>X</td>
+                        <td>XXXXX</td>
                     </tr>
                     <tr>
                         <td>L:</td>
-                        <td>X</td>
+                        <td>XXXXX</td>
                     </tr>
                     <tr>
                         <td>XL:</td>
-                        <td>X</td>
+                        <td>XXXXX</td>
                     </tr>
                     <tr>
                         <td>XXL:</td>
-                        <td>X</td>
+                        <td>XXXXX</td>
                     </tr>
                 </table>
             </div>

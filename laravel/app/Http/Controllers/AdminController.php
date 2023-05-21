@@ -26,16 +26,6 @@ class AdminController extends Controller {
             $equips = Equipo::All();
             $espectadors = Espectador::All();
 
-            //////// GENERAL ///////////
-            // Total inscrits
-            $totalInscrits = count($jugadors) + count($espectadors);
-            // Total pagats
-            // Total afters
-            // Total homes
-            // Total dones
-            // Total ingressos previstos
-            // Total ingressos confirmats
-
             /////// EQUIPS ///////
             // Total equips inscrits
             $totalEquips = count($equips);
@@ -105,12 +95,91 @@ class AdminController extends Controller {
                 $ingressosConfirmatsJugadors += $contador;
             }
 
+            /////// ESPECTADORS ///////
+            // Espectadors inscrits
+            $espectadorsInscrits = count($espectadors);
+            // Espectadors confirmats
+            $espectadorsConfirmats = Espectador::where('pago_confirmado', 1)->count();
+            // Afters espectadors
+            $afterEspectadors = Espectador::where('after', 1)->count();
+            // Ingressos previstos espectadors
+            $ingressosPrevistosEspectadors = 0;
+            foreach ($espectadors as $espectador) {
+                if ($espectador->created_at->lt('2023-06-23 0:00:00')) {
+                    if ($espectador->after) {
+                        $ingressosPrevistosEspectadors += 35;
+                    } else {
+                        $ingressosPrevistosEspectadors += 25;
+                    }
+                } else {
+                    if ($espectador->after) {
+                        $ingressosPrevistosEspectadors += 40;
+                    } else {
+                        $ingressosPrevistosEspectadors += 25;
+                    }
+                }
+            }
+
+            // Ingressos confirmats jugadors
+            $ingressosConfirmatsEspectadors = 0;
+            foreach (Espectador::where('pago_confirmado', 1)->get() as $espectador) {
+                if ($espectador->created_at->lt('2023-06-23 0:00:00')) {
+                    if ($espectador->after) {
+                        $ingressosConfirmatsEspectadors += 35;
+                    } else {
+                        $ingressosConfirmatsEspectadors += 25;
+                    }
+                } else {
+                    if ($espectador->after) {
+                        $ingressosConfirmatsEspectadors += 40;
+                    } else {
+                        $ingressosConfirmatsEspectadors += 25;
+                    }
+                }
+            }
 
 
-
+            //////// GENERAL ///////////
+            // Total inscrits
+            $totalInscrits = count($jugadors) + count($espectadors);
+            // Total pagats
+            $totalPagats = $jugadorsConfirmats + $espectadorsConfirmats;
+            // Total afters
+            $totalAfters = $afterJugadors + $afterEspectadors;
+            // Total homes
+            $homesJugadors = Jugador::where('sexo', 'H')->count();
+            $homesEspectadors = Espectador::where('sexo', 'H')->count();
+            $totalHomes = $homesJugadors + $homesEspectadors;
+            // Total dones
+            $donesJugadors = Jugador::where('sexo', 'D')->count();
+            $donesEspectadors = Espectador::where('sexo', 'D')->count();
+            $totaldones = $donesJugadors + $donesEspectadors;
+            // Total ingressos previstos
+            $totalIngressosPrevistos = $ingressosPrevistosJugadors + $ingressosPrevistosEspectadors;
+            // Total ingressos confirmats
+            $totalIngressosConfirmats = $ingressosConfirmatsJugadors + $ingressosConfirmatsEspectadors;
 
             return view('admin.index', [
+                'totalPagats' => $totalPagats,
+                'totalAfters' => $totalAfters,
+                'totalHomes' => $totalHomes,
+                'totalDones' => $totaldones,
+                'totalIngressosPrevistos' => $totalIngressosPrevistos,
+                'totalIngressosConfirmats' => $totalIngressosConfirmats,
                 'totalInscrits' => $totalInscrits,
+                'totalEquips' => $totalEquips,
+                'equipsConfirmats' => $equipsConfirmats,
+                'totalJugadors' => $totalJugadors,
+                'jugadorsConfirmats' => $jugadorsConfirmats,
+                'afterJugadors' => $afterJugadors,
+                'ingressosPrevistosJugadors' => $ingressosPrevistosJugadors,
+                'ingressosConfirmatsJugadors' => $ingressosConfirmatsJugadors,
+                'espectadorsInscrits' => $espectadorsInscrits,
+                'espectadorsConfirmats' => $espectadorsConfirmats,
+                'afterEspectadors' => $afterEspectadors,
+                'ingressosPrevistosEspectadors' => $ingressosPrevistosEspectadors,
+                'ingressosConfirmatsEspectadors' => $ingressosConfirmatsEspectadors,
+
             ]);
         }
         return redirect()->intended('/');
