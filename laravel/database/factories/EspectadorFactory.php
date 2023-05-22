@@ -15,8 +15,8 @@ class EspectadorFactory extends Factory
         return [
             'name' => $this->faker->unique()->word,
             'apellidos' => $this->faker->lastName,
-            'sexo' => $this->faker->randomElement(['hombre', 'mujer', 'otro']),
-            'talla' => $this->faker->randomElement(['XS', 'S', 'M', 'L', 'XL']),
+            'sexo' => $this->faker->randomElement(['H', 'D']),
+            'talla' => $this->faker->randomElement(['S', 'M', 'L', 'XL', 'XXL']),
             'alergenos' => $this->faker->optional()->text(20),
             'after' => $this->faker->boolean(50),
             'id_usuario' => User::factory(),

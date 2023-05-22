@@ -48,6 +48,11 @@ Route::get('logout', [LoginController::class, 'logout'])->name('auth.logout');
 Route::get("admin", [AdminController::class, "index"])->name('admin.index');
 Route::get("admin/equips", [AdminEquiposController::class, "index"])->name('admin.equips');
 Route::get("admin/equips/validar/{id}", [AdminEquiposController::class, "validarInscripcio"])->name('admin.validarInscripcio');
+Route::get("admin/equip/{id}", [AdminEquiposController::class, "single"])->name('admin.singleEquip');
+Route::post("admin/equip/actualitzar-jugador", [AdminEquiposController::class, "actualizarJugador"])->name('admin.actualizarJugador');
+Route::post("admin/equip/afegir-jugador", [AdminEquiposController::class, "afegirJugador"])->name('admin.afegirJugador');
+Route::delete("admin/equip/eliminar-jugador/{id}", [AdminEquiposController::class, "eliminarJugador"])->name('admin.eliminarJugador');
+Route::delete("admin/eliminar-inscripcio-equip", [AdminEquiposController::class, "eliminarInscripcioEquip"])->name('admin.eliminarInscripcioEquip');
 
 
 // Vista + accions EQUIPS

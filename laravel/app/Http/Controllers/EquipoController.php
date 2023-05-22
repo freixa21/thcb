@@ -55,7 +55,7 @@ class EquipoController extends Controller {
     // Actualizar Jugador
     public function actualizarJugador(Request $request): RedirectResponse {
 
-        if(Auth::user()->is_admin) {
+        if (Auth::user()->is_admin) {
             return redirect()->intended('admin');
         }
 
@@ -143,24 +143,24 @@ class EquipoController extends Controller {
         return redirect()->back()->with('success', 'Jugador eliminat correctament');
     }
 
-        // Eliminar equip + usuari
-        public function eliminarInscripcioEquip(Request $request): RedirectResponse {
-            
-            $jugadors = Auth::user()->equipo->jugadores;
-            $equip = Equipo::findOrFail(Auth::user()->equipo->id);
-            $usuari = User::findOrFail(Auth::user()->id);
+    // Eliminar equip + usuari
+    public function eliminarInscripcioEquip(Request $request): RedirectResponse {
 
-            // Esborrar jugadors
-            foreach ($jugadors as $jugador) {
-                $jugador->delete();
-            }
-            // Esborrar equip
-            $equip->delete();
-            //Esborrar usuari
-            Auth::logout();
-            $request->session()->invalidate();
-            $usuari->delete();
-            
-            return redirect()->route('auth.login')->with('success', 'Inscripció eliminada correctament.');
+        $jugadors = Auth::user()->equipo->jugadores;
+        $equip = Equipo::findOrFail(Auth::user()->equipo->id);
+        $usuari = User::findOrFail(Auth::user()->id);
+
+        // Esborrar jugadors
+        foreach ($jugadors as $jugador) {
+            $jugador->delete();
         }
+        // Esborrar equip
+        $equip->delete();
+        //Esborrar usuari
+        Auth::logout();
+        $request->session()->invalidate();
+        $usuari->delete();
+
+        return redirect()->route('auth.login')->with('success', 'Inscripció eliminada correctament.');
+    }
 }
