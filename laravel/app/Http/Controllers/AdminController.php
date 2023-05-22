@@ -7,6 +7,7 @@ use App\Models\Equipo;
 use App\Models\Jugador;
 use App\Models\Espectador;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Redirect;
@@ -181,7 +182,42 @@ class AdminController extends Controller {
             $tallaXXLEspectador = Espectador::where('talla', 'XXL')->count();
             $totalXXL = $tallaXXLJugador + $tallaXXLEspectador;
 
-            
+            $jugadoresConAlergias = DB::table('jugadores')
+                ->select('jugadores.*', 'jugadores.alergenos as alergia_jugador')
+                ->get();
+
+            $espectadoresConAlergias = DB::table('espectador')
+                ->select('espectador.*', 'espectador.alergenos as alergia_espectador')
+                ->get();
+
+            $alergias = [];
+
+            foreach ($jugadoresConAlergias as $jugador) {
+                if (!empty($jugador->alergenos)) {
+                    $alergias[] = [
+                        'nombre' => $jugador->nombre,
+                        'apellidos' => $jugador->apellidos,
+                        'alergia' => $jugador->alergenos
+                    ];
+                }
+            }
+
+            foreach ($espectadoresConAlergias as $espectador) {
+                if (!empty($espectador->alergenos)) {
+                    $alergias[] = [
+                        'nombre' => $espectador->name,
+                        'apellidos' => $espectador->apellidos,
+                        'alergia' => $espectador->alergenos
+                    ];
+                }
+            }
+
+
+
+
+
+
+
 
             return view('admin.index', [
                 'totalPagats' => $totalPagats,
@@ -208,7 +244,7 @@ class AdminController extends Controller {
                 'totalL' => $totalL,
                 'totalXL' => $totalXL,
                 'totalXXL' => $totalXXL,
-
+                'alergias' => $alergias
             ]);
         }
         return redirect()->intended('/');

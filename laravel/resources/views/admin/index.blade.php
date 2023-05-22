@@ -103,41 +103,39 @@
                 <table>
                     <tr>
                         <td>S: </td>
-                        <td>{{$totalS}}</td>
+                        <td>{{ $totalS }}</td>
                     </tr>
                     <tr>
                         <td>M:</td>
-                        <td>{{$totalM}}</td>
+                        <td>{{ $totalM }}</td>
                     </tr>
                     <tr>
                         <td>L:</td>
-                        <td>{{$totalL}}</td>
+                        <td>{{ $totalL }}</td>
                     </tr>
                     <tr>
                         <td>XL:</td>
-                        <td>{{$totalXL}}</td>
+                        <td>{{ $totalXL }}</td>
                     </tr>
                     <tr>
                         <td>XXL:</td>
-                        <td>{{$totalXXL}}</td>
+                        <td>{{ $totalXXL }}</td>
                     </tr>
                 </table>
             </div>
             <div class="col-admin lg:w-full bg-blue-400">
                 <h2>Al·lèrgies</h2>
                 <table>
-                    <tr>
+                    <tr class="text-left">
                         <th>Nom</th>
                         <th>Al·lèrgies</th>
                     </tr>
-                    <tr>
-                        <td>Nom</td>
-                        <td>Al·lèrgies</td>
-                    </tr>
-                    <tr>
-                        <td>Nom</td>
-                        <td>Al·lèrgies</td>
-                    </tr>
+                    @foreach ($alergias as $item)
+                        <tr>
+                            <td>{{ $item['nombre'] }} {{ $item['apellidos'] }}</td>
+                            <td>{{ $item['alergia'] }}</td>
+                        </tr>
+                    @endforeach
                 </table>
             </div>
         </div>
