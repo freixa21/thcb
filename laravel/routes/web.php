@@ -8,6 +8,7 @@ use App\Http\Controllers\EquipoController;
 use App\Http\Controllers\EspectadorController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AdminEquiposController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -45,6 +46,9 @@ Route::get('logout', [LoginController::class, 'logout'])->name('auth.logout');
 
 // Vista + accions ADMIN
 Route::get("admin", [AdminController::class, "index"])->name('admin.index');
+Route::get("admin/equips", [AdminEquiposController::class, "index"])->name('admin.equips');
+Route::get("admin/equips/validar/{id}", [AdminEquiposController::class, "validarInscripcio"])->name('admin.validarInscripcio');
+
 
 // Vista + accions EQUIPS
 Route::get("equip", [EquipoController::class, "index"])->name('index.equip');
