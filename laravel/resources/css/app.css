@@ -198,7 +198,23 @@ html, body {
 
     /* FINAL ESTIL TAULES ADMIN =================================================================================================== */
 
+    .nav-toggle {
+        display: none;
+    }
 
+    @media (max-width: 1000px) {
+        .nav-toggle {
+            display: block;
+        }
+
+        #navMenu {
+            display: none;
+        }
+
+        #navMenu.open {
+            display: block;
+        }
+    }
 
 
 }

@@ -6,7 +6,7 @@
     <div class="flex  mx-5 lg:mx-20 max-w-screen-2xl w-full flex-col">
         <div class="w-full max-w-screen-2xl">
             <div class="w-full">
-                <div id="bloc-principal" class="flex flex-col lg:flex-row">
+                <div id="bloc-principal" class="flex flex-col lg:flex-row mt-4">
                     <div id="informacio" class="w-full lg:w-2/3 shadow-md  p-3 rounded-lg mb-5 lg:mb-0">
                         <a href="{{ route('admin.espectadors') }}"><i class="fa-solid fa-arrow-left"></i><span> Tornar a
                             espectadors</span></a>

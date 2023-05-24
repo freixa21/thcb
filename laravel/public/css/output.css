@@ -578,6 +578,24 @@ table {
 
 /* FINAL ESTIL TAULES ADMIN =================================================================================================== */
 
+.nav-toggle {
+  display: none;
+}
+
+@media (max-width: 1000px) {
+  .nav-toggle {
+    display: block;
+  }
+
+  #navMenu {
+    display: none;
+  }
+
+  #navMenu.open {
+    display: block;
+  }
+}
+
 *, ::before, ::after {
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
@@ -867,6 +885,10 @@ table {
   height: 1.25rem;
 }
 
+.h-8 {
+  height: 2rem;
+}
+
 .h-auto {
   height: auto;
 }
@@ -927,6 +949,10 @@ table {
 
 .max-w-screen-2xl {
   max-width: 1536px;
+}
+
+.cursor-default {
+  cursor: default;
 }
 
 .cursor-pointer {
@@ -1160,6 +1186,11 @@ table {
 .px-4 {
   padding-left: 1rem;
   padding-right: 1rem;
+}
+
+.px-6 {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
 }
 
 .px-8 {
@@ -1622,6 +1653,34 @@ html, body {
 }
 
 @media (min-width: 768px) {
+  .md\:ml-6 {
+    margin-left: 1.5rem;
+  }
+
+  .md\:mt-0 {
+    margin-top: 0px;
+  }
+
+  .md\:inline-block {
+    display: inline-block;
+  }
+
+  .md\:flex {
+    display: flex;
+  }
+
+  .md\:hidden {
+    display: none;
+  }
+
+  .md\:items-center {
+    align-items: center;
+  }
+
+  .md\:justify-between {
+    justify-content: space-between;
+  }
+
   .md\:px-\[70px\] {
     padding-left: 70px;
     padding-right: 70px;

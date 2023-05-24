@@ -36,14 +36,13 @@ class EspectadorController extends Controller {
             'comprovante_img' => 'required|image|max:10240',
         ]);
 
+        $espectador = Espectador::find(Auth::user()->espectador->id);
 
         if ($request->hasFile('comprovante_img')) {
             $image = $request->file('comprovante_img');
-            $filename = time() . '.' . $image->getClientOriginalExtension();
+            $filename = $espectador->name . $espectador->apellidos . time() . '.' . $image->getClientOriginalExtension();
             $image->move(public_path('images/uploads'), $filename);
         }
-
-        $espectador = Espectador::find(Auth::user()->espectador->id);
 
         $espectador->update([
             'comprovante_img' => $filename,

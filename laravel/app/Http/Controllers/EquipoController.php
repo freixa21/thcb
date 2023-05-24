@@ -34,14 +34,13 @@ class EquipoController extends Controller {
             'comprovante_img' => 'required|image|max:10240',
         ]);
 
+        $equipo = Equipo::find(Auth::user()->equipo->id);
 
         if ($request->hasFile('comprovante_img')) {
             $image = $request->file('comprovante_img');
-            $filename = time() . '.' . $image->getClientOriginalExtension();
+            $filename = $equipo->nombre . time() . '.' . $image->getClientOriginalExtension();
             $image->move(public_path('images/uploads'), $filename);
         }
-
-        $equipo = Equipo::find(Auth::user()->equipo->id);
 
         $equipo->update([
             'comprovante_img' => $filename,
