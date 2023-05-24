@@ -57,7 +57,8 @@ Route::post("admin/equip/afegir-jugador", [AdminEquiposController::class, "afegi
 Route::delete("admin/equip/eliminar-jugador/{id}", [AdminEquiposController::class, "eliminarJugador"])->name('admin.eliminarJugador');
 Route::delete("admin/eliminar-inscripcio-equip", [AdminEquiposController::class, "eliminarInscripcioEquip"])->name('admin.eliminarInscripcioEquip');
 // ADMIN ==== Espectadors
-Route::get("admin/espectador/{id}", [AdminEspectadorController::class, "index"])->name('admin.singleEspectadors');
+Route::get("admin/espectadors", [AdminEspectadorController::class, "index"])->name('admin.espectadors');
+Route::get("admin/espectador/{id}", [AdminEspectadorController::class, "single"])->name('admin.singleEspectadors');
 Route::post("admin/actualitzar-espectador", [AdminEspectadorController::class, "actualizarEspectador"])->name('admin.actualitzarEspectador');
 Route::post('admin/espectador/image/upload', [AdminEspectadorController::class, 'espectadorComprovant'])->name('admin.espectadorComprovant');
 Route::delete("admin/eliminar-inscripcio/{id}", [AdminEspectadorController::class, "eliminarInscripcioEspectador"])->name('admin.eliminarInscripcioEspectador');

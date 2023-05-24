@@ -50,7 +50,7 @@ class EspectadorController extends Controller {
             'estado_inscripcion' => "1",
         ]);
 
-        return redirect()->back()->with('success', 'El comprovant s\'ha enviat correctament. Ens posarem en conctacte amb tu quan haguem verificat el pagament i la inscripció del teu equip quedarà confirmada!');
+        return redirect()->back()->with('success', 'El comprovant s\'ha enviat correctament. Ens posarem en contacte amb tu quan haguem verificat el pagament i la inscripció quedarà confirmada!');
     }
 
     // Actualizar Espectador

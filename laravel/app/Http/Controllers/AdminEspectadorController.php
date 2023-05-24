@@ -22,7 +22,7 @@ class AdminEspectadorController extends Controller {
 
             $espectadors = Espectador::All();
 
-            return view('admin.equip', [
+            return view('admin.espectadors', [
                 'espectadors' => $espectadors
             ]);
         }
@@ -39,7 +39,7 @@ class AdminEspectadorController extends Controller {
             $espectador = Espectador::findOrFail($idEspectador);
             $usuariEspectador = User::findOrFail($espectador->id_usuario);
 
-            return view('admin.singleEquip', [
+            return view('admin.singleEspectador', [
                 'espectador' => $espectador,
                 'usuariEspectador' => $usuariEspectador
             ]);
