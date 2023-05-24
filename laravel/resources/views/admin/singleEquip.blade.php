@@ -46,10 +46,11 @@
                                 <strong>{{ $total }}€</strong>
                             </p>
                             @if (count($jugadores) > 4)
-                                <form action="{{ route('uploadComprovant') }}" method="POST" enctype="multipart/form-data"
+                                <form action="{{ route('admin.uploadComprovant') }}" method="POST" enctype="multipart/form-data"
                                     class="mb-0">
                                     @csrf
                                     <div class="mb-4">
+                                        <input type="hidden" name="id" value="{{$equipo->id}}">
                                         <label for="comprovante_img" class="block mt-3">Adjuntar comprovant/captura de
                                             pantalla:</label>
                                         <input type="file" name="comprovante_img" id="comprovante_img"

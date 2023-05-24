@@ -9,6 +9,7 @@ use App\Http\Controllers\EspectadorController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminEquiposController;
+use App\Http\Controllers\AdminEspectadorController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -44,15 +45,22 @@ Route::group(['middleware' => 'guest'], function () {
 // Logout
 Route::get('logout', [LoginController::class, 'logout'])->name('auth.logout');
 
-// Vista + accions ADMIN
+// ADMIN ==== Vista general
 Route::get("admin", [AdminController::class, "index"])->name('admin.index');
+// ADMIN ==== Equips i jugadors
 Route::get("admin/equips", [AdminEquiposController::class, "index"])->name('admin.equips');
+Route::post('admin/image/upload', [AdminEquiposController::class, 'uploadComprovant'])->name('admin.uploadComprovant');
 Route::get("admin/equips/validar/{id}", [AdminEquiposController::class, "validarInscripcio"])->name('admin.validarInscripcio');
 Route::get("admin/equip/{id}", [AdminEquiposController::class, "single"])->name('admin.singleEquip');
 Route::post("admin/equip/actualitzar-jugador", [AdminEquiposController::class, "actualizarJugador"])->name('admin.actualizarJugador');
 Route::post("admin/equip/afegir-jugador", [AdminEquiposController::class, "afegirJugador"])->name('admin.afegirJugador');
 Route::delete("admin/equip/eliminar-jugador/{id}", [AdminEquiposController::class, "eliminarJugador"])->name('admin.eliminarJugador');
 Route::delete("admin/eliminar-inscripcio-equip", [AdminEquiposController::class, "eliminarInscripcioEquip"])->name('admin.eliminarInscripcioEquip');
+// ADMIN ==== Espectadors
+Route::get("admin/espectador/{id}", [AdminEspectadorController::class, "index"])->name('admin.singleEspectadors');
+Route::post("admin/actualitzar-espectador", [AdminEspectadorController::class, "actualizarEspectador"])->name('admin.actualitzarEspectador');
+Route::post('admin/espectador/image/upload', [AdminEspectadorController::class, 'espectadorComprovant'])->name('admin.espectadorComprovant');
+Route::delete("admin/eliminar-inscripcio/{id}", [AdminEspectadorController::class, "eliminarInscripcioEspectador"])->name('admin.eliminarInscripcioEspectador');
 
 
 // Vista + accions EQUIPS

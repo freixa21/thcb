@@ -16,8 +16,8 @@ class UserSeeder extends Seeder
     public static function generarUserTest() {
         $u = new User();
 
-        $u->name = 'Nombre';
-        $u->apellidos = 'Apellidos';
+        $u->name = 'Max';
+        $u->apellidos = 'Freixa';
         $u->email = 'admin@hockeycostabrava.com';
         $u->password = Hash::make('Almax1821.');
         $u->phone = '630206438';
