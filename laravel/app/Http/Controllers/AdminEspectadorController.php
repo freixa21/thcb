@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Espectador;
 use Illuminate\Http\Request;
+use App\Mail\ConfirmarInscripcio;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\RedirectResponse;
 
 class AdminEspectadorController extends Controller {
@@ -67,7 +69,7 @@ class AdminEspectadorController extends Controller {
             $image->move(public_path('images/uploads'), $filename);
         }
 
-        
+
         $espectador->update([
             'comprovante_img' => $filename,
             'estado_inscripcion' => "1",
@@ -119,14 +121,38 @@ class AdminEspectadorController extends Controller {
             return redirect()->intended('/');
         }
 
+        
         $espectador = Espectador::findOrFail($request->id);
-        $usuari = User::findOrFail($request->id_usuario);
+        $usuari = User::findOrFail($espectador->id_usuario);
+
 
         // Esborrar espectador
         $espectador->delete();
         //Esborrar usuari
         $usuari->delete();
-        
+
         return redirect()->route('auth.login')->with('success', 'Inscripció eliminada correctament.');
+    }
+
+    public function validarInscripcio(Request $request) {
+
+        $user = Auth::user()->is_admin;
+
+        if ($user != 1) {
+            return redirect()->intended('/');
+        }
+
+        $idEspectador = $request->id;
+        $espectador = Espectador::findOrFail($idEspectador);
+
+        $espectador->update([
+            'estado_inscripcion' => 2,
+            'pago_confirmaddo' => 1,
+        ]);
+
+        // Enviem mail de confirmació al usuari
+        Mail::to($espectador->user->email)->send(new ConfirmarInscripcio());
+
+        return redirect()->back()->with('success', 'S\'ha validat el pagament');
     }
 }

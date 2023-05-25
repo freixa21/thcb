@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ConfirmarInscripcio;
 use App\Models\User;
 use App\Models\Equipo;
 use App\Models\Jugador;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Redirect;
 
@@ -67,6 +69,9 @@ class AdminEquiposController extends Controller {
             'estado_inscripcion' => 2,
             'pago_confirmaddo' => 1,
         ]);
+
+        // Enviem mail de confirmació al usuari
+        Mail::to($equip->user->email)->send(new ConfirmarInscripcio());
 
         return redirect()->back()->with('success', 'S\'ha validat el pagament');
     }

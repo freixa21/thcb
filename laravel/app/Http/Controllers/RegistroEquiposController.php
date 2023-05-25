@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\AdminNouRegistre;
 use App\Models\User;
 use App\Mail\RegistreEquips;
 use App\Models\Equipo;
@@ -23,7 +24,7 @@ class RegistroEquiposController extends Controller {
 
         $totalEquips = Equipo::All();
 
-        if(count($totalEquips) >= 30) {
+        if (count($totalEquips) >= 30) {
             return Redirect::back()->withErrors(['error' => 'Ja no hi ha places per equips nous. Estigueu pendents a Instagram per si se n\'allibera alguna o també podeu registrar-vos com a espectadors.']);
         }
 
@@ -50,6 +51,10 @@ class RegistroEquiposController extends Controller {
 
         // Enviem mail de confirmació al usuari
         Mail::to($validated_usuario['email'])->send(new RegistreEquips());
+        // Enviem avis al admin
+        $inscripcio = "EQUIP";
+        $nom = $validated_equipo['nombre'];
+        Mail::to('inscripcions@hockeycostabrava.com')->send(new AdminNouRegistre($inscripcio, $nom));
 
         return redirect()->route('auth.login')->with('registroCorrecto', 'Equip registrat correctament! Inicia sessió i afegeix a tots els jugadors del teu equip.');
     }

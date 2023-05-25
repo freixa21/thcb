@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\AdminNouPagament;
+use App\Mail\PagamentEnviat;
 use App\Models\User;
 use App\Models\Equipo;
 use App\Models\Espectador;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\RedirectResponse;
 
 class EspectadorController extends Controller {
@@ -17,7 +20,7 @@ class EspectadorController extends Controller {
 
     public function index() {
 
-        if(Auth::user()->is_admin) {
+        if (Auth::user()->is_admin) {
             return redirect()->intended('admin');
         }
 
@@ -48,6 +51,25 @@ class EspectadorController extends Controller {
             'comprovante_img' => $filename,
             'estado_inscripcion' => "1",
         ]);
+
+        // Calculem preu espectador
+        if ($espectador->created_at->lt('2023-06-23 0:00:00')) {
+            if ($espectador->after)
+                $preu = 35;
+            else
+                $preu = 25;
+        } else {
+            if ($espectador->after) {
+                $preu = 40;
+            } else {
+                $preu =  25;
+            }
+        }
+
+        // Enviem mail de confirmació al usuari
+        Mail::to(Auth::user()->email)->send(new PagamentEnviat());
+        // Enviem mail de confirmació al usuari
+        Mail::to('inscripcions@hockeycostabrava.com')->send(new AdminNouPagament($espectador, $preu));
 
         return redirect()->back()->with('success', 'El comprovant s\'ha enviat correctament. Ens posarem en contacte amb tu quan haguem verificat el pagament i la inscripció quedarà confirmada!');
     }
@@ -99,7 +121,7 @@ class EspectadorController extends Controller {
         Auth::logout();
         $request->session()->invalidate();
         $usuari->delete();
-        
+
         return redirect()->route('auth.login')->with('success', 'Inscripció eliminada correctament.');
     }
 }

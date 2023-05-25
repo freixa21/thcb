@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\PagamentEnviat;
 use App\Models\User;
 use App\Models\Equipo;
 use App\Models\Jugador;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Redirect;
 
@@ -46,6 +48,9 @@ class EquipoController extends Controller {
             'comprovante_img' => $filename,
             'estado_inscripcion' => "1",
         ]);
+
+        // Enviem mail de confirmació al usuari
+        Mail::to(Auth::user()->email)->send(new PagamentEnviat());
 
 
         return redirect()->back()->with('success', 'El comprovant s\'ha enviat correctament. Ens posarem en contacte amb tu quan haguem verificat el pagament i la inscripció del teu equip quedarà confirmada!');

@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', "Espectadors")
+@section('title', 'Espectadors')
 
 @section('content')
 
@@ -19,8 +19,8 @@
                         <th scope="col" class="px-2 py-3 amagar-mobil">Sexe</th>
                         <th scope="col" class="px-2 py-3 amagar-mobil">Talla</th>
                         <th scope="col" class="px-2 py-3 amagar-mobil">Afterparty</th>
-                        <th scope="col" class="px-2 py-3 amagar-mobil">Al·lèrgies</th>
                         <th scope="col" class="px-2 py-3 amagar-mobil">Data inscripció</th>
+                        <th scope="col" class="px-2 py-3">Rebut</th>
                         <th scope="col" class="px-2 py-3">€</th>
                         <th scope="col" class="px-2 py-3">
                             <span class="sr-only"></span>
@@ -33,7 +33,7 @@
                             <td class="px-2 py-3 text-center">{{ $loop->index + 1 }}</td>
                             <th scope="row" class="px-2 py-3 font-medium text-gray-900  whitespace-nowrap truncate"
                                 style="max-width: 100px">
-                                {{ $espectador->nombre }} {{ $espectador->apellidos }}
+                                {{ $espectador->name }} {{ $espectador->apellidos }}
                             </th>
                             <td class="px-2 py-3 amagar-mobil">{{ $espectador->sexo }}</td>
                             <td class="px-2 py-3 amagar-mobil">{{ $espectador->talla }}</td>
@@ -44,10 +44,24 @@
                                     No
                                 @endif
                             </td>
-                            <td class="px-2 py-3 amagar-mobil truncate" style="max-width: 100px">
-                                {{ $espectador->alergenos }}
-                            </td>
                             <td class="px-2 py-3 amagar-mobil">{{ $espectador->created_at->format('d-m-Y') }}</td>
+                            <td class="px-2 py-3">
+                                @if ($espectador->estado_inscripcion == 0)
+                                    <span class="text-red-950">No pagada</span>
+                                @elseif($espectador->estado_inscripcion == 1)
+                                    <a href="{{ asset('images/uploads/' . $espectador->comprovante_img) }}"
+                                        target="_blank"><i class="fa-solid fa-receipt" style="color: #23599c;"></i></a> |
+                                    <span class="text-blue-950">Pagada</span> | <a
+                                        class="px-1 bg-blue-950 text-white rounded-md"
+                                        href="{{ route('admin.validarInscripcioEspectador', $espectador->id) }}"
+                                        onclick="return confirm('Estàs segur que vols confirmar el pagament?')">Validar</a>
+                                @elseif($espectador->estado_inscripcion == 2)
+                                    <span class="text-green-950">Confirmada <a
+                                            href="{{ asset('images/uploads/' . $espectador->comprovante_img) }}"
+                                            target="_blank"><i class="fa-solid fa-receipt"
+                                                style="color: #288636;"></i></a></span>
+                                @endif
+                            </td>
                             <td class="px-2 py-3">
                                 @if ($espectador->created_at->lt('2023-06-23 0:00:00'))
                                     @if ($espectador->after)
@@ -63,8 +77,9 @@
                                     @endif
                                 @endif
                             </td>
-                            <td class="py-4 max-w-0">
-                                <a href="{{ route('admin.singleEspectador', $espectador->id)}}">Editar</a>
+                            <td class="py-4">
+                                <a href="{{ route('admin.singleEspectador', $espectador->id) }}"><i
+                                        class="fa-solid fa-pen-to-square"></i></a>
                             </td>
                         </tr>
                     @endforeach
