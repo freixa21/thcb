@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Mail\RegistreEquips;
 use App\Models\Equipo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Redirect;
 
@@ -45,6 +47,9 @@ class RegistroEquiposController extends Controller {
         // CREAMOS EQUIPO
         $validated_equipo['id_usuario'] = DB::getPdo()->lastInsertId();
         Equipo::create($validated_equipo);
+
+        // Enviem mail de confirmació al usuari
+        Mail::to($validated_usuario['email'])->send(new RegistreEquips());
 
         return redirect()->route('auth.login')->with('registroCorrecto', 'Equip registrat correctament! Inicia sessió i afegeix a tots els jugadors del teu equip.');
     }
