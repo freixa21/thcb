@@ -125,9 +125,9 @@
 
                     <div class="flex items-center justify-between mt-6">
                         <div class="flex items-center">
-                            <input id="remember" type="checkbox"
+                            <input required id="remember" type="checkbox"
                                 class="form-checkbox w-4 h-4 text-blue-600 transition duration-150 ease-in-out">
-                            <label required for="remember" class="block ml-2 text-sm text-gray-900 leading-5 underline" required>
+                            <label for="remember" class="block ml-2 text-sm text-gray-900 leading-5 underline" required>
                                 He llegit i accepto la <a
                                     href="https://hockeycostabrava.com/avis-legal-politica-privacitat/"
                                     target="_blank">política de privacitat</a>
