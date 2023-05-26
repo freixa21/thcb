@@ -1,9 +1,10 @@
-@extends('partials.head')
+@extends('layouts.master')
 
 @section('title', 'Login')
 
+@section('content')
 
-    <div class="flex flex-col justify-center min-h-screen py-12 bg-gray-50 sm:px-6 lg:px-8">
+    <div class="flex flex-col justify-center min-h-screen py-12 w-full bg-gray-50 sm:px-6 lg:px-8">
         <div class="sm:mx-auto sm:w-full sm:max-w-md">
             <h1 class="text-3xl font-extrabold text-center text-gray-900 leading-9">
                 Iniciar sessió
@@ -101,7 +102,7 @@
                 <div class="w-full text-center lg:w-1/2">
 
                     <a href="/registre-espectadors"
-                    class="font-medium text-sm  block p-2 w-full rounded-md bg-blue-900 text-white hover:bg-blue-700 lg:ml-2 focus:outline-none focus:underline transition ease-in-out duration-150">
+                        class="font-medium text-sm  block p-2 w-full rounded-md bg-blue-900 text-white hover:bg-blue-700 lg:ml-2 focus:outline-none focus:underline transition ease-in-out duration-150">
                         Registrar espectador &nbsp;<i class="fa-solid fa-person" style="color: #ffffff;"></i>
                     </a>
                 </div>
@@ -110,6 +111,4 @@
         </div>
     </div>
 
-</body>
-
-</html>
+@endsection

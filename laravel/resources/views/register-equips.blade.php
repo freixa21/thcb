@@ -1,9 +1,10 @@
-@extends('partials.head')
+@extends('layouts.master')
 
 @section('title', 'Registrar equip')
 
-<body>
-    <div class="flex flex-col justify-center min-h-screen py-12 bg-gray-50 sm:px-6 lg:px-8">
+@section('content')
+
+    <div class="flex flex-col justify-center min-h-screen py-12 bg-gray-50 sm:px-6 lg:px-8 w-full">
         <div class="sm:mx-auto sm:w-full sm:max-w-md">
             <h2 class="mt-6 text-3xl font-extrabold text-center text-gray-900 leading-9">
                 Registre d'equips
@@ -40,7 +41,8 @@
                         </label>
 
                         <div class="mt-1 rounded-md shadow-sm">
-                            <input id="nombre" name="nombre" type="text" required="" autofocus="" value="{{ old('nombre') }}"
+                            <input id="nombre" name="nombre" type="text" required="" autofocus=""
+                                value="{{ old('nombre') }}"
                                 class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 ">
                         </div>
 
@@ -52,7 +54,8 @@
                         </label>
 
                         <div class="mt-1 rounded-md shadow-sm">
-                            <input id="name" name="name" type="text" required="" autofocus="" value="{{ old('name') }}"
+                            <input id="name" name="name" type="text" required="" autofocus=""
+                                value="{{ old('name') }}"
                                 class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 ">
                         </div>
 
@@ -64,7 +67,8 @@
                         </label>
 
                         <div class="mt-1 rounded-md shadow-sm">
-                            <input id="apellidos" name="apellidos" type="text" required="" autofocus="" value="{{ old('apellidos') }}"
+                            <input id="apellidos" name="apellidos" type="text" required="" autofocus=""
+                                value="{{ old('apellidos') }}"
                                 class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 ">
                         </div>
 
@@ -76,7 +80,8 @@
                         </label>
 
                         <div class="mt-1 rounded-md shadow-sm">
-                            <input id="email" name="email" type="email" required="" autofocus="" value="{{ old('email') }}"
+                            <input id="email" name="email" type="email" required="" autofocus=""
+                                value="{{ old('email') }}"
                                 class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 ">
                         </div>
 
@@ -88,7 +93,8 @@
                         </label>
 
                         <div class="mt-1 rounded-md shadow-sm">
-                            <input id="phone" name="phone" type="tel" required="" autofocus="" value="{{ old('phone') }}"
+                            <input id="phone" name="phone" type="tel" required="" autofocus=""
+                                value="{{ old('phone') }}"
                                 class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 ">
                         </div>
 
@@ -122,7 +128,9 @@
                             <input id="remember" type="checkbox"
                                 class="form-checkbox w-4 h-4 text-blue-600 transition duration-150 ease-in-out">
                             <label for="remember" class="block ml-2 text-sm text-gray-900 leading-5 underline" required>
-                                He llegit i accepto la <a href="https://hockeycostabrava.com/avis-legal-politica-privacitat/" target="_blank">política de privacitat</a>
+                                He llegit i accepto la <a
+                                    href="https://hockeycostabrava.com/avis-legal-politica-privacitat/"
+                                    target="_blank">política de privacitat</a>
                             </label>
                         </div>
                     </div>
@@ -140,6 +148,4 @@
         </div>
     </div>
 
-</body>
-
-</html>
+@endsection
