@@ -250,20 +250,6 @@
                                             class="inline-flex items-center gap-x-2 py-3 px-2 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg">
                                             <div class="relative flex items-start w-full">
                                                 <div class="flex items-center h-5">
-                                                    <input required id="XS-afegir" value="XS" name="talla"
-                                                        type="radio"
-                                                        class="border-gray-200 rounded-full :bg-gray-800 :border-gray-700 :checked:bg-blue-500 :checked:border-blue-500 :focus:ring-offset-gray-800">
-                                                </div>
-                                                <label for="XS-afegir" class="ml-3 block w-full text-sm text-black">
-                                                    XS
-                                                </label>
-                                            </div>
-                                        </li>
-
-                                        <li
-                                            class="inline-flex items-center gap-x-2 py-3 px-2 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg">
-                                            <div class="relative flex items-start w-full">
-                                                <div class="flex items-center h-5">
                                                     <input required id="S-afegir" value="S" name="talla"
                                                         type="radio"
                                                         class="border-gray-200 rounded-full :bg-gray-800 :border-gray-700 :checked:bg-blue-500 :checked:border-blue-500 :focus:ring-offset-gray-800">
@@ -564,24 +550,6 @@
                                                     </label>
 
                                                     <ul class="flex flex-col sm:flex-row mt-1">
-                                                        <li
-                                                            class="inline-flex items-center gap-x-2 py-3 px-2 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg">
-                                                            <div class="relative flex items-start w-full">
-                                                                <div class="flex items-center h-5">
-                                                                    <input required id="XS-{{ $loop->index }}"
-                                                                        value="XS"
-                                                                        @if (Carbon\Carbon::now()->gt('2023-07-06 0:00:00')) disabled @endif
-                                                                        name="talla" type="radio"
-                                                                        class="border-gray-200 rounded-full :bg-gray-800 :border-gray-700 :checked:bg-blue-500 :checked:border-blue-500 :focus:ring-offset-gray-800"
-                                                                        @if ($jugador->talla == 'XS') checked @endif>
-                                                                </div>
-                                                                <label for="XS-{{ $loop->index }}"
-                                                                    class="ml-3 block w-full text-sm text-black">
-                                                                    XS
-                                                                </label>
-                                                            </div>
-                                                        </li>
-
                                                         <li
                                                             class="inline-flex items-center gap-x-2 py-3 px-2 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg">
                                                             <div class="relative flex items-start w-full">
