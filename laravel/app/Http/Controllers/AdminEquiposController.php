@@ -10,7 +10,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Support\Facades\Redirect;
 
 class AdminEquiposController extends Controller {
 
@@ -65,10 +64,10 @@ class AdminEquiposController extends Controller {
         $idEquip = $request->id;
         $equip = Equipo::findOrFail($idEquip);
 
-        $equip->update([
-            'estado_inscripcion' => 2,
-            'pago_confirmaddo' => 1,
-        ]);
+        $equip->pago_confirmado = 1;
+        $equip->estado_inscripcion = 2;
+
+        $equip->save();
 
         // Enviem mail de confirmació al usuari
         Mail::to($equip->user->email)->send(new ConfirmarInscripcio());

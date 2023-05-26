@@ -14,7 +14,7 @@
                     </tr>
                     <tr>
                         <td>Inscrits confirmats:</td>
-                        <td class="text-right"> {{ $totalIngressosConfirmats }}</td>
+                        <td class="text-right"> {{ $totalPagats }}</td>
                     </tr>
                     <tr>
                         <td>Afters totals:</td>

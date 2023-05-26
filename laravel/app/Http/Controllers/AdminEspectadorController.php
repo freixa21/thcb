@@ -145,10 +145,10 @@ class AdminEspectadorController extends Controller {
         $idEspectador = $request->id;
         $espectador = Espectador::findOrFail($idEspectador);
 
-        $espectador->update([
-            'estado_inscripcion' => 2,
-            'pago_confirmaddo' => 1,
-        ]);
+        $espectador->pago_confirmado = 1;
+        $espectador->estado_inscripcion = 2;
+
+        $espectador->save();
 
         // Enviem mail de confirmació al usuari
         Mail::to($espectador->user->email)->send(new ConfirmarInscripcio());
