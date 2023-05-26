@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Mail\PagamentEnviat;
 use App\Models\User;
 use App\Models\Equipo;
 use App\Models\Jugador;
+use App\Mail\PagamentEnviat;
 use Illuminate\Http\Request;
+use App\Mail\AdminNouPagamentEquip;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\RedirectResponse;
@@ -49,8 +50,28 @@ class EquipoController extends Controller {
             'estado_inscripcion' => "1",
         ]);
 
+        $preu = 0;
+
+        foreach ($equipo->jugadores as $jugador) {
+            // Calculem preu espectador
+            if ($jugador->created_at->lt('2023-06-23 0:00:00')) {
+                if ($jugador->after)
+                    $preu+= 35;
+                else
+                    $preu+= 25;
+            } else {
+                if ($jugador->after) {
+                    $preu+= 40;
+                } else {
+                    $preu+=  25;
+                }
+            }
+        }
+
         // Enviem mail de confirmació al usuari
         Mail::to(Auth::user()->email)->send(new PagamentEnviat());
+        // Enviem mail de confirmació al usuari
+        Mail::to('inscripcions@hockeycostabrava.com')->send(new AdminNouPagamentEquip($equipo->nombre, $preu));
 
 
         return redirect()->back()->with('success', 'El comprovant s\'ha enviat correctament. Ens posarem en contacte amb tu quan haguem verificat el pagament i la inscripció del teu equip quedarà confirmada!');

@@ -1,7 +1,7 @@
 @component('mail::message')
 # S'ha rebut un nou pagament per verificar!
 
-Espectador: {{$nom}} {{$cognoms}}
+Equip: {{$nom}} <br>
 Import: {{$import}}€
 
 @endcomponent

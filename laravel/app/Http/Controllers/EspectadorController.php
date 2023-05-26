@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Mail\AdminNouPagament;
-use App\Mail\PagamentEnviat;
 use App\Models\User;
 use App\Models\Equipo;
 use App\Models\Espectador;
+use App\Mail\PagamentEnviat;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\RedirectResponse;
+use App\Mail\AdminNouPagamentEspectador;
 
 class EspectadorController extends Controller {
 
@@ -69,7 +69,7 @@ class EspectadorController extends Controller {
         // Enviem mail de confirmació al usuari
         Mail::to(Auth::user()->email)->send(new PagamentEnviat());
         // Enviem mail de confirmació al usuari
-        Mail::to('inscripcions@hockeycostabrava.com')->send(new AdminNouPagament($espectador, $preu));
+        Mail::to('inscripcions@hockeycostabrava.com')->send(new AdminNouPagamentEspectador($espectador, $preu));
 
         return redirect()->back()->with('success', 'El comprovant s\'ha enviat correctament. Ens posarem en contacte amb tu quan haguem verificat el pagament i la inscripció quedarà confirmada!');
     }

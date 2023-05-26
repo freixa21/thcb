@@ -1,6 +1,6 @@
 @component('mail::message')
-    # Nou registre {{$inscripcio}}
+# Nou registre {{$inscripcio}}
 
-    {{$inscripcio}}: {{$nom}}
+{{$inscripcio}}: {{$nom}}
 
 @endcomponent

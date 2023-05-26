@@ -2,12 +2,11 @@
 
 namespace App\Mail;
 
-use App\Models\Espectador;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class AdminNouPagament extends Mailable {
+class AdminNouPagamentEquip extends Mailable {
     use Queueable, SerializesModels;
 
     /**
@@ -15,7 +14,7 @@ class AdminNouPagament extends Mailable {
      *
      * @var \App\Models\Espectador  
      */
-    protected $espectador;
+    protected $nom;
     protected $preu;
 
     /**
@@ -23,8 +22,8 @@ class AdminNouPagament extends Mailable {
      *
      * @return void
      */
-    public function __construct(Espectador $espectador, $preu) {
-        $this->espectador = $espectador;
+    public function __construct($nom, $preu) {
+        $this->nom = $nom;
         $this->preu = $preu;
     }
 
@@ -34,11 +33,10 @@ class AdminNouPagament extends Mailable {
      * @return $this
      */
     public function build() {
-        return $this->subject('S\'ha rebut un nou pagament per verificar!')
-            ->markdown('emails.admin.nou-pagament')
+        return $this->subject('Nou pagament EQUIP: ' . $this->nom . ': ' . $this->preu . '€')
+            ->markdown('emails.admin.nou-pagament-equip')
             ->with([
-                'nom' => $this->espectador->name,
-                'cognoms' => $this->espectador->apellidos,
+                'nom' => $this->nom,
                 'import' => $this->preu
             ]);
     }
