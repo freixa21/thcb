@@ -37,7 +37,7 @@
 
                     <div>
                         <label for="nombre" class="block text-sm font-medium text-gray-700 leading-5">
-                            Nom de l'equip
+                            Nom de l'equip <span class="text-red-600">*</span>
                         </label>
 
                         <div class="mt-1 rounded-md shadow-sm">
@@ -50,7 +50,7 @@
 
                     <div class="mt-2">
                         <label for="name" class="block text-sm font-medium text-gray-700 leading-5">
-                            Nom capità
+                            Nom capità <span class="text-red-600">*</span>
                         </label>
 
                         <div class="mt-1 rounded-md shadow-sm">
@@ -63,7 +63,7 @@
 
                     <div class="mt-2">
                         <label for="apellidos" class="block text-sm font-medium text-gray-700 leading-5">
-                            Cognom capità
+                            Cognom capità <span class="text-red-600">*</span>
                         </label>
 
                         <div class="mt-1 rounded-md shadow-sm">
@@ -76,7 +76,7 @@
 
                     <div class="mt-2">
                         <label for="email" class="block text-sm font-medium text-gray-700 leading-5">
-                            Correu electrònic
+                            Correu electrònic <span class="text-red-600">*</span>
                         </label>
 
                         <div class="mt-1 rounded-md shadow-sm">
@@ -89,7 +89,7 @@
 
                     <div class="mt-2">
                         <label for="phone" class="block text-sm font-medium text-gray-700 leading-5">
-                            Telèfon
+                            Telèfon <span class="text-red-600">*</span>
                         </label>
 
                         <div class="mt-1 rounded-md shadow-sm">
@@ -102,7 +102,7 @@
 
                     <div class="mt-2">
                         <label for="password" class="block text-sm font-medium text-gray-700 leading-5">
-                            Contrasenya
+                            Contrasenya <span class="text-red-600">*</span>
                         </label>
                         <div class="mt-1 rounded-md shadow-sm">
                             <input id="password" type="password" name="password" required=""
@@ -112,7 +112,7 @@
 
                     <div class="mt-2">
                         <label for="password_confirmation" class="block text-sm font-medium text-gray-700 leading-5">
-                            Confirmar contrasenya
+                            Confirmar contrasenya <span class="text-red-600">*</span>
                         </label>
 
                         <div class="mt-1 rounded-md shadow-sm">
@@ -130,7 +130,7 @@
                             <label for="remember" class="block ml-2 text-sm text-gray-900 leading-5 underline" required>
                                 He llegit i accepto la <a
                                     href="https://hockeycostabrava.com/avis-legal-politica-privacitat/"
-                                    target="_blank">política de privacitat</a>
+                                    target="_blank">política de privacitat <span class="text-red-600">*</span></a>
                             </label>
                         </div>
                     </div>
@@ -142,6 +142,7 @@
                                 Registrar equip
                             </button>
                         </span>
+                        <p class="mt-2 text-sm">Els camps marcats amb  <span class="text-red-600">*</span> són obligatoris.</p>
                     </div>
                 </form>
             </div>

@@ -22,8 +22,8 @@ class UserController extends Controller {
         );
 
         return $status === Password::RESET_LINK_SENT
-            ? back()->with(['success' => __($status)])
-            : back()->withErrors(['email' => __($status)]);
+            ? back()->with(['correuEnviat' => __($status)])
+            : back()->with(['correuError' => __($status)]);
     }
 
     public function reiniciarPasswordView(string $token) {
@@ -52,8 +52,8 @@ class UserController extends Controller {
             );
          
             return $status === Password::PASSWORD_RESET
-                        ? redirect()->route('auth.login')->with('success', __($status))
-                        : back()->withErrors(['email' => [__($status)]]);
+                        ? redirect()->route('auth.login')->with('correuEnviat', __($status))
+                        : back()->with(['correuError' => [__($status)]]);
     }
     
 }

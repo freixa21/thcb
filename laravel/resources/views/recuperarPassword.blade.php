@@ -17,22 +17,18 @@
             </p>
         </div>
 
-        @if ($errors->any())
+        @if (session()->has('correuError'))
             <div class="flex justify-center w-full">
-                <div class="alert alert-danger">
-                    <ul class="p-0 m-0 list-none">
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
+                <div class="alert alert-danger max-w-screen-2xl mx-5 lg:mx-20">
+                    {{ session()->get('correuError') }}
                 </div>
             </div>
         @endif
 
-        @if (session()->has('success'))
+        @if (session()->has('correuEnviat'))
             <div class="flex justify-center w-full">
                 <div class="alert alert-success max-w-screen-2xl mx-5 lg:mx-20">
-                    {{ session()->get('success') }}
+                    {{ session()->get('correuEnviat') }}
                 </div>
             </div>
         @endif

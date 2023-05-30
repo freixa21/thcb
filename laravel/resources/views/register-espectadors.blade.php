@@ -19,13 +19,15 @@
         </div>
 
         @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
+            <div class="flex justify-center w-full">
+                <div class="alert alert-danger">
+                    <ul class="list-none p-0 m-0">
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            </div>
         @endif
 
         <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md px-4">
@@ -35,7 +37,7 @@
 
                     <div class="mt-2">
                         <label for="name" class="block text-sm font-medium text-gray-700 leading-5">
-                            Nom espectador
+                            Nom espectador <span class="text-red-600">*</span>
                         </label>
 
                         <div class="mt-1 rounded-md shadow-sm">
@@ -47,7 +49,7 @@
 
                     <div class="mt-2">
                         <label for="apellidos" class="block text-sm font-medium text-gray-700 leading-5">
-                            Cognom espectador
+                            Cognom espectador <span class="text-red-600">*</span>
                         </label>
 
                         <div class="mt-1 rounded-md shadow-sm">
@@ -59,7 +61,7 @@
 
                     <div class="mt-2">
                         <label for="email" class="block text-sm font-medium text-gray-700 leading-5">
-                            Correu electrònic
+                            Correu electrònic <span class="text-red-600">*</span>
                         </label>
 
                         <div class="mt-1 rounded-md shadow-sm">
@@ -71,7 +73,7 @@
 
                     <div class="mt-2">
                         <label for="phone" class="block text-sm font-medium text-gray-700 leading-5">
-                            Telèfon
+                            Telèfon <span class="text-red-600">*</span>
                         </label>
 
                         <div class="mt-1 rounded-md shadow-sm">
@@ -83,7 +85,7 @@
 
                     <div class="mt-2">
                         <label for="talla" class="block text-sm font-medium text-gray-700 leading-5">
-                            Sexe
+                            Sexe <span class="text-red-600">*</span>
                         </label>
 
                         <ul class="flex flex-col sm:flex-row mt-1">
@@ -120,7 +122,7 @@
 
                     <div class="mt-2">
                         <label for="talla" class="block text-sm font-medium text-gray-700 leading-5">
-                            Talla samarreta
+                            Talla samarreta <span class="text-red-600">*</span>
                         </label>
 
                         <ul class="flex flex-col sm:flex-row mt-1">
@@ -199,7 +201,7 @@
 
                     <div class="mt-2">
                         <label for="after" class="block text-sm font-medium text-gray-700 leading-5">
-                            Vols comprar entrada a l'afterparty?
+                            Vols comprar entrada a l'afterparty? <span class="text-red-600">*</span>
                         </label>
 
                         <ul class="flex flex-col sm:flex-row mt-1">
@@ -245,7 +247,7 @@
 
                     <div class="mt-2">
                         <label for="password" class="block text-sm font-medium text-gray-700 leading-5">
-                            Contrasenya
+                            Contrasenya <span class="text-red-600">*</span>
                         </label>
                         <div class="mt-1 rounded-md shadow-sm">
                             <input required id="password" type="password" name="password" required="" 
@@ -255,7 +257,7 @@
 
                     <div class="mt-2">
                         <label for="password_confirmation" class="block text-sm font-medium text-gray-700 leading-5">
-                            Confirmar contrasenya
+                            Confirmar contrasenya <span class="text-red-600">*</span>
                         </label>
 
                         <div class="mt-1 rounded-md shadow-sm">
@@ -271,7 +273,7 @@
                             <input required id="remember" type="checkbox"
                                 class="form-checkbox w-4 h-4 text-blue-600 transition duration-150 ease-in-out">
                             <label for="remember" class="block ml-2 text-sm text-gray-900 leading-5 underline">
-                                He llegit i accepto la <a href="https://hockeycostabrava.com/avis-legal-politica-privacitat/" target="_blank">política de privacitat</a>
+                                He llegit i accepto la <a href="https://hockeycostabrava.com/avis-legal-politica-privacitat/" target="_blank">política de privacitat  <span class="text-red-600">*</span></a>
                             </label>
                         </div>
                     </div>
@@ -283,6 +285,7 @@
                                 Registrar-me com espectador
                             </button>
                         </span>
+                        <p class="mt-2 text-sm">Els camps marcats amb  <span class="text-red-600">*</span> són obligatoris.</p>
                     </div>
                 </form>
             </div>

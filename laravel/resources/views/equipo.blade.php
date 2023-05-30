@@ -105,7 +105,7 @@
                                         <a href="https://verse.me/$alexfreixa" target="_blank"><img
                                                 src="{{ asset('images/qr-web-thcb.png') }}" alt=""
                                                 class="qr-beach"></a>
-                                        <p class="mini-qr">Si estàs conectat desde el mòbil obrir l'enllaç del QR picant
+                                        <p class="mini-qr">Si estàs conectat desde el mòbil pots obrir l'enllaç del QR picant
                                             l'imatge
                                         </p>
                                         <p><strong>3.</strong> Adjunteu una captura de pantalla del pagament i premeu

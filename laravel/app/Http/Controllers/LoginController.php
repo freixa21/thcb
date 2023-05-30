@@ -20,6 +20,8 @@ class LoginController extends Controller {
 
     public function authenticate(Request $request): RedirectResponse {
 
+        $request->flash();
+
         $credentials = $request->validate([
             'email' => ['required', 'email'],
             'password' => ['required'],
@@ -38,9 +40,7 @@ class LoginController extends Controller {
             }
         }
 
-        return back()->withErrors([
-            'email' => 'Les credencials proporcionades no són correctes.',
-        ])->onlyInput('email');
+        return redirect()->back()->with('errorCredencials', 'Les credencials proporcionades no són correctes.');
     }
 
 

@@ -18,14 +18,10 @@
             </div>
         @endif
 
-        @if ($errors->any())
+        @if (session()->has('errorCredencials'))
             <div class="flex justify-center w-full">
-                <div class="alert alert-danger">
-                    <ul class="list-none p-0 m-0">
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
+                <div class="alert alert-danger max-w-screen-2xl mx-5 lg:mx-20">
+                    {{ session()->get('errorCredencials') }}
                 </div>
             </div>
         @endif
@@ -34,6 +30,14 @@
             <div class="flex justify-center w-full">
                 <div class="alert alert-success max-w-screen-2xl mx-5 lg:mx-20">
                     {{ session()->get('success') }}
+                </div>
+            </div>
+        @endif
+
+        @if (session()->has('correuEnviat'))
+            <div class="flex justify-center w-full">
+                <div class="alert alert-success max-w-screen-2xl mx-5 lg:mx-20">
+                    {{ session()->get('correuEnviat') }}
                 </div>
             </div>
         @endif
@@ -49,6 +53,7 @@
 
                         <div class="mt-1 rounded-md shadow-sm">
                             <input id="email" name="email" type="email" required="" autofocus=""
+                                value="{{ old('email') }}"
                                 class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 ">
                         </div>
 
