@@ -41,7 +41,7 @@ class AdminEspectadorController extends Controller {
             $espectador = Espectador::findOrFail($idEspectador);
             $usuariEspectador = User::findOrFail($espectador->id_usuario);
 
-            return view('admin.singleEspectador', [
+            return view('admin.SingleEspectador', [
                 'espectador' => $espectador,
                 'usuariEspectador' => $usuariEspectador
             ]);
