@@ -1448,10 +1448,6 @@ html, body {
   height: 100%;
 }
 
-.amagar-notificacio {
-  display: none;
-}
-
 #master-div {
   min-height: 100vh;
 }

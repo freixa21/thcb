@@ -4,6 +4,8 @@
 
 @section('content')
 
+    @include('partials.customcss')
+
     <div class="flex flex-col justify-center min-h-screen py-12 bg-gray-50 sm:px-6 lg:px-8 w-full">
         <div class="sm:mx-auto sm:w-full sm:max-w-md">
             <h2 class="mt-6 text-3xl font-extrabold text-center text-gray-900 leading-9">
@@ -142,7 +144,8 @@
                                 Registrar equip
                             </button>
                         </span>
-                        <p class="mt-2 text-sm">Els camps marcats amb  <span class="text-red-600">*</span> són obligatoris.</p>
+                        <p class="mt-2 text-sm">Els camps marcats amb <span class="text-red-600">*</span> són obligatoris.
+                        </p>
                     </div>
                 </form>
             </div>
