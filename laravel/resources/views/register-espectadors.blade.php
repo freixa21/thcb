@@ -93,7 +93,7 @@
                                 class="inline-flex items-center gap-x-2.5 py-3 px-4 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg">
                                 <div class="relative flex items-start w-full">
                                     <div class="flex items-center h-5">
-                                        <input required id="sexe-home" name="sexo" type="radio" value="H"
+                                        <input required id="sexe-home" name="sexo" type="radio" value="H" {{ (old('sexo') == "H") ? "checked" : ""}}
                                             class="border-gray-200 rounded-full :bg-gray-800 :border-gray-700 :checked:bg-blue-500 :checked:border-blue-500 :focus:ring-offset-gray-800"
                                             >
                                     </div>
@@ -106,7 +106,7 @@
                                 class="inline-flex items-center gap-x-2.5 py-3 px-4 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg :bg-gray-800 :border-gray-700 :text-white">
                                 <div class="relative flex items-start w-full">
                                     <div class="flex items-center h-5">
-                                        <input required id="sexe-dona" name="sexo" type="radio" value="D"
+                                        <input required id="sexe-dona" name="sexo" type="radio" value="D" {{ (old('sexo') == "D") ? "checked" : ""}}
                                             class="border-gray-200 rounded-full :bg-gray-800 :border-gray-700 :checked:bg-blue-500 :checked:border-blue-500 :focus:ring-offset-gray-800">
                                     </div>
                                     <label for="sexe-dona"
@@ -131,7 +131,7 @@
                                 class="inline-flex items-center gap-x-2 py-3 px-2 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg">
                                 <div class="relative flex items-start w-full">
                                     <div class="flex items-center h-5">
-                                        <input required id="S" value="S" name="talla" type="radio"
+                                        <input required id="S" value="S" name="talla" type="radio" {{ (old('talla') == "S") ? "checked" : ""}}
                                             class="border-gray-200 rounded-full :bg-gray-800 :border-gray-700 :checked:bg-blue-500 :checked:border-blue-500 :focus:ring-offset-gray-800"
                                             >
                                     </div>
@@ -145,7 +145,7 @@
                                 class="inline-flex items-center gap-x-2 py-3 px-2 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg">
                                 <div class="relative flex items-start w-full">
                                     <div class="flex items-center h-5">
-                                        <input required id="M" value="M" name="talla" type="radio"
+                                        <input required id="M" value="M" name="talla" type="radio" {{ (old('talla') == "M") ? "checked" : ""}}
                                             class="border-gray-200 rounded-full :bg-gray-800 :border-gray-700 :checked:bg-blue-500 :checked:border-blue-500 :focus:ring-offset-gray-800"
                                             >
                                     </div>
@@ -159,7 +159,7 @@
                                 class="inline-flex items-center gap-x-2 py-3 px-2 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg">
                                 <div class="relative flex items-start w-full">
                                     <div class="flex items-center h-5">
-                                        <input required id="L" value="L" name="talla" type="radio"
+                                        <input required id="L" value="L" name="talla" type="radio" {{ (old('talla') == "L") ? "checked" : ""}}
                                             class="border-gray-200 rounded-full :bg-gray-800 :border-gray-700 :checked:bg-blue-500 :checked:border-blue-500 :focus:ring-offset-gray-800"
                                             >
                                     </div>
@@ -173,7 +173,7 @@
                                 class="inline-flex items-center gap-x-2 py-3 px-2 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg">
                                 <div class="relative flex items-start w-full">
                                     <div class="flex items-center h-5">
-                                        <input required id="XL" value="XL" name="talla" type="radio"
+                                        <input required id="XL" value="XL" name="talla" type="radio" {{ (old('talla') == "XL") ? "checked" : ""}}
                                             class="border-gray-200 rounded-full :bg-gray-800 :border-gray-700 :checked:bg-blue-500 :checked:border-blue-500 :focus:ring-offset-gray-800"
                                             >
                                     </div>
@@ -187,7 +187,7 @@
                                 class="inline-flex items-center gap-x-2 py-3 px-2 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg">
                                 <div class="relative flex items-start w-full">
                                     <div class="flex items-center h-5">
-                                        <input required id="XXL" value="XXL" name="talla" type="radio"
+                                        <input required id="XXL" value="XXL" name="talla" type="radio" {{ (old('talla') == "XXL") ? "checked" : ""}}
                                             class="border-gray-200 rounded-full :bg-gray-800 :border-gray-700 :checked:bg-blue-500 :checked:border-blue-500 :focus:ring-offset-gray-800"
                                             >
                                     </div>
@@ -209,7 +209,7 @@
                                 class="inline-flex items-center gap-x-2 py-3 px-2 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg">
                                 <div class="relative flex items-start w-full">
                                     <div class="flex items-center h-5">
-                                        <input required id="afterparty-si" name="after" type="radio" value="1"
+                                        <input required id="afterparty-si" name="after" type="radio" value="1"  {{ (old('after') == 1) ? "checked" : ""}}
                                             class="border-gray-200 rounded-full :bg-gray-800 :border-gray-700 :checked:bg-blue-500 :checked:border-blue-500 :focus:ring-offset-gray-800"
                                             >
                                     </div>
@@ -222,7 +222,7 @@
                                 class="inline-flex items-center gap-x-2 py-3 px-2 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg">
                                 <div class="relative flex items-start w-full">
                                     <div class="flex items-center h-5">
-                                        <input required id="afterparty-no" name="after" type="radio" value="0"
+                                        <input required id="afterparty-no" name="after" type="radio" value="0" {{ (old('after') == 0) ? "checked" : ""}}
                                             class="border-gray-200 rounded-full :bg-gray-800 :border-gray-700 :checked:bg-blue-500 :checked:border-blue-500 :focus:ring-offset-gray-800"
                                             >
                                     </div>
