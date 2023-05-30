@@ -34,7 +34,7 @@ class AdminNouPagamentEspectador extends Mailable {
      * @return $this
      */
     public function build() {
-        return $this->subject('Nou pagament ' . $this->espectador->name . ' ' . $this->espectador->name . ': ' . $this->preu . '€')
+        return $this->subject('Nou pagament ' . $this->espectador->name . ' ' . $this->espectador->apellidos . ': ' . $this->preu . '€')
             ->markdown('emails.admin.nou-pagament')
             ->with([
                 'nom' => $this->espectador->name,

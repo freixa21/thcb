@@ -97,14 +97,14 @@
                                         <p><strong>1.</strong> Afegiu mínim 5 jugadors.</p>
                                         <p><strong>2.</strong> Un cop afegits, un integrant de l'equip ha de fer <strong>un
                                                 sol pagament de totes les inscripcions</strong> a través de
-                                            l’aplicació
-                                            VERSE amb les següents opcions:
-                                            <br> - Al número: 630 206 438
-                                            <br> - Al $VerseTag: $maxfreixa
-                                            <br> - o escanejant el QR:
+                                            Bizum o Verse amb les següents opcions:
+                                            <br> - Bizum o Verse al número: 629 40 56 64
+                                            <br> - Verse al $VerseTag: $alexfreixa
+                                            <br> - Verse escanejant el QR:
                                         </p>
-                                        <a href="#" target="_blank"><img src="{{ asset('images/qr-web-thcb.png') }}"
-                                                alt="" class="qr-beach"></a>
+                                        <a href="https://verse.me/$alexfreixa" target="_blank"><img
+                                                src="{{ asset('images/qr-web-thcb.png') }}" alt=""
+                                                class="qr-beach"></a>
                                         <p class="mini-qr">Si estàs conectat desde el mòbil obrir l'enllaç del QR picant
                                             l'imatge
                                         </p>

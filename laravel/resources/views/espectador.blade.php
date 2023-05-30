@@ -287,13 +287,12 @@
                                         <span class="bg-primary mx-auto mb-6 inline-block h-1 w-[90px] rounded"></span>
                                         <p><strong>1.</strong> Editar la teva informació.</p>
                                         <p><strong>2.</strong> Fes el pagament a través de
-                                            l’aplicació
-                                            Verse amb les següents opcions:
-                                            <br> - Al número: 630 206 438
-                                            <br> - Al $VerseTag: $maxfreixa
-                                            <br> - o escanejant el QR:
+                                            Verse o Bizum amb les següents opcions:
+                                            <br> - Bizum o Verse al número: 629 40 56 64
+                                            <br> - Verse al $VerseTag: $alexfreixa
+                                            <br> - Verse escanejant el QR:
                                         </p>
-                                        <a href="#" target="_blank"><img
+                                        <a href="https://verse.me/$alexfreixa" target="_blank"><img
                                                 src="{{ asset('images/qr-web-thcb.png') }}" alt=""
                                                 class="qr-beach"></a>
                                         <p class="mini-qr">Si estàs conectat desde el mòbil obrir l'enllaç del QR picant

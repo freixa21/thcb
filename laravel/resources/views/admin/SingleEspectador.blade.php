@@ -13,6 +13,9 @@
                         <h1 class="mr-2 mb-2">{{ $espectador->name }} {{ $espectador->apellidos }}
                         </h1>
 
+                        <p>Correu electrònic: {{$espectador->user->email}}</p>
+                        <p>Telèfon: {{$espectador->user->phone}}</p>
+                        
                         <form autocomplete="on" action="{{ route('admin.actualitzarEspectador') }}" method="POST"
                             class="mb-2">
                             @csrf
@@ -276,52 +279,6 @@
                                     </button>
                                 </div>
                             </form>
-                            <section x-data="{ modalOpen: false }" id="instruccions">
-                                <button @click="modalOpen = true"
-                                    class="text-blue-950 underline font-medium mt-4 text-left">
-                                    Com fer el pagament?
-                                </button>
-                                <div x-show="modalOpen" x-transition style="z-index: 1"
-                                    class="fixed top-0 left-0 flex h-full min-h-screen w-full justify-center bg-black bg-opacity-90 px-4 py-5 overflow-y-auto">
-                                    <div @click.outside="modalOpen = false"
-                                        class="w-full max-w-[570px] rounded-[20px] bg-white py-12 px-8 text-center md:py-[60px] md:px-[70px] h-fit">
-                                        <h3 class="text-dark pb-2 text-xl font-bold sm:text-2xl">
-                                            Instruccions
-                                        </h3>
-                                        <span class="bg-primary mx-auto mb-6 inline-block h-1 w-[90px] rounded"></span>
-                                        <p><strong>1.</strong> Editar la teva informació.</p>
-                                        <p><strong>2.</strong> Fes el pagament a través de
-                                            l’aplicació
-                                            Verse amb les següents opcions:
-                                            <br> - Al número: 630 206 438
-                                            <br> - Al $VerseTag: $maxfreixa
-                                            <br> - o escanejant el QR:
-                                        </p>
-                                        <a href="#" target="_blank"><img
-                                                src="{{ asset('images/qr-web-thcb.png') }}" alt=""
-                                                class="qr-beach"></a>
-                                        <p class="mini-qr">Si estàs conectat desde el mòbil obrir l'enllaç del QR picant
-                                            l'imatge
-                                        </p>
-                                        <p><strong>3.</strong> Adjunta una captura de pantalla del pagament i
-                                            premeu “Enviar”.
-                                            Un cop verifiquem que em rebut correctament el pagament, confirmarem la teva
-                                            inscripció
-                                            del
-                                            torneig com a espectador
-                                            per correu electrònic.</p>
-                                        <div class="-mx-3 flex flex-wrap">
-                                            <div class="w-full px-3">
-                                                <button @click="modalOpen = false"
-                                                    class="text-dark block w-full rounded-lg border border-[#E9EDF9] p-3 text-center text-base font-medium bg-blue-950 text-white transition hover:border-blue-900 hover:bg-blue-900 hover:text-white">
-                                                    Tancar finestra
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </section>
-
                         </div>
                     @elseif($espectador->estado_inscripcion == 1)
                         <div class="estat-1 mt-3 mb-2">Pagament realitzat. Validació en procés.</div>
