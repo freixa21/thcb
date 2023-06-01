@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Equipo;
 use App\Models\Espectador;
@@ -77,12 +78,16 @@ class EspectadorController extends Controller {
     // Actualizar Espectador
     public function actualizarEspectador(Request $request): RedirectResponse {
 
-        $request->flash();
         $espectador = Espectador::findOrFail(Auth::user()->espectador->id);
+
+        if (Carbon::today()->gt('2023-06-07')) {
+            $request->merge([
+                'talla' => $espectador->talla,
+            ]);
+        }
 
         if ($espectador->estado_inscripcion != 0) {
             $request->merge([
-                'talla' => $espectador->talla,
                 'after' => $espectador->after
             ]);
         }

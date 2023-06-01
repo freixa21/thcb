@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Equipo;
 use App\Models\Jugador;
@@ -84,7 +85,7 @@ class EquipoController extends Controller {
             return redirect()->intended('admin');
         }
 
-        $request->flash();
+
         $jugador = Jugador::findOrFail($request->id);
         $equipo = $jugador->equipo;
 
@@ -93,9 +94,14 @@ class EquipoController extends Controller {
             return Redirect::back()->withErrors(['error' => 'Error en actualizar el jugador.']);
         }
 
-        if ($equipo->estado_inscripcion != 0) {
+        if (Carbon::today()->gt('2023-06-07')) {
             $request->merge([
                 'talla' => $jugador->talla,
+            ]);
+        }
+
+        if ($equipo->estado_inscripcion != 0) {
+            $request->merge([
                 'after' => $jugador->after
             ]);
         }
