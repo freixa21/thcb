@@ -80,7 +80,7 @@ img {
     -premailer-cellpadding: 0;
     -premailer-cellspacing: 0;
     -premailer-width: 100%;
-    background-color: #edf2f7;
+    background-color: #e9e3d7;
     margin: 0;
     padding: 0;
     width: 100%;
@@ -124,9 +124,9 @@ img {
     -premailer-cellpadding: 0;
     -premailer-cellspacing: 0;
     -premailer-width: 100%;
-    background-color: #edf2f7;
-    border-bottom: 1px solid #edf2f7;
-    border-top: 1px solid #edf2f7;
+    background-color: #e9e3d7;
+    border-bottom: 1px solid #e9e3d7;
+    border-top: 1px solid #e9e3d7;
     margin: 0;
     padding: 0;
     width: 100%;
@@ -233,11 +233,11 @@ img {
 
 .button-blue,
 .button-primary {
-    background-color: #2d3748;
-    border-bottom: 8px solid #2d3748;
-    border-left: 18px solid #2d3748;
-    border-right: 18px solid #2d3748;
-    border-top: 8px solid #2d3748;
+    background-color: #9b4132;
+    border-bottom: 8px solid #9b4132;
+    border-left: 18px solid #9b4132;
+    border-right: 18px solid #9b4132;
+    border-top: 8px solid #9b4132;
 }
 
 .button-green,
@@ -261,12 +261,12 @@ img {
 /* Panels */
 
 .panel {
-    border-left: #2d3748 solid 4px;
+    border-left: #9b4132 solid 4px;
     margin: 21px 0;
 }
 
 .panel-content {
-    background-color: #edf2f7;
+    background-color: #e9e3d7;
     color: #718096;
     padding: 16px;
 }
