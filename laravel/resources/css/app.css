@@ -69,6 +69,10 @@ html, body {
         font-family: 'Recoleta Regular';
     }
 
+    h1, h2, h3, h4 {
+        color: #202020 !important;
+    }
+
     table {
         font-family: 'Recoleta Regular';
     }
@@ -152,7 +156,7 @@ html, body {
     }
 
     body {
-        background-color: #f4f4f4;
+        background-color: #e9e3d7;
     }
 
     .afegir-jugador-btn {
@@ -160,7 +164,7 @@ html, body {
         display: block;
         width: fit-content;
         border-radius: 5px;
-        border: 1px solid #172554;
+        border: 1px solid #9b4132;
         cursor: pointer;
         transition: 0.2s;
         margin-bottom: 0.5rem;
@@ -168,13 +172,17 @@ html, body {
     }
 
     .afegir-jugador-btn i {
-        color: #172554;
+        color: #9b4132;
         transition: 0.2s;
+    }
+
+    .afegir-jugador-btn {
+        color: #9b4132;
     }
 
     .afegir-jugador-btn:hover {
         color: #fff;
-        background-color: #172554;
+        background-color: #b35646;
         opacity: 1;
     }
 

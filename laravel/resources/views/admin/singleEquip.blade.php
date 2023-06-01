@@ -330,7 +330,7 @@
                         <div class="-mx-3 flex flex-wrap">
                             <div class="w-full px-3">
                                 <button @click="modalOpen = false"
-                                    class="text-dark block w-full rounded-lg border-2 text-sm border-[#1e3a8a;] px-4 py-2 text-center font-black text-blue-950 transition hover:border-blue-900 hover:bg-blue-900 hover:text-white">
+                                    class="text-dark block w-full rounded-lg border-2 text-sm border-[#9b4132;] px-4 py-2 text-center font-black text-blue-950 transition hover:border-blue-900 hover:bg-blue-900 hover:text-white">
                                     Tancar finestra
                                 </button>
                             </div>
@@ -660,7 +660,7 @@
                                             <div class="-mx-3 flex flex-wrap">
                                                 <div class="w-full px-3">
                                                     <button @click="modalOpen = false"
-                                                        class="text-dark block w-full rounded-lg border-2 text-sm border-[#1e3a8a;] px-4 py-2 text-center font-black text-blue-950 transition hover:border-blue-900 hover:bg-blue-900 hover:text-white">
+                                                        class="text-dark block w-full rounded-lg border-2 text-sm border-[#9b4132;] px-4 py-2 text-center font-black text-blue-950 transition hover:border-blue-900 hover:bg-blue-900 hover:text-white">
                                                         Tancar finestra
                                                     </button>
                                                 </div>
@@ -675,7 +675,7 @@
                 </tbody>
             </table>
             <!-- CALCULADORA INSCRIPCIO SEGONS LA DATA DE INSCRIPCIÓ DE CADA PARTICIPANT -->
-            <div class="text-right mr-10 p-2">Total inscripció equip:
+            <div class="text-right pr-10 p-2 bg-white">Total inscripció equip:
                 <strong>{{ $total }}€</strong>
             </div>
             <!-- Calculadora inscripcio END -->
