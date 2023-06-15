@@ -63,7 +63,7 @@ class EspectadorController extends Controller {
             if ($espectador->after) {
                 $preu = 40;
             } else {
-                $preu =  25;
+                $preu =  30;
             }
         }
 

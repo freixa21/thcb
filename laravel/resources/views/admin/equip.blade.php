@@ -85,7 +85,7 @@
                                             @if ($jugador->after)
                                                 @php  $total += 40  @endphp
                                             @else
-                                                @php  $total += 25  @endphp
+                                                @php  $total += 30  @endphp
                                             @endif
                                         @endif
                                     @endforeach

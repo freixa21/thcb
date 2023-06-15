@@ -64,7 +64,7 @@ class EquipoController extends Controller {
                 if ($jugador->after) {
                     $preu+= 40;
                 } else {
-                    $preu+=  25;
+                    $preu+=  30;
                 }
             }
         }

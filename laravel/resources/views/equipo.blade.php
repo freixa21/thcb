@@ -16,7 +16,7 @@
             @if ($jugador->after)
                 @php  $total += 40  @endphp
             @else
-                @php  $total += 25  @endphp
+                @php  $total += 30  @endphp
             @endif
         @endif
     @endforeach
@@ -444,7 +444,7 @@
                                     @if ($jugador->after)
                                         40€
                                     @else
-                                        25€
+                                        30€
                                     @endif
                                 @endif
                             </td>

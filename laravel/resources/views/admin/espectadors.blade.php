@@ -73,7 +73,7 @@
                                     @if ($espectador->after)
                                         40€
                                     @else
-                                        25€
+                                        30€
                                     @endif
                                 @endif
                             </td>
