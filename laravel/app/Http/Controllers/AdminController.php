@@ -41,56 +41,53 @@ class AdminController extends Controller {
                 $jugadorsConfirmats += count($equip->jugadores);
             }
 
-            // Total afters jugadors
-            $afterJugadors = 0;
+            // Total afters jugadors$equip->after
+            $afterJugadors10 = 0;
+            $afterJugadors10confirmats = 0;
+            $afterJugadors15 = 0;
+            $afterJugadors15confirmats = 0;
             foreach ($jugadors as $jugador) {
-                if ($jugador->after) {
-                    $afterJugadors++;
-                };
-            }
-            // Ingressos previstos jugadors
-            $ingressosPrevistosJugadors = 0;
-            foreach (Equipo::with('jugadores')->get() as $equip) {
-                $contador = 0;
-                foreach ($equip->jugadores as $jugador) {
-                    if ($jugador->created_at->lt('2023-06-23 0:00:00')) {
-                        if ($jugador->after) {
-                            $contador += 35;
-                        } else {
-                            $contador += 25;
-                        }
-                    } else {
-                        if ($jugador->after) {
-                            $contador += 40;
-                        } else {
-                            $contador += 25;
-                        }
-                    }
+                if (($jugador->after) && ($jugador->created_at->lt('2023-06-23 0:00:00')) && ($jugador->equipo->pago_confirmado)) {
+                    $afterJugadors10confirmats++;
+                } else if ($jugador->after && $jugador->created_at->lt('2023-06-23 0:00:00')) {
+                    $afterJugadors10++;
+                } else if ($jugador->after && $jugador->created_at->gt('2023-06-23 0:00:00') && $jugador->equipo->pago_confirmado) {
+                    $afterJugadors15confirmats++;
+                } else if ($jugador->after && $jugador->created_at->gt('2023-06-23 0:00:00')) {
+                    $afterJugadors15++;
                 }
-                $ingressosPrevistosJugadors += $contador;
             }
 
-            // Ingressos confirmats jugadors
-            $ingressosConfirmatsJugadors = 0;
-            foreach (Equipo::with('jugadores')->where('pago_confirmado', 1)->get() as $equip) {
-                $contador = 0;
-                foreach ($equip->jugadores as $jugador) {
-                    if ($jugador->created_at->lt('2023-06-23 0:00:00')) {
-                        if ($jugador->after) {
-                            $contador += 35;
-                        } else {
-                            $contador += 25;
-                        }
-                    } else {
-                        if ($jugador->after) {
-                            $contador += 40;
-                        } else {
-                            $contador += 25;
-                        }
-                    }
+            // Inscripcions
+            $inscripcioJugadors25 = 0;
+            $inscripcioJugadors25confirmats = 0;
+            $inscripcioJugadors30 = 0;
+            $inscripcioJugadors30confirmats = 0;
+            foreach ($jugadors as $jugador) {
+                if (($jugador->created_at->lt('2023-06-23 0:00:00')) && ($jugador->equipo->pago_confirmado)) {
+                    $inscripcioJugadors25confirmats++;
+                } else if ($jugador->created_at->lt('2023-06-23 0:00:00')) {
+                    $inscripcioJugadors25++;
+                } else if ($jugador->created_at->gt('2023-06-23 0:00:00') && $jugador->equipo->pago_confirmado) {
+                    $inscripcioJugadors30confirmats++;
+                } else if ($jugador->created_at->gt('2023-06-23 0:00:00')) {
+                    $inscripcioJugadors30++;
                 }
-                $ingressosConfirmatsJugadors += $contador;
             }
+
+
+            // Ingressos previstos jugadors
+            $ingressosPrevistosJugadors = (($inscripcioJugadors25 + $inscripcioJugadors25confirmats) * 25)
+                + (($inscripcioJugadors30 + $inscripcioJugadors30confirmats) * 30)
+                + (($afterJugadors10 + $afterJugadors10confirmats) * 10)
+                + (($afterJugadors15 + $afterJugadors15confirmats) * 15);
+
+
+            // Ingressos confirmats jugadors
+            $ingressosConfirmatsJugadors = (($inscripcioJugadors25confirmats) * 25)
+                + (($inscripcioJugadors30confirmats) * 30)
+                + (($afterJugadors10confirmats) * 10)
+                + (($afterJugadors15confirmats) * 15);
 
             /////// ESPECTADORS ///////
             // Espectadors inscrits
@@ -99,41 +96,61 @@ class AdminController extends Controller {
             $espectadorsConfirmats = Espectador::where('pago_confirmado', 1)->count();
             // Afters espectadors
             $afterEspectadors = Espectador::where('after', 1)->count();
-            // Ingressos previstos espectadors
-            $ingressosPrevistosEspectadors = 0;
+
+            // Inscripcions ESPECTADORS
+            $inscripcioEspectador25 = 0;
+            $inscripcioEspectador25confirmats = 0;
+            $inscripcioEspectador30 = 0;
+            $inscripcioEspectador30confirmats = 0;
             foreach ($espectadors as $espectador) {
-                if ($espectador->created_at->lt('2023-06-23 0:00:00')) {
-                    if ($espectador->after) {
-                        $ingressosPrevistosEspectadors += 35;
-                    } else {
-                        $ingressosPrevistosEspectadors += 25;
-                    }
-                } else {
-                    if ($espectador->after) {
-                        $ingressosPrevistosEspectadors += 40;
-                    } else {
-                        $ingressosPrevistosEspectadors += 25;
-                    }
+                if (($espectador->created_at->lt('2023-06-23 0:00:00')) && ($espectador->pago_confirmado)) {
+                    $inscripcioEspectador25confirmats++;
+                } else if ($espectador->created_at->lt('2023-06-23 0:00:00')) {
+                    $inscripcioEspectador25++;
+                } else if ($espectador->created_at->gt('2023-06-23 0:00:00') && $espectador->pago_confirmado) {
+                    $inscripcioEspectador30confirmats++;
+                } else if ($espectador->created_at->gt('2023-06-23 0:00:00')) {
+                    $inscripcioEspectador30++;
                 }
             }
 
-            // Ingressos confirmats jugadors
-            $ingressosConfirmatsEspectadors = 0;
-            foreach (Espectador::where('pago_confirmado', 1)->get() as $espectador) {
-                if ($espectador->created_at->lt('2023-06-23 0:00:00')) {
-                    if ($espectador->after) {
-                        $ingressosConfirmatsEspectadors += 35;
-                    } else {
-                        $ingressosConfirmatsEspectadors += 25;
-                    }
-                } else {
-                    if ($espectador->after) {
-                        $ingressosConfirmatsEspectadors += 40;
-                    } else {
-                        $ingressosConfirmatsEspectadors += 25;
-                    }
+            // After Espectadors
+            $afterEspectador10 = 0;
+            $afterEspectador10confirmats = 0;
+            $afterEspectador15 = 0;
+            $afterEspectador15confirmats = 0;
+            foreach ($espectadors as $espectador) {
+                if (($espectador->after) && ($espectador->created_at->lt('2023-06-23 0:00:00')) && ($espectador->pago_confirmado)) {
+                    $afterEspectador10confirmats++;
+                } else if ($espectador->after && $espectador->created_at->lt('2023-06-23 0:00:00')) {
+                    $afterEspectador10++;
+                } else if ($espectador->after && $espectador->created_at->gt('2023-06-23 0:00:00') && $espectador->pago_confirmado) {
+                    $afterEspectador15confirmats++;
+                } else if ($espectador->after && $espectador->created_at->gt('2023-06-23 0:00:00')) {
+                    $afterEspectador15++;
                 }
             }
+
+            // Ingressos previstos espectadors
+            $ingressosPrevistosEspectadors = (($inscripcioEspectador25 + $inscripcioEspectador25confirmats) * 25)
+                + (($inscripcioEspectador30 + $inscripcioEspectador30confirmats) * 30)
+                + (($afterEspectador10 + $afterEspectador10confirmats) * 10)
+                + (($afterEspectador15 + $afterEspectador15confirmats) * 15);
+
+
+            // Ingressos confirmats espectadors
+            $ingressosConfirmatsEspectadors = (($inscripcioEspectador25confirmats) * 25)
+                + (($inscripcioEspectador30confirmats) * 30)
+                + (($afterEspectador10confirmats) * 10)
+                + (($afterEspectador15confirmats) * 15);
+
+            // Total comisio teules prevista
+            $ComisioAfter = ((($afterJugadors10 + $afterJugadors10confirmats) * 10) + (($afterJugadors15 + $afterJugadors15confirmats) * 15));
+            // Total comisio confirmada
+            $ComisioAfterConfirmada = (($afterJugadors10confirmats * 10) + ($afterJugadors15confirmats * 15));
+
+
+
 
 
             //////// GENERAL ///////////
@@ -141,8 +158,6 @@ class AdminController extends Controller {
             $totalInscrits = count($jugadors) + count($espectadors);
             // Total pagats
             $totalPagats = $jugadorsConfirmats + $espectadorsConfirmats;
-            // Total afters
-            $totalAfters = $afterJugadors + $afterEspectadors;
             // Total homes
             $homesJugadors = Jugador::where('sexo', 'H')->count();
             $homesEspectadors = Espectador::where('sexo', 'H')->count();
@@ -217,7 +232,6 @@ class AdminController extends Controller {
 
             return view('admin.index', [
                 'totalPagats' => $totalPagats,
-                'totalAfters' => $totalAfters,
                 'totalHomes' => $totalHomes,
                 'totalDones' => $totaldones,
                 'totalIngressosPrevistos' => $totalIngressosPrevistos,
@@ -227,7 +241,24 @@ class AdminController extends Controller {
                 'equipsConfirmats' => $equipsConfirmats,
                 'totalJugadors' => $totalJugadors,
                 'jugadorsConfirmats' => $jugadorsConfirmats,
-                'afterJugadors' => $afterJugadors,
+                'afterJugadors10' => $afterJugadors10,
+                'afterJugadors10confirmats' => $afterJugadors10confirmats,
+                'afterJugadors15' => $afterJugadors15,
+                'afterJugadors15confirmats' => $afterJugadors15confirmats,
+                'inscripcioJugadors25' => $inscripcioJugadors25,
+                'inscripcioJugadors25confirmats' => $inscripcioJugadors25confirmats,
+                'inscripcioJugadors30' => $inscripcioJugadors30,
+                'inscripcioJugadors30confirmats' => $inscripcioJugadors30confirmats,
+                'afterEspectador10' => $afterEspectador10,
+                'afterEspectador10confirmats' => $afterEspectador10confirmats,
+                'afterEspectador15' => $afterEspectador15,
+                'afterEspectador15confirmats' => $afterEspectador15confirmats,
+                'ComisioAfterConfirmada' => $ComisioAfterConfirmada,
+                'ComisioAfter' => $ComisioAfter,
+                'inscripcioEspectador25' => $inscripcioEspectador25,
+                'inscripcioEspectador25confirmats' => $inscripcioEspectador25confirmats,
+                'inscripcioEspectador30' => $inscripcioEspectador30,
+                'inscripcioEspectador30confirmats' => $inscripcioEspectador30confirmats,
                 'ingressosPrevistosJugadors' => $ingressosPrevistosJugadors,
                 'ingressosConfirmatsJugadors' => $ingressosConfirmatsJugadors,
                 'espectadorsInscrits' => $espectadorsInscrits,

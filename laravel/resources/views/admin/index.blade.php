@@ -9,7 +9,7 @@
                 <h2>General</h2>
                 <table>
                     <tr>
-                        <td>Inscrits totals:</td>
+                        <td>Inscrits:</td>
                         <td class="text-right"> {{ $totalInscrits }}</td>
                     </tr>
                     <tr>
@@ -17,8 +17,16 @@
                         <td class="text-right"> {{ $totalPagats }}</td>
                     </tr>
                     <tr>
-                        <td>Afters totals:</td>
-                        <td class="text-right"> {{ $totalAfters }}</td>
+                        <td>Afters:</td>
+                        <td class="text-right">
+                            {{ $afterJugadors15 + $afterJugadors10 + $afterJugadors15confirmats + $afterJugadors10confirmats + $afterEspectador15 + $afterEspectador10 + $afterEspectador15confirmats + $afterEspectador10confirmats }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Afters confirmats:</td>
+                        <td class="text-right">
+                            {{ $afterJugadors15confirmats + $afterJugadors10confirmats + $afterEspectador15confirmats + $afterEspectador10confirmats }}
+                        </td>
                     </tr>
                     <tr>
                         <td>Homes:</td>
@@ -36,8 +44,120 @@
                         <td>Ingressos confirmats:</td>
                         <td class="text-right"> {{ $totalIngressosConfirmats }}€</td>
                     </tr>
+                    <tr>
+                        <td>Comissió after</td>
+                        <td class="text-right"> -{{ $ComisioAfter }}€</td>
+                    </tr>
+                    <tr>
+                        <td>Comissió after confirmada:</td>
+                        <td class="text-right"> -{{ $ComisioAfterConfirmada }}€</td>
+                    </tr>
+                    <tr>
+                        <td>Ingressos nets previstos</td>
+                        <td class="text-right"> {{ $totalIngressosPrevistos - $ComisioAfter}}€</td>
+                    </tr>
+                    <tr>
+                        <td>Ingressos nets confirmats</td>
+                        <td class="text-right"> {{ $totalIngressosConfirmats - $ComisioAfterConfirmada}}€</td>
+                    </tr>
                 </table>
             </div>
+            <div class="col-admin lg:w-full bg-white rounded-md m-3 px-2 py-2 shadow-md">
+                <h2>Inscripcions</h2>
+                <table>
+                    <tr>
+                        <td>Inscrits a 25:</td>
+                        <td class="text-right">
+                            {{ $inscripcioJugadors25 + $inscripcioJugadors25confirmats + $inscripcioEspectador25 + $inscripcioEspectador25confirmats }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Inscrits a 25 confirmats:</td>
+                        <td class="text-right"> {{ $inscripcioJugadors25confirmats + $inscripcioEspectador25confirmats }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Inscrits a 30:</td>
+                        <td class="text-right">
+                            {{ $inscripcioJugadors30 + $inscripcioJugadors30confirmats + $inscripcioEspectador30 + $inscripcioEspectador30confirmats }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Inscrits a 30 confirmats:</td>
+                        <td class="text-right"> {{ $inscripcioJugadors30confirmats + $inscripcioEspectador30confirmats }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Afters a 10:</td>
+                        <td class="text-right">
+                            {{ $afterJugadors10 + $afterJugadors10confirmats + $afterEspectador10 + $afterEspectador10confirmats }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Afters a 10 confirmats:</td>
+                        <td class="text-right"> {{ $afterJugadors10confirmats + $afterEspectador10confirmats }}</td>
+                    </tr>
+                    <tr>
+                        <td>Afters a 15:</td>
+                        <td class="text-right">
+                            {{ $afterJugadors15 + $afterJugadors15confirmats + $afterEspectador15 + $afterEspectador15confirmats }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Afters a 15 confirmats:</td>
+                        <td class="text-right"> {{ $afterJugadors15confirmats + $afterEspectador15confirmats }}</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-admin lg:w-full bg-white rounded-md m-3 px-2 py-2 shadow-md">
+                <h2>Ingressos</h2>
+                <table>
+                    <tr>
+                        <td>Ingressos inscripcions a 25:</td>
+                        <td class="text-right">
+                            {{ ($inscripcioJugadors25 + $inscripcioJugadors25confirmats + $inscripcioEspectador25 + $inscripcioEspectador25confirmats) * 25 }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Ingressos inscripcions a 25 confirmats:</td>
+                        <td class="text-right">
+                            {{ ($inscripcioJugadors25confirmats + $inscripcioEspectador25confirmats) * 25 }}</td>
+                    </tr>
+                    <tr>
+                        <td>Ingressos inscripcions a 30:</td>
+                        <td class="text-right">
+                            {{ ($inscripcioJugadors30 + $inscripcioJugadors30confirmats + $inscripcioEspectador30 + $inscripcioEspectador30confirmats) * 30 }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Ingressos inscripcions a 30 confirmats:</td>
+                        <td class="text-right">
+                            {{ ($inscripcioJugadors30confirmats + $inscripcioEspectador30confirmats) * 30 }}</td>
+                    </tr>
+                    <tr>
+                        <td>Ingressos afters a 10:</td>
+                        <td class="text-right">
+                            {{ ($afterJugadors10 + $afterJugadors10confirmats + $afterEspectador10 + $afterEspectador10confirmats) * 10 }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Ingressos afters a 10 confirmats:</td>
+                        <td class="text-right"> {{ ($afterJugadors10confirmats + $afterEspectador10confirmats) * 10 }}</td>
+                    </tr>
+                    <tr>
+                        <td>Ingressos afters a 15:</td>
+                        <td class="text-right">
+                            {{ ($afterJugadors15 + $afterJugadors15confirmats + $afterEspectador15 + $afterEspectador15confirmats) * 15 }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Ingressos afters a 15 confirmats:</td>
+                        <td class="text-right"> {{ ($afterJugadors15confirmats + $afterEspectador15confirmats) * 15 }}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="flex flex-col lg:flex-row w-full lg:pl-24 lg:pr-24 pl-3 pr-3 mt-5">
             <div class="col-admin lg:w-full bg-white rounded-md m-3 px-2 py-2 shadow-md">
                 <h2>Equips</h2>
                 <table>
@@ -59,7 +179,13 @@
                     </tr>
                     <tr>
                         <td>Afters:</td>
-                        <td class="text-right"> {{ $afterJugadors }}</td>
+                        <td class="text-right">
+                            {{ $afterJugadors10 + $afterJugadors15 + $afterJugadors10confirmats + $afterJugadors15confirmats }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Afters confirmats:</td>
+                        <td class="text-right"> {{ $afterJugadors15confirmats + $afterJugadors10confirmats }}</td>
                     </tr>
                     <tr>
                         <td>Ingressos previstos:</td>
@@ -76,15 +202,25 @@
                     <table>
                         <tr>
                             <td>Espectadors inscrits: </td>
-                            <td class="text-right"> {{ $espectadorsInscrits }}</td>
+                            <td class="text-right">
+                                {{ $inscripcioEspectador25 + $inscripcioEspectador30 + $inscripcioEspectador25confirmats + $inscripcioEspectador30confirmats }}
+                            </td>
                         </tr>
                         <tr>
                             <td>Espectadors confirmats:</td>
-                            <td class="text-right"> {{ $espectadorsConfirmats }}</td>
+                            <td class="text-right">
+                                {{ $inscripcioEspectador25confirmats + $inscripcioEspectador30confirmats }}</td>
                         </tr>
                         <tr>
                             <td>Afters:</td>
-                            <td class="text-right"> {{ $afterEspectadors }}</td>
+                            <td class="text-right">
+                                {{ $afterEspectador15 + $afterEspectador10 + $afterEspectador15confirmats + $afterEspectador10confirmats }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Afters confirmats:</td>
+                            <td class="text-right"> {{ $afterEspectador15confirmats + $afterEspectador10confirmats }}
+                            </td>
                         </tr>
                         <tr>
                             <td>Ingressos previstos:</td>
@@ -96,8 +232,6 @@
                         </tr>
                     </table>
             </div>
-        </div>
-        <div class="flex flex-col lg:flex-row w-full lg:pl-24 lg:pr-24 pl-3 pr-3 mt-5">
             <div class="col-admin lg:w-full bg-white rounded-md m-3 px-2 py-2 shadow-md">
                 <h2>Samarretes</h2>
                 <table>
