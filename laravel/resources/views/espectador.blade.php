@@ -237,7 +237,7 @@
                             @if (Auth::user()->espectador->estado_inscripcion == 0)
                                 <div class="estat-0">Pendent de pagament. No confirmada.</div>
                                 <div class="mt-2">Preu inscripció:
-                                    @if ($espectador->created_at->lt('2023-06-23 0:00:00'))
+                                    @if ($espectador->created_at->lt('2023-07-15 0:00:00'))
                                         @if ($espectador->after)
                                             35€
                                         @else
