@@ -239,7 +239,7 @@
                                 <div class="mt-2">Preu inscripció:
                                     @if ($espectador->created_at->lt('2023-07-15 0:00:00'))
                                         @if ($espectador->after)
-                                            35€
+                                            40€
                                         @else
                                             25€
                                         @endif

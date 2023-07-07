@@ -77,7 +77,7 @@
                                     @foreach ($equip->jugadores as $jugador)
                                         @if ($jugador->created_at->lt('2023-07-15 0:00:00'))
                                             @if ($jugador->after)
-                                                @php $total += 35 @endphp
+                                                @php $total += 40 @endphp
                                             @else
                                                 @php  $total += 25 @endphp
                                             @endif

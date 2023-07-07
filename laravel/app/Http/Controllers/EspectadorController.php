@@ -56,7 +56,7 @@ class EspectadorController extends Controller {
         // Calculem preu espectador
         if ($espectador->created_at->lt('2023-07-15 0:00:00')) {
             if ($espectador->after)
-                $preu = 35;
+                $preu = 40;
             else
                 $preu = 25;
         } else {

@@ -8,7 +8,7 @@
     @foreach ($jugadores as $jugador)
         @if ($jugador->created_at->lt('2023-07-15 0:00:00'))
             @if ($jugador->after)
-                @php $total += 35 @endphp
+                @php $total += 40 @endphp
             @else
                 @php  $total += 25 @endphp
             @endif
@@ -383,7 +383,7 @@
                             <td class="px-2 py-3">
                                 @if ($jugador->created_at->lt('2023-07-15 0:00:00'))
                                     @if ($jugador->after)
-                                        35€
+                                        40€
                                     @else
                                         25€
                                     @endif
