@@ -13,6 +13,7 @@ class JugadorFactory extends Factory {
         return [
             'nombre' => $this->faker->firstName,
             'apellidos' => $this->faker->lastName,
+            'email' => $this->faker->unique()->safeEmail(),
             'sexo' => $this->faker->randomElement(['H', 'D']),
             'talla' => $this->faker->randomElement(['S', 'M', 'L', 'XL', 'XXL']),
             'alergenos' => $this->faker->optional()->text(20),

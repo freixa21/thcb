@@ -122,6 +122,7 @@ class AdminEquiposController extends Controller {
         $validated_jugador = $request->validate([
             'name' => 'required',
             'apellidos' => 'required|max:100',
+            'email' => 'required',
             'sexo' => 'max:100',
             'talla' => 'required',
             'alergenos' => 'max:500',
@@ -130,6 +131,7 @@ class AdminEquiposController extends Controller {
 
         $jugador->nombre = $validated_jugador['name'];
         $jugador->apellidos = $validated_jugador['apellidos'];
+        $jugador->email = $validated_jugador['email'];
         $jugador->sexo = $validated_jugador['sexo'];
         $jugador->alergenos = $validated_jugador['alergenos'];
         $jugador->talla = $validated_jugador['talla'];
@@ -158,6 +160,7 @@ class AdminEquiposController extends Controller {
         $validated_jugador = $request->validate([
             'name' => 'required',
             'apellidos' => 'required|max:100',
+            'email' => 'required',
             'sexo' => 'max:100',
             'talla' => 'required',
             'alergenos' => 'max:500',
@@ -167,6 +170,7 @@ class AdminEquiposController extends Controller {
         $jugador->equipo_id = $equipo;
         $jugador->nombre = $validated_jugador['name'];
         $jugador->apellidos = $validated_jugador['apellidos'];
+        $jugador->email = $validated_jugador['email'];
         $jugador->sexo = $validated_jugador['sexo'];
         $jugador->talla = $validated_jugador['talla'];
         $jugador->alergenos = $validated_jugador['alergenos'];
