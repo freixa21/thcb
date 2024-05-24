@@ -55,16 +55,16 @@ class EquipoController extends Controller {
 
         foreach ($equipo->jugadores as $jugador) {
             // Calculem preu espectador
-            if ($jugador->created_at->lt('2023-07-15 0:00:00')) {
+            if ($jugador->created_at->lt(env('DATA_CANVI_DE_PREU'))) {
                 if ($jugador->after)
-                    $preu+= 40;
+                    $preu+= env('PREU_INICIAL_AFTER');
                 else
-                    $preu+= 25;
+                    $preu+= env('PREU_INICIAL');
             } else {
                 if ($jugador->after) {
-                    $preu+= 40;
+                    $preu+= env('PREU_LATE_AFTER');
                 } else {
-                    $preu+=  30;
+                    $preu+=  env('PREU_LATE');
                 }
             }
         }

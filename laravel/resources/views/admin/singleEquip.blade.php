@@ -6,17 +6,17 @@
 
     @php  $total = 0 @endphp
     @foreach ($jugadores as $jugador)
-        @if ($jugador->created_at->lt('2023-07-15 0:00:00'))
+        @if ($jugador->created_at->lt(env('DATA_CANVI_DE_PREU')))
             @if ($jugador->after)
-                @php $total += 40 @endphp
+                @php $total += env('PREU_INICIAL_AFTER') @endphp
             @else
-                @php  $total += 25 @endphp
+                @php  $total += env('PREU_INICIAL') @endphp
             @endif
         @else
             @if ($jugador->after)
-                @php  $total += 40  @endphp
+                @php  $total += env('PREU_LATE_AFTER')  @endphp
             @else
-                @php  $total += 30  @endphp
+                @php  $total += env('PREU_LATE')  @endphp
             @endif
         @endif
     @endforeach
@@ -156,8 +156,7 @@
                                 </label>
 
                                 <div class="mt-1 rounded-md shadow-sm">
-                                    <input required id="email-afegir" name="email" type="email"
-                                        required=""
+                                    <input required id="email-afegir" name="email" type="email" required=""
                                         class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 ">
                                 </div>
 
@@ -394,17 +393,17 @@
                             </td>
                             <td class="px-2 py-3 amagar-mobil">{{ $jugador->created_at->format('d-m-Y') }}</td>
                             <td class="px-2 py-3">
-                                @if ($jugador->created_at->lt('2023-07-15 0:00:00'))
+                                @if ($jugador->created_at->lt(env('DATA_CANVI_DE_PREU')))
                                     @if ($jugador->after)
-                                        40€
+                                        {{ env('PREU_INICIAL_AFTER') }}€
                                     @else
-                                        25€
+                                        {{ env('PREU_INICIAL') }}€
                                     @endif
                                 @else
                                     @if ($jugador->after)
-                                        40€
+                                        {{ env('PREU_LATE_AFTER') }}€
                                     @else
-                                        30€
+                                        {{ env('PREU_LATE') }}€
                                     @endif
                                 @endif
                             </td>
@@ -469,9 +468,8 @@
                                                     </label>
 
                                                     <div class="mt-1 rounded-md shadow-sm">
-                                                        <input required id="email-{{ $loop->index }}"
-                                                            name="email" type="text"
-                                                            value="{{ $jugador->email }}" required=""
+                                                        <input required id="email-{{ $loop->index }}" name="email"
+                                                            type="text" value="{{ $jugador->email }}" required=""
                                                             class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 ">
                                                     </div>
 

@@ -9,13 +9,13 @@
                 <div id="bloc-principal" class="flex flex-col lg:flex-row mt-4">
                     <div id="informacio" class="w-full lg:w-2/3 shadow-md  p-3 rounded-lg mb-5 lg:mb-0">
                         <a href="{{ route('admin.espectadors') }}"><i class="fa-solid fa-arrow-left"></i><span> Tornar a
-                            espectadors</span></a>
+                                espectadors</span></a>
                         <h1 class="mr-2 mb-2">{{ $espectador->name }} {{ $espectador->apellidos }}
                         </h1>
 
-                        <p>Correu electrònic: {{$espectador->user->email}}</p>
-                        <p>Telèfon: {{$espectador->user->phone}}</p>
-                        
+                        <p>Correu electrònic: {{ $espectador->user->email }}</p>
+                        <p>Telèfon: {{ $espectador->user->phone }}</p>
+
                         <form autocomplete="on" action="{{ route('admin.actualitzarEspectador') }}" method="POST"
                             class="mb-2">
                             @csrf
@@ -243,17 +243,17 @@
                             @if ($espectador->estado_inscripcion == 0)
                                 <div class="estat-0">Pendent de pagament. No confirmada.</div>
                                 <div class="mt-2">Preu inscripció:
-                                    @if ($espectador->created_at->lt('2023-07-15 0:00:00'))
+                                    @if ($espectador->created_at->lt(env('DATA_CANVI_DE_PREU')))
                                         @if ($espectador->after)
-                                            40€
+                                            {{ env('PREU_INICIAL_AFTER') }}€
                                         @else
-                                            25€
+                                            {{ env('PREU_INICIAL') }}€
                                         @endif
                                     @else
                                         @if ($espectador->after)
-                                            40€
+                                            {{ env('PREU_LATE_AFTER') }}€
                                         @else
-                                            30€
+                                            {{ env('PREU_LATE') }}€
                                         @endif
                                     @endif
                                 </div>

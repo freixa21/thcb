@@ -47,13 +47,13 @@ class AdminController extends Controller {
             $afterJugadors15 = 0;
             $afterJugadors15confirmats = 0;
             foreach ($jugadors as $jugador) {
-                if (($jugador->after) && ($jugador->created_at->lt('2023-07-15 0:00:00')) && ($jugador->equipo->pago_confirmado)) {
+                if (($jugador->after) && ($jugador->created_at->lt(env('DATA_CANVI_DE_PREU'))) && ($jugador->equipo->pago_confirmado)) {
                     $afterJugadors10confirmats++;
-                } else if ($jugador->after && $jugador->created_at->lt('2023-07-15 0:00:00')) {
+                } else if ($jugador->after && $jugador->created_at->lt(env('DATA_CANVI_DE_PREU'))) {
                     $afterJugadors10++;
-                } else if ($jugador->after && $jugador->created_at->gt('2023-07-15 0:00:00') && $jugador->equipo->pago_confirmado) {
+                } else if ($jugador->after && $jugador->created_at->gt(env('DATA_CANVI_DE_PREU')) && $jugador->equipo->pago_confirmado) {
                     $afterJugadors15confirmats++;
-                } else if ($jugador->after && $jugador->created_at->gt('2023-07-15 0:00:00')) {
+                } else if ($jugador->after && $jugador->created_at->gt(env('DATA_CANVI_DE_PREU'))) {
                     $afterJugadors15++;
                 }
             }
@@ -64,13 +64,13 @@ class AdminController extends Controller {
             $inscripcioJugadors30 = 0;
             $inscripcioJugadors30confirmats = 0;
             foreach ($jugadors as $jugador) {
-                if (($jugador->created_at->lt('2023-07-15 0:00:00')) && ($jugador->equipo->pago_confirmado)) {
+                if (($jugador->created_at->lt(env('DATA_CANVI_DE_PREU'))) && ($jugador->equipo->pago_confirmado)) {
                     $inscripcioJugadors25confirmats++;
-                } else if ($jugador->created_at->lt('2023-07-15 0:00:00')) {
+                } else if ($jugador->created_at->lt(env('DATA_CANVI_DE_PREU'))) {
                     $inscripcioJugadors25++;
-                } else if ($jugador->created_at->gt('2023-07-15 0:00:00') && $jugador->equipo->pago_confirmado) {
+                } else if ($jugador->created_at->gt(env('DATA_CANVI_DE_PREU')) && $jugador->equipo->pago_confirmado) {
                     $inscripcioJugadors30confirmats++;
-                } else if ($jugador->created_at->gt('2023-07-15 0:00:00')) {
+                } else if ($jugador->created_at->gt(env('DATA_CANVI_DE_PREU'))) {
                     $inscripcioJugadors30++;
                 }
             }
@@ -103,13 +103,13 @@ class AdminController extends Controller {
             $inscripcioEspectador30 = 0;
             $inscripcioEspectador30confirmats = 0;
             foreach ($espectadors as $espectador) {
-                if (($espectador->created_at->lt('2023-07-15 0:00:00')) && ($espectador->pago_confirmado)) {
+                if (($espectador->created_at->lt(env('DATA_CANVI_DE_PREU'))) && ($espectador->pago_confirmado)) {
                     $inscripcioEspectador25confirmats++;
-                } else if ($espectador->created_at->lt('2023-07-15 0:00:00')) {
+                } else if ($espectador->created_at->lt(env('DATA_CANVI_DE_PREU'))) {
                     $inscripcioEspectador25++;
-                } else if ($espectador->created_at->gt('2023-07-15 0:00:00') && $espectador->pago_confirmado) {
+                } else if ($espectador->created_at->gt(env('DATA_CANVI_DE_PREU')) && $espectador->pago_confirmado) {
                     $inscripcioEspectador30confirmats++;
-                } else if ($espectador->created_at->gt('2023-07-15 0:00:00')) {
+                } else if ($espectador->created_at->gt(env('DATA_CANVI_DE_PREU'))) {
                     $inscripcioEspectador30++;
                 }
             }
@@ -120,13 +120,13 @@ class AdminController extends Controller {
             $afterEspectador15 = 0;
             $afterEspectador15confirmats = 0;
             foreach ($espectadors as $espectador) {
-                if (($espectador->after) && ($espectador->created_at->lt('2023-07-15 0:00:00')) && ($espectador->pago_confirmado)) {
+                if (($espectador->after) && ($espectador->created_at->lt(env('DATA_CANVI_DE_PREU'))) && ($espectador->pago_confirmado)) {
                     $afterEspectador10confirmats++;
-                } else if ($espectador->after && $espectador->created_at->lt('2023-07-15 0:00:00')) {
+                } else if ($espectador->after && $espectador->created_at->lt(env('DATA_CANVI_DE_PREU'))) {
                     $afterEspectador10++;
-                } else if ($espectador->after && $espectador->created_at->gt('2023-07-15 0:00:00') && $espectador->pago_confirmado) {
+                } else if ($espectador->after && $espectador->created_at->gt(env('DATA_CANVI_DE_PREU')) && $espectador->pago_confirmado) {
                     $afterEspectador15confirmats++;
-                } else if ($espectador->after && $espectador->created_at->gt('2023-07-15 0:00:00')) {
+                } else if ($espectador->after && $espectador->created_at->gt(env('DATA_CANVI_DE_PREU'))) {
                     $afterEspectador15++;
                 }
             }

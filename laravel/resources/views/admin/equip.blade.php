@@ -75,17 +75,17 @@
                                 <td class="text-right">
                                     @php  $total = 0 @endphp
                                     @foreach ($equip->jugadores as $jugador)
-                                        @if ($jugador->created_at->lt('2023-07-15 0:00:00'))
+                                        @if ($jugador->created_at->lt(env('DATA_CANVI_DE_PREU')))
                                             @if ($jugador->after)
-                                                @php $total += 40 @endphp
+                                                @php $total += env('PREU_INICIAL_AFTER') @endphp
                                             @else
-                                                @php  $total += 25 @endphp
+                                                @php  $total += env('PREU_INICIAL') @endphp
                                             @endif
                                         @else
                                             @if ($jugador->after)
-                                                @php  $total += 40  @endphp
+                                                @php  $total += env('PREU_LATE_AFTER')  @endphp
                                             @else
-                                                @php  $total += 30  @endphp
+                                                @php  $total += env('PREU_LATE')  @endphp
                                             @endif
                                         @endif
                                     @endforeach

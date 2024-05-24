@@ -63,17 +63,17 @@
                                 @endif
                             </td>
                             <td class="px-2 py-3">
-                                @if ($espectador->created_at->lt('2023-07-15 0:00:00'))
+                                @if ($espectador->created_at->lt(env('DATA_CANVI_DE_PREU')))
                                     @if ($espectador->after)
-                                        35€
+                                        {{ env('PREU_INICIAL_AFTER') }}€
                                     @else
-                                        25€
+                                        {{ env('PREU_INICIAL') }}€
                                     @endif
                                 @else
                                     @if ($espectador->after)
-                                        40€
+                                        {{ env('PREU_LATE_AFTER') }}€
                                     @else
-                                        30€
+                                        {{ env('PREU_LATE') }}€
                                     @endif
                                 @endif
                             </td>

@@ -54,16 +54,16 @@ class EspectadorController extends Controller {
         ]);
 
         // Calculem preu espectador
-        if ($espectador->created_at->lt('2023-07-15 0:00:00')) {
+        if ($espectador->created_at->lt(env('DATA_CANVI_DE_PREU'))) {
             if ($espectador->after)
-                $preu = 40;
+                $preu = env('PREU_INICIAL_AFTER');
             else
-                $preu = 25;
+                $preu = env('PREU_INICIAL');
         } else {
             if ($espectador->after) {
-                $preu = 40;
+                $preu = env('PREU_LATE_AFTER');
             } else {
-                $preu =  30;
+                $preu =  env('PREU_LATE');
             }
         }
 

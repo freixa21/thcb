@@ -55,7 +55,7 @@
                                             <div class="relative flex items-start w-full">
                                                 <div class="flex items-center h-5">
                                                     <input required id="S" value="S" name="talla"
-                                                        @if (Carbon\Carbon::now()->gt('2023-07-06 0:00:00')) disabled @endif type="radio"
+                                                        @if (Carbon\Carbon::now()->gt(env('DATA_CANVI_DE_PREU'))) disabled @endif type="radio"
                                                         class="border-gray-200 rounded-full :bg-gray-800 :border-gray-700 :checked:bg-blue-500 :checked:border-blue-500 :focus:ring-offset-gray-800"
                                                         @if ($espectador->talla == 'S') checked @endif>
                                                 </div>
@@ -70,7 +70,7 @@
                                             <div class="relative flex items-start w-full">
                                                 <div class="flex items-center h-5">
                                                     <input required id="M" value="M" name="talla"
-                                                        @if (Carbon\Carbon::now()->gt('2023-07-06 0:00:00')) disabled @endif type="radio"
+                                                        @if (Carbon\Carbon::now()->gt(env('DATA_CANVI_DE_PREU'))) disabled @endif type="radio"
                                                         class="border-gray-200 rounded-full :bg-gray-800 :border-gray-700 :checked:bg-blue-500 :checked:border-blue-500 :focus:ring-offset-gray-800"
                                                         @if ($espectador->talla == 'M') checked @endif>
                                                 </div>
@@ -85,7 +85,7 @@
                                             <div class="relative flex items-start w-full">
                                                 <div class="flex items-center h-5">
                                                     <input required id="L" value="L" name="talla"
-                                                        @if (Carbon\Carbon::now()->gt('2023-07-06 0:00:00')) disabled @endif type="radio"
+                                                        @if (Carbon\Carbon::now()->gt(env('DATA_CANVI_DE_PREU'))) disabled @endif type="radio"
                                                         class="border-gray-200 rounded-full :bg-gray-800 :border-gray-700 :checked:bg-blue-500 :checked:border-blue-500 :focus:ring-offset-gray-800"
                                                         @if ($espectador->talla == 'L') checked @endif>
                                                 </div>
@@ -100,7 +100,7 @@
                                             <div class="relative flex items-start w-full">
                                                 <div class="flex items-center h-5">
                                                     <input required id="XL" value="XL" name="talla"
-                                                        @if (Carbon\Carbon::now()->gt('2023-07-06 0:00:00')) disabled @endif type="radio"
+                                                        @if (Carbon\Carbon::now()->gt(env('DATA_CANVI_DE_PREU'))) disabled @endif type="radio"
                                                         class="border-gray-200 rounded-full :bg-gray-800 :border-gray-700 :checked:bg-blue-500 :checked:border-blue-500 :focus:ring-offset-gray-800"
                                                         @if ($espectador->talla == 'XL') checked @endif>
                                                 </div>
@@ -115,7 +115,7 @@
                                             <div class="relative flex items-start w-full">
                                                 <div class="flex items-center h-5">
                                                     <input required id="XXL" value="XXL" name="talla"
-                                                        @if (Carbon\Carbon::now()->gt('2023-07-06 0:00:00')) disabled @endif type="radio"
+                                                        @if (Carbon\Carbon::now()->gt(env('DATA_CANVI_DE_PREU'))) disabled @endif type="radio"
                                                         class="border-gray-200 rounded-full :bg-gray-800 :border-gray-700 :checked:bg-blue-500 :checked:border-blue-500 :focus:ring-offset-gray-800"
                                                         @if ($espectador->talla == 'XXL') checked @endif>
                                                 </div>
@@ -237,17 +237,17 @@
                             @if (Auth::user()->espectador->estado_inscripcion == 0)
                                 <div class="estat-0">Pendent de pagament. No confirmada.</div>
                                 <div class="mt-2">Preu inscripció:
-                                    @if ($espectador->created_at->lt('2023-07-15 0:00:00'))
+                                    @if ($espectador->created_at->lt(env('DATA_CANVI_DE_PREU')))
                                         @if ($espectador->after)
-                                            40€
+                                            {{ env('PREU_INICIAL_AFTER') }}€
                                         @else
-                                            25€
+                                            {{ env('PREU_INICIAL') }}€
                                         @endif
                                     @else
                                         @if ($espectador->after)
-                                            40€
+                                            {{ env('PREU_LATE_AFTER') }}€
                                         @else
-                                            30€
+                                            {{ env('PREU_LATE') }}€
                                         @endif
                                     @endif
                                 </div>
@@ -295,7 +295,8 @@
                                         <a href="https://verse.me/$alexfreixa" target="_blank"><img
                                                 src="{{ asset('images/qr-web-thcb.png') }}" alt=""
                                                 class="qr-beach"></a>
-                                        <p class="mini-qr">Si estàs conectat desde el mòbil pots obrir l'enllaç del QR picant
+                                        <p class="mini-qr">Si estàs conectat desde el mòbil pots obrir l'enllaç del QR
+                                            picant
                                             l'imatge
                                         </p>
                                         <p><strong>3.</strong> Adjunta una captura de pantalla del pagament i
