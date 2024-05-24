@@ -286,22 +286,11 @@
                                         </h3>
                                         <span class="bg-primary mx-auto mb-6 inline-block h-1 w-[90px] rounded"></span>
                                         <p><strong>1.</strong> Editar la teva informació.</p>
-                                        <p><strong>2.</strong> Fes el pagament a través de
-                                            Verse o Bizum amb les següents opcions:
-                                            <br> - Bizum o Verse al número: 629 40 56 64
-                                            <br> - Verse al $VerseTag: $alexfreixa
-                                            <br> - Verse escanejant el QR:
-                                        </p>
-                                        <a href="https://verse.me/$alexfreixa" target="_blank"><img
-                                                src="{{ asset('images/qr-web-thcb.png') }}" alt=""
-                                                class="qr-beach"></a>
-                                        <p class="mini-qr">Si estàs conectat desde el mòbil pots obrir l'enllaç del QR
-                                            picant
-                                            l'imatge
+                                        <p><strong>2.</strong> Fes el pagament a través de Bizum al número: <br>629 40 56 64
                                         </p>
                                         <p><strong>3.</strong> Adjunta una captura de pantalla del pagament i
                                             premeu “Enviar”.
-                                            Un cop verifiquem que em rebut correctament el pagament, confirmarem la teva
+                                            <br><br>Un cop verifiquem que em rebut correctament el pagament, confirmarem la teva
                                             inscripció
                                             del
                                             torneig com a espectador

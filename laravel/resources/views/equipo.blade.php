@@ -97,21 +97,11 @@
                                         <p><strong>1.</strong> Afegiu mínim 5 jugadors.</p>
                                         <p><strong>2.</strong> Un cop afegits, un integrant de l'equip ha de fer <strong>un
                                                 sol pagament de totes les inscripcions</strong> a través de
-                                            Bizum o Verse amb les següents opcions:
-                                            <br> - Bizum o Verse al número: 629 40 56 64
-                                            <br> - Verse al $VerseTag: $alexfreixa
-                                            <br> - Verse escanejant el QR:
-                                        </p>
-                                        <a href="https://verse.me/$alexfreixa" target="_blank"><img
-                                                src="{{ asset('images/qr-web-thcb.png') }}" alt=""
-                                                class="qr-beach"></a>
-                                        <p class="mini-qr">Si estàs conectat desde el mòbil pots obrir l'enllaç del QR
-                                            picant
-                                            l'imatge
+                                            Bizum al número: <br>629 40 56 64
                                         </p>
                                         <p><strong>3.</strong> Adjunteu una captura de pantalla del pagament i premeu
                                             “Enviar”.
-                                            Un cop verifiquem que em rebut correctament el pagament, confirmarem la vostra
+                                            <br><br>Un cop verifiquem que em rebut correctament el pagament, confirmarem la vostra
                                             inscripció
                                             del
                                             torneig
@@ -195,8 +185,7 @@
                                     </label>
 
                                     <div class="mt-1 rounded-md shadow-sm">
-                                        <input required id="apellidos-afegir" name="apellidos" type="text"
-                                            required=""
+                                        <input required id="apellidos-afegir" name="apellidos" type="text" required=""
                                             class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 ">
                                     </div>
 
