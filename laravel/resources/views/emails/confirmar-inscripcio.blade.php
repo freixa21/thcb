@@ -1,7 +1,7 @@
 @component('mail::message')
 # Inscripció confirmada!
 
-La teva inscripció al Torneig Hockey Costa Brava 2023 ha quedat confirmada.
+La teva inscripció al Torneig Hockey Costa Brava 2024 ha quedat confirmada.
 
 Ens veiem el pròxim dissabte 29 de Juliol a Platja d'Aro!
 

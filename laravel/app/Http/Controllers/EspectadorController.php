@@ -80,7 +80,7 @@ class EspectadorController extends Controller {
 
         $espectador = Espectador::findOrFail(Auth::user()->espectador->id);
 
-        if (Carbon::today()->gt('2023-06-07')) {
+        if (Carbon::today()->gt(env('DATA_LIMIT_COMANDA_SAMARRETES'))) {
             $request->merge([
                 'talla' => $espectador->talla,
             ]);

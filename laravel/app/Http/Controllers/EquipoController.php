@@ -94,7 +94,7 @@ class EquipoController extends Controller {
             return Redirect::back()->withErrors(['error' => 'Error en actualizar el jugador.']);
         }
 
-        if (Carbon::today()->gt('2023-06-07')) {
+        if (Carbon::today()->gt(env('DATA_LIMIT_COMANDA_SAMARRETES'))) {
             $request->merge([
                 'talla' => $jugador->talla,
             ]);
