@@ -145,9 +145,11 @@ class AdminController extends Controller {
                 + (($afterEspectador15confirmats) * 11);
 
             // Total comisio teules prevista
-            $ComisioAfter = ((($afterJugadors10 + $afterJugadors10confirmats) * 11) + (($afterJugadors15 + $afterJugadors15confirmats) * 11));
+            $ComisioAfter = ((($afterJugadors10 + $afterJugadors10confirmats) * 7) + (($afterJugadors15 + $afterJugadors15confirmats) * 7)) +
+                ((($afterEspectador10 + $afterEspectador10confirmats) * 7) + (($afterEspectador15 + $afterEspectador15confirmats) * 7));
             // Total comisio confirmada
-            $ComisioAfterConfirmada = (($afterJugadors10confirmats * 11) + ($afterJugadors15confirmats * 11));
+            $ComisioAfterConfirmada = (($afterJugadors10confirmats * 7) + ($afterJugadors15confirmats * 7))
+                + (($afterEspectador10confirmats * 7) + ($afterEspectador15confirmats * 7));
 
 
 
