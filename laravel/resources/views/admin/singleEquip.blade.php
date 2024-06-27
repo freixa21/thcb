@@ -16,7 +16,7 @@
             @if ($jugador->after)
                 @php  $total += env('PREU_LATE_AFTER')  @endphp
             @else
-                @php  $total += env('PREU_LATE')  @endphp
+                @php  $total += env('PREU_INICIAL')  @endphp
             @endif
         @endif
     @endforeach

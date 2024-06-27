@@ -77,17 +77,17 @@ class AdminController extends Controller {
 
 
             // Ingressos previstos jugadors
-            $ingressosPrevistosJugadors = (($inscripcioJugadors25 + $inscripcioJugadors25confirmats) * 28)
-                + (($inscripcioJugadors30 + $inscripcioJugadors30confirmats) * 30)
-                + (($afterJugadors10 + $afterJugadors10confirmats) * 11)
-                + (($afterJugadors15 + $afterJugadors15confirmats) * 11);
+            $ingressosPrevistosJugadors = (($inscripcioJugadors25 + $inscripcioJugadors25confirmats) * env('PREU_INICIAL'))
+                + (($inscripcioJugadors30 + $inscripcioJugadors30confirmats) * env('PREU_INICIAL'))
+                + (($afterJugadors10 + $afterJugadors10confirmats) * env('PREU_AFTER'))
+                + (($afterJugadors15 + $afterJugadors15confirmats) * env('PREU_AFTER'));
 
 
             // Ingressos confirmats jugadors
-            $ingressosConfirmatsJugadors = (($inscripcioJugadors25confirmats) * 28)
-                + (($inscripcioJugadors30confirmats) * 30)
-                + (($afterJugadors10confirmats) * 11)
-                + (($afterJugadors15confirmats) * 11);
+            $ingressosConfirmatsJugadors = (($inscripcioJugadors25confirmats) * env('PREU_INICIAL'))
+                + (($inscripcioJugadors30confirmats) * env('PREU_INICIAL'))
+                + (($afterJugadors10confirmats) * env('PREU_AFTER'))
+                + (($afterJugadors15confirmats) * env('PREU_AFTER'));
 
             /////// ESPECTADORS ///////
             // Espectadors inscrits
@@ -132,24 +132,24 @@ class AdminController extends Controller {
             }
 
             // Ingressos previstos espectadors
-            $ingressosPrevistosEspectadors = (($inscripcioEspectador25 + $inscripcioEspectador25confirmats) * 28)
-                + (($inscripcioEspectador30 + $inscripcioEspectador30confirmats) * 30)
-                + (($afterEspectador10 + $afterEspectador10confirmats) * 11)
-                + (($afterEspectador15 + $afterEspectador15confirmats) * 11);
+            $ingressosPrevistosEspectadors = (($inscripcioEspectador25 + $inscripcioEspectador25confirmats) * env('PREU_INICIAL'))
+                + (($inscripcioEspectador30 + $inscripcioEspectador30confirmats) * env('PREU_LATE'))
+                + (($afterEspectador10 + $afterEspectador10confirmats) * env('PREU_AFTER'))
+                + (($afterEspectador15 + $afterEspectador15confirmats) * env('PREU_AFTER'));
 
 
             // Ingressos confirmats espectadors
-            $ingressosConfirmatsEspectadors = (($inscripcioEspectador25confirmats) * 28)
-                + (($inscripcioEspectador30confirmats) * 30)
-                + (($afterEspectador10confirmats) * 11)
-                + (($afterEspectador15confirmats) * 11);
+            $ingressosConfirmatsEspectadors = (($inscripcioEspectador25confirmats) * env('PREU_INICIAL'))
+                + (($inscripcioEspectador30confirmats) * env('PREU_LATE'))
+                + (($afterEspectador10confirmats) * env('PREU_AFTER'))
+                + (($afterEspectador15confirmats) * env('PREU_AFTER'));
 
             // Total comisio teules prevista
-            $ComisioAfter = ((($afterJugadors10 + $afterJugadors10confirmats) * 7) + (($afterJugadors15 + $afterJugadors15confirmats) * 7)) +
-                ((($afterEspectador10 + $afterEspectador10confirmats) * 7) + (($afterEspectador15 + $afterEspectador15confirmats) * 7));
+            $ComisioAfter = ((($afterJugadors10 + $afterJugadors10confirmats) * env('COMISIO_AFTER')) + (($afterJugadors15 + $afterJugadors15confirmats) * env('COMISIO_AFTER'))) +
+                ((($afterEspectador10 + $afterEspectador10confirmats) * env('COMISIO_AFTER')) + (($afterEspectador15 + $afterEspectador15confirmats) * env('COMISIO_AFTER')));
             // Total comisio confirmada
-            $ComisioAfterConfirmada = (($afterJugadors10confirmats * 7) + ($afterJugadors15confirmats * 7))
-                + (($afterEspectador10confirmats * 7) + ($afterEspectador15confirmats * 7));
+            $ComisioAfterConfirmada = (($afterJugadors10confirmats * env('COMISIO_AFTER')) + ($afterJugadors15confirmats * env('COMISIO_AFTER')))
+                + (($afterEspectador10confirmats * env('COMISIO_AFTER')) + ($afterEspectador15confirmats * env('COMISIO_AFTER')));
 
 
 
@@ -216,13 +216,11 @@ class AdminController extends Controller {
             }
 
             foreach ($espectadoresConAlergias as $espectador) {
-                if (!empty($espectador->alergenos)) {
                     $alergias[] = [
                         'nombre' => $espectador->name,
                         'apellidos' => $espectador->apellidos,
                         'alergia' => $espectador->alergenos
                     ];
-                }
             }
 
 

@@ -4,6 +4,7 @@
 
 @section('content')
 
+    <!-- PER CALCULAR TOTAL INSCRIPCIO-->
     @php  $total = 0 @endphp
     @foreach ($jugadores as $jugador)
         @if ($jugador->created_at->lt(env('DATA_CANVI_DE_PREU')))
@@ -14,9 +15,9 @@
             @endif
         @else
             @if ($jugador->after)
-                @php  $total += env('PREU_LATE_AFTER')  @endphp
+                @php  $total += env('PREU_INICIAL_AFTER')  @endphp
             @else
-                @php  $total += env('PREU_LATE')  @endphp
+                @php  $total += env('PREU_INICIAL')  @endphp
             @endif
         @endif
     @endforeach
@@ -444,9 +445,9 @@
                                     @endif
                                 @else
                                     @if ($jugador->after)
-                                        {{ env('PREU_LATE_AFTER') }}€
+                                        {{ env('PREU_INICIAL_AFTER') }}€
                                     @else
-                                        {{ env('PREU_LATE') }}€
+                                        {{ env('PREU_INICIAL') }}€
                                     @endif
                                 @endif
                             </td>

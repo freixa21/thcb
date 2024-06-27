@@ -113,46 +113,46 @@
                 <h2>Ingressos</h2>
                 <table>
                     <tr>
-                        <td>Ingressos inscripcions a 28:</td>
+                        <td>Ingressos inscripcions jugadors y equips a 28:</td>
                         <td class="text-right">
-                            {{ ($inscripcioJugadors25 + $inscripcioJugadors25confirmats + $inscripcioEspectador25 + $inscripcioEspectador25confirmats) * 28 }}
+                            {{ ($inscripcioJugadors25 + $inscripcioJugadors25confirmats + $inscripcioEspectador25 + $inscripcioEspectador25confirmats + $inscripcioJugadors30 + $inscripcioJugadors30confirmats) * 28 }}
                         </td>
                     </tr>
                     <tr>
                         <td>Ingressos inscripcions a 28 confirmats:</td>
                         <td class="text-right">
-                            {{ ($inscripcioJugadors25confirmats + $inscripcioEspectador25confirmats) * 28 }}</td>
+                            {{ ($inscripcioJugadors25confirmats + $inscripcioEspectador25confirmats) * env('PREU_INICIAL') }}</td>
                     </tr>
                     <tr>
-                        <td>Ingressos inscripcions a 30:</td>
+                        <td>Ingressos inscripcions espectadors a 30:</td>
                         <td class="text-right">
-                            {{ ($inscripcioJugadors30 + $inscripcioJugadors30confirmats + $inscripcioEspectador30 + $inscripcioEspectador30confirmats) * 30 }}
+                            {{ ($inscripcioEspectador30 + $inscripcioEspectador30confirmats) * env('PREU_LATE') }}
                         </td>
                     </tr>
                     <tr>
-                        <td>Ingressos inscripcions a 30 confirmats:</td>
+                        <td>Ingressos inscripcions espectadors a 30 confirmats:</td>
                         <td class="text-right">
-                            {{ ($inscripcioJugadors30confirmats + $inscripcioEspectador30confirmats) * 30 }}</td>
+                            {{ ($inscripcioJugadors30confirmats) * env('PREU_LATE') }}</td>
                     </tr>
                     <tr>
                         <td>Ingressos afters a 11:</td>
                         <td class="text-right">
-                            {{ ($afterJugadors10 + $afterJugadors10confirmats + $afterEspectador10 + $afterEspectador10confirmats) * 11 }}
+                            {{ ($afterJugadors10 + $afterJugadors10confirmats + $afterEspectador10 + $afterEspectador10confirmats) * env('PREU_AFTER') }}
                         </td>
                     </tr>
                     <tr>
                         <td>Ingressos afters a 11 confirmats:</td>
-                        <td class="text-right"> {{ ($afterJugadors10confirmats + $afterEspectador10confirmats) * 11 }}</td>
+                        <td class="text-right"> {{ ($afterJugadors10confirmats + $afterEspectador10confirmats) * env('PREU_AFTER') }}</td>
                     </tr>
                     <tr>
                         <td>Ingressos afters a 11 (Aprés St Joan):</td>
                         <td class="text-right">
-                            {{ ($afterJugadors15 + $afterJugadors15confirmats + $afterEspectador15 + $afterEspectador15confirmats) * 11 }}
+                            {{ ($afterJugadors15 + $afterJugadors15confirmats + $afterEspectador15 + $afterEspectador15confirmats) * env('PREU_AFTER') }}
                         </td>
                     </tr>
                     <tr>
                         <td>Ingressos afters a 11 confirmats (Aprés St Joan):</td>
-                        <td class="text-right"> {{ ($afterJugadors15confirmats + $afterEspectador15confirmats) * 11 }}</td>
+                        <td class="text-right"> {{ ($afterJugadors15confirmats + $afterEspectador15confirmats) * env('PREU_AFTER') }}</td>
                     </tr>
                 </table>
             </div>
