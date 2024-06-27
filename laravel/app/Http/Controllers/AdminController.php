@@ -77,17 +77,17 @@ class AdminController extends Controller {
 
 
             // Ingressos previstos jugadors
-            $ingressosPrevistosJugadors = (($inscripcioJugadors25 + $inscripcioJugadors25confirmats) * 25)
+            $ingressosPrevistosJugadors = (($inscripcioJugadors25 + $inscripcioJugadors25confirmats) * 28)
                 + (($inscripcioJugadors30 + $inscripcioJugadors30confirmats) * 30)
-                + (($afterJugadors10 + $afterJugadors10confirmats) * 10)
-                + (($afterJugadors15 + $afterJugadors15confirmats) * 15);
+                + (($afterJugadors10 + $afterJugadors10confirmats) * 11)
+                + (($afterJugadors15 + $afterJugadors15confirmats) * 11);
 
 
             // Ingressos confirmats jugadors
-            $ingressosConfirmatsJugadors = (($inscripcioJugadors25confirmats) * 25)
+            $ingressosConfirmatsJugadors = (($inscripcioJugadors25confirmats) * 28)
                 + (($inscripcioJugadors30confirmats) * 30)
-                + (($afterJugadors10confirmats) * 10)
-                + (($afterJugadors15confirmats) * 15);
+                + (($afterJugadors10confirmats) * 11)
+                + (($afterJugadors15confirmats) * 11);
 
             /////// ESPECTADORS ///////
             // Espectadors inscrits
@@ -132,22 +132,22 @@ class AdminController extends Controller {
             }
 
             // Ingressos previstos espectadors
-            $ingressosPrevistosEspectadors = (($inscripcioEspectador25 + $inscripcioEspectador25confirmats) * 25)
+            $ingressosPrevistosEspectadors = (($inscripcioEspectador25 + $inscripcioEspectador25confirmats) * 28)
                 + (($inscripcioEspectador30 + $inscripcioEspectador30confirmats) * 30)
-                + (($afterEspectador10 + $afterEspectador10confirmats) * 10)
-                + (($afterEspectador15 + $afterEspectador15confirmats) * 15);
+                + (($afterEspectador10 + $afterEspectador10confirmats) * 11)
+                + (($afterEspectador15 + $afterEspectador15confirmats) * 11);
 
 
             // Ingressos confirmats espectadors
-            $ingressosConfirmatsEspectadors = (($inscripcioEspectador25confirmats) * 25)
+            $ingressosConfirmatsEspectadors = (($inscripcioEspectador25confirmats) * 28)
                 + (($inscripcioEspectador30confirmats) * 30)
-                + (($afterEspectador10confirmats) * 10)
-                + (($afterEspectador15confirmats) * 15);
+                + (($afterEspectador10confirmats) * 11)
+                + (($afterEspectador15confirmats) * 11);
 
             // Total comisio teules prevista
-            $ComisioAfter = ((($afterJugadors10 + $afterJugadors10confirmats) * 10) + (($afterJugadors15 + $afterJugadors15confirmats) * 15));
+            $ComisioAfter = ((($afterJugadors10 + $afterJugadors10confirmats) * 11) + (($afterJugadors15 + $afterJugadors15confirmats) * 11));
             // Total comisio confirmada
-            $ComisioAfterConfirmada = (($afterJugadors10confirmats * 10) + ($afterJugadors15confirmats * 15));
+            $ComisioAfterConfirmada = (($afterJugadors10confirmats * 11) + ($afterJugadors15confirmats * 11));
 
 
 

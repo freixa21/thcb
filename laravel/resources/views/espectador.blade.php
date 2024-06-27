@@ -55,7 +55,7 @@
                                             <div class="relative flex items-start w-full">
                                                 <div class="flex items-center h-5">
                                                     <input required id="S" value="S" name="talla"
-                                                        @if (Carbon\Carbon::now()->gt(env('DATA_CANVI_DE_PREU'))) disabled @endif type="radio"
+                                                        @if (Carbon\Carbon::now()->lt(env('DATA_CANVI_DE_PREU'))) disabled @endif type="radio"
                                                         class="border-gray-200 rounded-full :bg-gray-800 :border-gray-700 :checked:bg-blue-500 :checked:border-blue-500 :focus:ring-offset-gray-800"
                                                         @if ($espectador->talla == 'S') checked @endif>
                                                 </div>
@@ -70,7 +70,7 @@
                                             <div class="relative flex items-start w-full">
                                                 <div class="flex items-center h-5">
                                                     <input required id="M" value="M" name="talla"
-                                                        @if (Carbon\Carbon::now()->gt(env('DATA_CANVI_DE_PREU'))) disabled @endif type="radio"
+                                                        @if (Carbon\Carbon::now()->lt(env('DATA_CANVI_DE_PREU'))) disabled @endif type="radio"
                                                         class="border-gray-200 rounded-full :bg-gray-800 :border-gray-700 :checked:bg-blue-500 :checked:border-blue-500 :focus:ring-offset-gray-800"
                                                         @if ($espectador->talla == 'M') checked @endif>
                                                 </div>
@@ -85,7 +85,7 @@
                                             <div class="relative flex items-start w-full">
                                                 <div class="flex items-center h-5">
                                                     <input required id="L" value="L" name="talla"
-                                                        @if (Carbon\Carbon::now()->gt(env('DATA_CANVI_DE_PREU'))) disabled @endif type="radio"
+                                                        @if (Carbon\Carbon::now()->lt(env('DATA_CANVI_DE_PREU'))) disabled @endif type="radio"
                                                         class="border-gray-200 rounded-full :bg-gray-800 :border-gray-700 :checked:bg-blue-500 :checked:border-blue-500 :focus:ring-offset-gray-800"
                                                         @if ($espectador->talla == 'L') checked @endif>
                                                 </div>
@@ -100,7 +100,7 @@
                                             <div class="relative flex items-start w-full">
                                                 <div class="flex items-center h-5">
                                                     <input required id="XL" value="XL" name="talla"
-                                                        @if (Carbon\Carbon::now()->gt(env('DATA_CANVI_DE_PREU'))) disabled @endif type="radio"
+                                                        @if (Carbon\Carbon::now()->lt(env('DATA_CANVI_DE_PREU'))) disabled @endif type="radio"
                                                         class="border-gray-200 rounded-full :bg-gray-800 :border-gray-700 :checked:bg-blue-500 :checked:border-blue-500 :focus:ring-offset-gray-800"
                                                         @if ($espectador->talla == 'XL') checked @endif>
                                                 </div>
@@ -115,7 +115,7 @@
                                             <div class="relative flex items-start w-full">
                                                 <div class="flex items-center h-5">
                                                     <input required id="XXL" value="XXL" name="talla"
-                                                        @if (Carbon\Carbon::now()->gt(env('DATA_CANVI_DE_PREU'))) disabled @endif type="radio"
+                                                        @if (Carbon\Carbon::now()->lt(env('DATA_CANVI_DE_PREU'))) disabled @endif type="radio"
                                                         class="border-gray-200 rounded-full :bg-gray-800 :border-gray-700 :checked:bg-blue-500 :checked:border-blue-500 :focus:ring-offset-gray-800"
                                                         @if ($espectador->talla == 'XXL') checked @endif>
                                                 </div>

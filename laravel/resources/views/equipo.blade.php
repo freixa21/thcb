@@ -572,7 +572,7 @@
                                                                 <div class="flex items-center h-5">
                                                                     <input required id="S-{{ $loop->index }}"
                                                                         value="S"
-                                                                        @if (Carbon\Carbon::now()->gt(env('DATA_CANVI_DE_PREU'))) disabled @endif
+                                                                        @if (Carbon\Carbon::now()->lt(env('DATA_CANVI_DE_PREU'))) disabled @endif
                                                                         name="talla" type="radio"
                                                                         class="border-gray-200 rounded-full :bg-gray-800 :border-gray-700 :checked:bg-blue-500 :checked:border-blue-500 :focus:ring-offset-gray-800"
                                                                         @if ($jugador->talla == 'S') checked @endif>
@@ -590,7 +590,7 @@
                                                                 <div class="flex items-center h-5">
                                                                     <input required id="M-{{ $loop->index }}"
                                                                         value="M"
-                                                                        @if (Carbon\Carbon::now()->gt(env('DATA_CANVI_DE_PREU'))) disabled @endif
+                                                                        @if (Carbon\Carbon::now()->lt(env('DATA_CANVI_DE_PREU'))) disabled @endif
                                                                         name="talla" type="radio"
                                                                         class="border-gray-200 rounded-full :bg-gray-800 :border-gray-700 :checked:bg-blue-500 :checked:border-blue-500 :focus:ring-offset-gray-800"
                                                                         @if ($jugador->talla == 'M') checked @endif>
@@ -608,7 +608,7 @@
                                                                 <div class="flex items-center h-5">
                                                                     <input required id="L-{{ $loop->index }}"
                                                                         value="L"
-                                                                        @if (Carbon\Carbon::now()->gt(env('DATA_CANVI_DE_PREU'))) disabled @endif
+                                                                        @if (Carbon\Carbon::now()->lt(env('DATA_CANVI_DE_PREU'))) disabled @endif
                                                                         name="talla" type="radio"
                                                                         class="border-gray-200 rounded-full :bg-gray-800 :border-gray-700 :checked:bg-blue-500 :checked:border-blue-500 :focus:ring-offset-gray-800"
                                                                         @if ($jugador->talla == 'L') checked @endif>
@@ -626,7 +626,7 @@
                                                                 <div class="flex items-center h-5">
                                                                     <input required id="XL-{{ $loop->index }}"
                                                                         value="XL"
-                                                                        @if (Carbon\Carbon::now()->gt(env('DATA_CANVI_DE_PREU'))) disabled @endif
+                                                                        @if (Carbon\Carbon::now()->lt(env('DATA_CANVI_DE_PREU'))) disabled @endif
                                                                         name="talla" type="radio"
                                                                         class="border-gray-200 rounded-full :bg-gray-800 :border-gray-700 :checked:bg-blue-500 :checked:border-blue-500 :focus:ring-offset-gray-800"
                                                                         @if ($jugador->talla == 'XL') checked @endif>
@@ -644,7 +644,7 @@
                                                                 <div class="flex items-center h-5">
                                                                     <input required id="XXL-{{ $loop->index }}"
                                                                         value="XXL"
-                                                                        @if (Carbon\Carbon::now()->gt(env('DATA_CANVI_DE_PREU'))) disabled @endif
+                                                                        @if (Carbon\Carbon::now()->lt(env('DATA_CANVI_DE_PREU'))) disabled @endif
                                                                         name="talla" type="radio"
                                                                         class="border-gray-200 rounded-full :bg-gray-800 :border-gray-700 :checked:bg-blue-500 :checked:border-blue-500 :focus:ring-offset-gray-800"
                                                                         @if ($jugador->talla == 'XXL') checked @endif>
