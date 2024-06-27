@@ -14,7 +14,7 @@
             @endif
         @else
             @if ($jugador->after)
-                @php  $total += env('PREU_LATE_AFTER')  @endphp
+                @php  $total += env('PREU_INICIAL_AFTER')  @endphp
             @else
                 @php  $total += env('PREU_INICIAL')  @endphp
             @endif
@@ -401,9 +401,9 @@
                                     @endif
                                 @else
                                     @if ($jugador->after)
-                                        {{ env('PREU_LATE_AFTER') }}€
+                                        {{ env('PREU_INICIAL_AFTER') }}€
                                     @else
-                                        {{ env('PREU_LATE') }}€
+                                        {{ env('PREU_INICIAL') }}€
                                     @endif
                                 @endif
                             </td>
